@@ -1,4 +1,4 @@
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
+
 
 public class Node {
     private String displayName;
@@ -19,6 +19,6 @@ public class Node {
     }
 
     public Node reduce(){
-        throw new NotImplementedException();
+       return null;
     }
 }

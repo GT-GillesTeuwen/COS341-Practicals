@@ -120,4 +120,52 @@ public class Tree {
         }
         return childXML;
     }
+
+    private String nTabs(int n){
+        String out="";
+        for (int i = 0; i < n; i++) {
+            out+="\t";
+        }
+        return out;
+    }
+
+    private String childrenIds(nNode node){
+        String out="";
+        for (int i = 0; i < node.getChildren().length; i++) {
+            out+=node.getChildren()[i].getId();
+            if(i<node.getChildren().length-1){
+                out+=",";
+            }
+        }
+        return out;
+    }
+
+    public String toTutorXML(){
+        return printNonTerminal((nNode)root, 0);
+    }
+
+    public String printNonTerminal(nNode node,int indentation){
+        String out="";
+        out+=nTabs(indentation);
+        out+="<"+node.getDisplayName()+" ID=\""+node.getId()+"\" Children=\""+childrenIds(node)+"\">\n";
+        for (int i = 0; i < node.getChildren().length; i++) {
+            if(node.getChildren()[i] instanceof nNode){
+                out+=printNonTerminal(((nNode)node.getChildren()[i]), indentation+1);
+            }else{
+                out+=printTerminal(((tNode)node.getChildren()[i]), indentation+1);
+            }
+        }
+        out+=nTabs(indentation);
+        out+="</"+node.getDisplayName()+">\n";
+        return out;
+    }
+
+
+
+    private String printTerminal(tNode node, int indentation) {
+        String out="";
+        out+=nTabs(indentation);
+        out+="<Terminal ID=\""+node.getId()+"\" Children=\""+"\">"+node.getDisplayName().replace(">", "&gt;").replace("<", "&lt;")+"</"+"Terminal"+">\n";
+        return out;
+    }
 }

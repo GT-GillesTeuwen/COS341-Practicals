@@ -13,7 +13,7 @@ import javax.swing.SpringLayout;
 
 class Main {
     public static void main(String[] args) {
-        String textFileName="test9";
+        String textFileName="test10";
         Lexer lexer;
         ArrayList<Symbol> tokens = new ArrayList<>();
         try {
@@ -24,20 +24,19 @@ class Main {
             }
 
             if (lexer.isSuccessful()) {
-                System.out.println("Ok! :D");
                 tokens = lexer.getAllTokens();
                 tokens.add(new Symbol("$", Token.DOLLAR));
             } else {
                 System.out.println(lexer.errorMessage());
             }
         } catch (Exception e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
+            System.out.println(e.toString().replace("java.lang.Exception:", ""));
         }
 
         int q = 0;
+        System.out.println("Tokens:");
         for (Symbol token : tokens) {
-            System.out.println(token + "\t" + q++);
+            System.out.println("\t"+token + "\t" + q++);
         }
 
         Parser p;
@@ -47,7 +46,7 @@ class Main {
             n = p.parseProgrP();
         } catch (Exception e) {
             // TODO Auto-generated catch block
-           System.out.println(e);
+           System.out.println(e.toString().replace("java.lang.Exception:", ""));
         }
 
         // System.out.println("DONE");
@@ -62,7 +61,7 @@ class Main {
         // f.setVisible(true);
         try {
             Tree tree=new Tree(n);
-            xmlWriter.implement.writeXml(textFileName, tree.toSpecXML());
+            xmlWriter.implement.writeXml(textFileName, tree.toTutorXML());
             JFrame frame = new JFrame("SpringLayout");
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             JScrollPane scroll = new JScrollPane();
@@ -84,8 +83,7 @@ class Main {
             frame.setSize(500, 600);
             frame.setVisible(true);
         } catch (Exception e) {
-            // TODO Auto-generated catch block
-           System.out.println(e);
+            System.out.println(e.toString().replace("java.lang.Exception:", ""));
         }
     }
 }

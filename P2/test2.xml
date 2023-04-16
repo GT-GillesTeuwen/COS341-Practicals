@@ -1,85 +1,16 @@
-<Tree>
-	<Node>
-		<ID>28</ID>
-		<Contents>PROGR</Contents>
-		<Children>
-			<ChildID>19</ChildID>
-		</Children>
-	</Node>
-	<Node>
-		<ID>19</ID>
-		<Contents>ASSIGN</Contents>
-		<Children>
-			<ChildID>6</ChildID>
-			<ChildID>7</ChildID>
-			<ChildID>17</ChildID>
-		</Children>
-	</Node>
-	<Node>
-		<ID>6</ID>
-		<Contents>BOOLVAR</Contents>
-		<Children>
-			<ChildID>0</ChildID>
-			<ChildID>1</ChildID>
-		</Children>
-	</Node>
-	<Node>
-		<ID>7</ID>
-		<Contents>:=</Contents>
-		<Children>
-		</Children>
-	</Node>
-	<Node>
-		<ID>17</ID>
-		<Contents>LOGIC</Contents>
-		<Children>
-			<ChildID>8</ChildID>
-			<ChildID>9</ChildID>
-			<ChildID>12</ChildID>
-			<ChildID>13</ChildID>
-			<ChildID>16</ChildID>
-		</Children>
-	</Node>
-	<Node>
-		<ID>0</ID>
-		<Contents>b</Contents>
-		<Children>
-		</Children>
-	</Node>
-	<Node>
-		<ID>1</ID>
-		<Contents>1</Contents>
-		<Children>
-		</Children>
-	</Node>
-	<Node>
-		<ID>8</ID>
-		<Contents>v(</Contents>
-		<Children>
-		</Children>
-	</Node>
-	<Node>
-		<ID>9</ID>
-		<Contents>T</Contents>
-		<Children>
-		</Children>
-	</Node>
-	<Node>
-		<ID>12</ID>
-		<Contents>,</Contents>
-		<Children>
-		</Children>
-	</Node>
-	<Node>
-		<ID>13</ID>
-		<Contents>F</Contents>
-		<Children>
-		</Children>
-	</Node>
-	<Node>
-		<ID>16</ID>
-		<Contents>)</Contents>
-		<Children>
-		</Children>
-	</Node>
-</Tree>
+<PROGR ID="28" Children="19">
+	<ASSIGN ID="19" Children="6,7,17">
+		<BOOLVAR ID="6" Children="0,1">
+			<Terminal ID="0" Children="">b</Terminal>
+			<Terminal ID="1" Children="">1</Terminal>
+		</BOOLVAR>
+		<Terminal ID="7" Children="">:=</Terminal>
+		<LOGIC ID="17" Children="8,9,12,13,16">
+			<Terminal ID="8" Children="">v(</Terminal>
+			<Terminal ID="9" Children="">T</Terminal>
+			<Terminal ID="12" Children="">,</Terminal>
+			<Terminal ID="13" Children="">F</Terminal>
+			<Terminal ID="16" Children="">)</Terminal>
+		</LOGIC>
+	</ASSIGN>
+</PROGR>
