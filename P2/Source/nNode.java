@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 public class nNode extends Node{
-    private boolean allowComments=true;
+    private boolean allowComments=false;
     private Node[] children;
 
     public nNode(String displayName,Node[] children){

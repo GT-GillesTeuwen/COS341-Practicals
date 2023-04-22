@@ -16,6 +16,14 @@ public class Lexer {
     private ArrayList<Symbol> allTokens;
 
     public Lexer(String filePath) throws Exception {
+        blankChars.add('\r');
+        blankChars.add('\n');
+        blankChars.add((char) 8);
+        blankChars.add((char) 9);
+        blankChars.add((char) 11);
+        blankChars.add((char) 12);
+        blankChars.add((char) 32);
+
         allTokens = new ArrayList<>();
         try (Stream<String> st = Files.lines(Paths.get(filePath))) {
             st.forEach(input::append);
@@ -26,13 +34,7 @@ public class Lexer {
             errorMessage = "Could not read file: " + filePath;
             return;
         }
-        blankChars.add('\r');
-        blankChars.add('\n');
-        blankChars.add((char) 8);
-        blankChars.add((char) 9);
-        blankChars.add((char) 11);
-        blankChars.add((char) 12);
-        blankChars.add((char) 32);
+        
 
         moveAhead();
     }
@@ -45,7 +47,7 @@ public class Lexer {
             hasMore = false;
             return;
         }
-        ignoreWhiteSpaces();
+        removeWhiteSpace();
         if (findNextToken()) {
             return;
         }
@@ -55,16 +57,6 @@ public class Lexer {
         }
     }
 
-    private void ignoreWhiteSpaces() {
-        int charsToDelete = 0;
-        while (blankChars.contains(input.charAt(charsToDelete))) {
-            charsToDelete++;
-        }
-
-        if (charsToDelete > 0) {
-            input.delete(0, charsToDelete);
-        }
-    }
 
     private boolean findNextToken() throws Exception {
         for (Token t : Token.values()) {
@@ -82,8 +74,11 @@ public class Lexer {
                         if (input.toString().length() == 0) {
                             throw new Exception("String error: Too short\tContent: " + content);
                         }
+                        
                         lexema = input.substring(0, 1);
-
+                        if (lexema.equals("\"")) {
+                            throw new Exception("String error: Too short\tContent: " + content);
+                        }
                         token = new Symbol(lexema, Token.ASCII);
                         content += lexema;
                         allTokens.add(token);
@@ -109,7 +104,9 @@ public class Lexer {
                             throw new Exception("Comment error: Too short\tContent: " + content);
                         }
                         lexema = input.substring(0, 1);
-
+                        if (lexema.equals("*")) {
+                            throw new Exception("Comment error: Too short\tContent: " + content);
+                        }
                         content += lexema;
                         token = new Symbol(lexema, Token.ASCII);
                         allTokens.add(token);
@@ -149,5 +146,12 @@ public class Lexer {
 
     public ArrayList<Symbol> getAllTokens() {
         return allTokens;
+    }
+
+    private void removeWhiteSpace() {
+        while (blankChars.contains(input.charAt(0))) {
+            input.delete(0, 1);
+        }
+
     }
 }

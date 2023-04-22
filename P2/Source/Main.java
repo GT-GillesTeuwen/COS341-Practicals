@@ -4,20 +4,30 @@ import java.awt.Dimension;
 import java.util.ArrayList;
 
 import javax.swing.JButton;
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.SpringLayout;
+import javax.swing.filechooser.FileNameExtensionFilter;
+import javax.swing.filechooser.FileSystemView;
 
 class Main {
     public static void main(String[] args) {
-        String textFileName="test10";
+        JFileChooser j = new JFileChooser(FileSystemView.getFileSystemView());
+        j.setDialogTitle("Choose a text file to parse");
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("TEXT FILES", "txt", "text");
+        j.setFileFilter(filter);
+// Open the save dialog
+j.showOpenDialog(null);
+        String textFileName=j.getSelectedFile().getAbsolutePath();
         Lexer lexer;
         ArrayList<Symbol> tokens = new ArrayList<>();
         try {
-            lexer = new Lexer(textFileName+".txt");
+            lexer = new Lexer(textFileName);
 
             while (lexer.hasMore()) {
                 lexer.moveAhead();
@@ -30,6 +40,7 @@ class Main {
                 System.out.println(lexer.errorMessage());
             }
         } catch (Exception e) {
+            JOptionPane.showMessageDialog(null,e.toString().replace("java.lang.Exception:", ""));
             System.out.println(e.toString().replace("java.lang.Exception:", ""));
         }
 
@@ -46,6 +57,7 @@ class Main {
             n = p.parseProgrP();
         } catch (Exception e) {
             // TODO Auto-generated catch block
+            JOptionPane.showMessageDialog(null,e.toString().replace("java.lang.Exception:", ""));
            System.out.println(e.toString().replace("java.lang.Exception:", ""));
         }
 
@@ -82,7 +94,9 @@ class Main {
             // mainWindow.add(contentPane);
             frame.setSize(500, 600);
             frame.setVisible(true);
+            JOptionPane.showMessageDialog(null, "Parsing complete, find the xml file at "+textFileName.replace(".txt", "_Parsed")+ ".xml");
         } catch (Exception e) {
+            JOptionPane.showMessageDialog(null,e.toString().replace("java.lang.Exception:", ""));
             System.out.println(e.toString().replace("java.lang.Exception:", ""));
         }
     }

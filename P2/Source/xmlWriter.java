@@ -4,11 +4,7 @@ import java.io.IOException;
 public class xmlWriter {
     static class implement {
         public static void writeXml(String name, String xml) {
-            name=name.replace("|", "[or]");
-            name=name.replace("?", "[optional]");
-            name=name.replace(".", "[and]");
-            name=name.replace("*", "[none or more]");
-            name=name.replace("+", "[one or more]");
+            name=name.replace(".txt", "_Parsed");
             try {
                 FileWriter writer = new FileWriter(name + ".xml", false);
                 writer.write(xml);

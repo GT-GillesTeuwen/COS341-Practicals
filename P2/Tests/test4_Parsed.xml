@@ -1,0 +1,62 @@
+<PROGR ID="106" Children="97">
+	<BRANCH ID="97" Children="0,7,10,44,51,96">
+		<Terminal ID="0" Children="">i(</Terminal>
+		<BOOLVAR ID="7" Children="1,2">
+			<Terminal ID="1" Children="">b</Terminal>
+			<Terminal ID="2" Children="">2</Terminal>
+		</BOOLVAR>
+		<Terminal ID="10" Children="">)t{</Terminal>
+		<ASSIGN ID="44" Children="17,18,43">
+			<NUMVAR ID="17" Children="11,12">
+				<Terminal ID="11" Children="">n</Terminal>
+				<Terminal ID="12" Children="">1</Terminal>
+			</NUMVAR>
+			<Terminal ID="18" Children="">:=</Terminal>
+			<NUMEXPR ID="43" Children="19,26,29,39,42">
+				<Terminal ID="19" Children="">a(</Terminal>
+				<NUMVAR ID="26" Children="20,21">
+					<Terminal ID="20" Children="">n</Terminal>
+					<Terminal ID="21" Children="">1</Terminal>
+				</NUMVAR>
+				<Terminal ID="29" Children="">,</Terminal>
+				<POS ID="39" Children="30,34,35,37">
+					<Terminal ID="30" Children="">2</Terminal>
+					<Terminal ID="34" Children="">.</Terminal>
+					<Terminal ID="35" Children="">3</Terminal>
+					<Terminal ID="37" Children="">5</Terminal>
+				</POS>
+				<Terminal ID="42" Children="">)</Terminal>
+			</NUMEXPR>
+		</ASSIGN>
+		<Terminal ID="51" Children="">}</Terminal>
+		<ELSE ID="96" Children="52,88,95">
+			<Terminal ID="52" Children="">e{</Terminal>
+			<ASSIGN ID="88" Children="59,60,87">
+				<NUMVAR ID="59" Children="53,54">
+					<Terminal ID="53" Children="">n</Terminal>
+					<Terminal ID="54" Children="">1</Terminal>
+				</NUMVAR>
+				<Terminal ID="60" Children="">:=</Terminal>
+				<NUMEXPR ID="87" Children="61,68,71,83,86">
+					<Terminal ID="61" Children="">a(</Terminal>
+					<NUMVAR ID="68" Children="62,63">
+						<Terminal ID="62" Children="">n</Terminal>
+						<Terminal ID="63" Children="">1</Terminal>
+					</NUMVAR>
+					<Terminal ID="71" Children="">,</Terminal>
+					<NEG ID="83" Children="72,82">
+						<Terminal ID="72" Children="">-</Terminal>
+						<POS ID="82" Children="73,77,78,80">
+							<Terminal ID="73" Children="">2</Terminal>
+							<Terminal ID="77" Children="">.</Terminal>
+							<Terminal ID="78" Children="">3</Terminal>
+							<Terminal ID="80" Children="">5</Terminal>
+						</POS>
+					</NEG>
+					<Terminal ID="86" Children="">)</Terminal>
+				</NUMEXPR>
+			</ASSIGN>
+			<Terminal ID="95" Children="">}</Terminal>
+		</ELSE>
+	</BRANCH>
+</PROGR>
