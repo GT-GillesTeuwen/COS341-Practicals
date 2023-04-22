@@ -28,6 +28,7 @@ public class Parser {
         } else {
             throw new Exception(
                     "ERROR UNEXPECTED TOKEN: expected:" + expectedToken + " got " + input + " at token " + count);
+
         }
 
     }

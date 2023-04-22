@@ -65,11 +65,21 @@ class Main {
             xmlWriter.implement.writeXml(textFileName, tree.toSpecXML());
             JFrame frame = new JFrame("SpringLayout");
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            JScrollPane scroll = new JScrollPane();
             Container contentPane = frame.getContentPane();
 
+            SpringLayout layout = new SpringLayout();
+            JPanel mainPanel;
             TreeVisualiser v = new TreeVisualiser(tree);
+            mainPanel = v;
 
-            contentPane.add(v);
+            mainPanel.setLayout(layout);
+            contentPane.setLayout(new BorderLayout());
+
+            mainPanel.setPreferredSize(new Dimension(1600, v.getDepth()));
+            scroll.setPreferredSize(new Dimension(1600, 500));
+            scroll.setViewportView(mainPanel);
+            contentPane.add(scroll);
             // mainWindow.add(contentPane);
             frame.setSize(500, 600);
             frame.setVisible(true);

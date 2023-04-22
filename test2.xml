@@ -1,70 +1,84 @@
 <Tree>
 	<Node>
-		<ID>9</ID>
+		<ID>28</ID>
 		<Contents>PROGR</Contents>
 		<Children>
+			<ChildID>19</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>19</ID>
+		<Contents>ASSIGN</Contents>
+		<Children>
 			<ChildID>6</ChildID>
-			<ChildID>8</ChildID>
+			<ChildID>7</ChildID>
+			<ChildID>17</ChildID>
 		</Children>
 	</Node>
 	<Node>
 		<ID>6</ID>
-		<Contents>ALGO</Contents>
-		<Children>
-			<ChildID>1</ChildID>
-			<ChildID>3</ChildID>
-			<ChildID>5</ChildID>
-		</Children>
-	</Node>
-	<Node>
-		<ID>8</ID>
-		<Contents>PROCDEFS</Contents>
-		<Children>
-			<ChildID>7</ChildID>
-		</Children>
-	</Node>
-	<Node>
-		<ID>1</ID>
-		<Contents>INSTR</Contents>
+		<Contents>BOOLVAR</Contents>
 		<Children>
 			<ChildID>0</ChildID>
-		</Children>
-	</Node>
-	<Node>
-		<ID>3</ID>
-		<Contents>COMMENT</Contents>
-		<Children>
-			<ChildID>2</ChildID>
-		</Children>
-	</Node>
-	<Node>
-		<ID>5</ID>
-		<Contents>SEQ</Contents>
-		<Children>
-			<ChildID>4</ChildID>
+			<ChildID>1</ChildID>
 		</Children>
 	</Node>
 	<Node>
 		<ID>7</ID>
-		<Contents>ε</Contents>
+		<Contents>:=</Contents>
 		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>17</ID>
+		<Contents>LOGIC</Contents>
+		<Children>
+			<ChildID>8</ChildID>
+			<ChildID>9</ChildID>
+			<ChildID>12</ChildID>
+			<ChildID>13</ChildID>
+			<ChildID>16</ChildID>
 		</Children>
 	</Node>
 	<Node>
 		<ID>0</ID>
-		<Contents>h</Contents>
+		<Contents>b</Contents>
 		<Children>
 		</Children>
 	</Node>
 	<Node>
-		<ID>2</ID>
-		<Contents>ε</Contents>
+		<ID>1</ID>
+		<Contents>1</Contents>
 		<Children>
 		</Children>
 	</Node>
 	<Node>
-		<ID>4</ID>
-		<Contents>ε</Contents>
+		<ID>8</ID>
+		<Contents>v(</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>9</ID>
+		<Contents>T</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>12</ID>
+		<Contents>,</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>13</ID>
+		<Contents>F</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>16</ID>
+		<Contents>)</Contents>
 		<Children>
 		</Children>
 	</Node>

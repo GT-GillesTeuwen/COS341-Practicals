@@ -51,7 +51,7 @@ public class Lexer {
         }
         hasMore = false;
         if (input.length() > 0) {
-            errorMessage = "Unexpected symbol: '" + input.charAt(0) + "'";
+            errorMessage = "Unexpected symbol during lexing: '" + input.charAt(0) + "'";
         }
     }
 
