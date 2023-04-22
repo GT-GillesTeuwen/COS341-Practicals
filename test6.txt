@@ -1,2 +1,0 @@
-n1:=0.00 *   STORE ZERO  *;
-s1:="__Hello there__" *A random string*
