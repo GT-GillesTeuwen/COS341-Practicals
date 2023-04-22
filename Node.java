@@ -1,13 +1,12 @@
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 public class Node {
     private String displayName;
     private int id;
-    private static int idCount=0;
+    private static int idCount = 0;
 
     public Node(String displayName) {
         this.displayName = displayName;
-        id=idCount++;
+        id = idCount++;
     }
 
     public String getDisplayName() {
@@ -18,7 +17,7 @@ public class Node {
         return id;
     }
 
-    public Node reduce(){
-        throw new NotImplementedException();
+    public Node reduce() {
+        return null;
     }
 }

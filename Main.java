@@ -13,11 +13,11 @@ import javax.swing.SpringLayout;
 
 class Main {
     public static void main(String[] args) {
-        String textFileName="test9";
+        String textFileName = "test9";
         Lexer lexer;
         ArrayList<Symbol> tokens = new ArrayList<>();
         try {
-            lexer = new Lexer(textFileName+".txt");
+            lexer = new Lexer(textFileName + ".txt");
 
             while (lexer.hasMore()) {
                 lexer.moveAhead();
@@ -47,7 +47,7 @@ class Main {
             n = p.parseProgrP();
         } catch (Exception e) {
             // TODO Auto-generated catch block
-           System.out.println(e);
+            System.out.println(e);
         }
 
         // System.out.println("DONE");
@@ -61,31 +61,21 @@ class Main {
         // f.add(v);
         // f.setVisible(true);
         try {
-            Tree tree=new Tree(n);
+            Tree tree = new Tree(n);
             xmlWriter.implement.writeXml(textFileName, tree.toSpecXML());
             JFrame frame = new JFrame("SpringLayout");
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            JScrollPane scroll = new JScrollPane();
             Container contentPane = frame.getContentPane();
 
-            SpringLayout layout = new SpringLayout();
-            JPanel mainPanel;
-            TreeVisualiser v= new TreeVisualiser(tree);
-            mainPanel =v;
+            TreeVisualiser v = new TreeVisualiser(tree);
 
-            mainPanel.setLayout(layout);
-            contentPane.setLayout(new BorderLayout());
-
-            mainPanel.setPreferredSize(new Dimension(1600, v.getDepth()));
-            scroll.setPreferredSize(new Dimension(1600, 500));
-            scroll.setViewportView(mainPanel);
-            contentPane.add(scroll);
+            contentPane.add(v);
             // mainWindow.add(contentPane);
             frame.setSize(500, 600);
             frame.setVisible(true);
         } catch (Exception e) {
             // TODO Auto-generated catch block
-           System.out.println(e);
+            System.out.println(e);
         }
     }
 }
