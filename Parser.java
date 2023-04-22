@@ -7,18 +7,18 @@ public class Parser {
     private int count;
 
     public Parser(ArrayList<Symbol> allTokens) throws Exception {
-        if(allTokens.size()==0){
+        if (allTokens.size() == 0) {
             throw new Exception("Parser Error: Nothing to parse");
         }
         this.allTokens = allTokens;
         input = allTokens.get(0);
         allTokens.remove(0);
-        
+
         count = 0;
     }
 
-    private void match(Token t) throws Exception {
-        if (input.getToken() == t) {
+    private void match(Token expectedToken) throws Exception {
+        if (input.getToken() == expectedToken) {
             count++;
             if (allTokens.size() != 0) {
                 input = allTokens.get(0);
@@ -26,7 +26,9 @@ public class Parser {
             }
 
         } else {
-            throw new Exception("Parser Error:\n\tUnexpected Token: expected " + t + " got " + input + " at token " + count);
+            throw new Exception(
+                    "ERROR UNEXPECTED TOKEN: expected:" + expectedToken + " got " + input + " at token " + count);
+
         }
 
     }
@@ -575,7 +577,7 @@ public class Parser {
 
                 tNode c5 = new tNode(input);
                 match(Token.CLOSE_BRACKET);
-                
+
                 Node[] children = { c1, c2, c3, c4, c5 };
                 return new nNode("NUMEXPR", children);
             case START_MUL:
@@ -638,16 +640,16 @@ public class Parser {
             case DEC_ZERO:
                 tNode c1 = new tNode(input);
                 match(Token.DEC_ZERO);
-                Node[] children={c1};
+                Node[] children = { c1 };
                 return new nNode("DECNUM", children);
             case MINUS:
-                Node c1_1=parseNeg();
-                Node[] children_1={c1_1};
+                Node c1_1 = parseNeg();
+                Node[] children_1 = { c1_1 };
                 return new nNode("DECNUM", children_1);
-              
+
             case P_DIGIT:
-                Node c1_2=parsePos();
-                Node[] children_2={c1_2};
+                Node c1_2 = parsePos();
+                Node[] children_2 = { c1_2 };
                 return new nNode("DECNUM", children_2);
 
             default:
@@ -659,10 +661,10 @@ public class Parser {
     private Node parseNeg() throws Exception {
         switch (input.getToken()) {
             case MINUS:
-                tNode c1=new tNode(input);
+                tNode c1 = new tNode(input);
                 match(Token.MINUS);
-                Node c2=parsePos();
-                Node[] children={c1,c2};
+                Node c2 = parsePos();
+                Node[] children = { c1, c2 };
                 return new nNode("NEG", children);
 
             default:
@@ -674,12 +676,12 @@ public class Parser {
     private Node parsePos() throws Exception {
         switch (input.getToken()) {
             case P_DIGIT:
-                Node c1=parseInt();
-                tNode c2=new tNode(input);
+                Node c1 = parseInt();
+                tNode c2 = new tNode(input);
                 match(Token.DEC_POINT);
-                Node c3=parseD();
-                Node c4=parseD();
-                Node[] children={c1,c2,c3,c4};
+                Node c3 = parseD();
+                Node c4 = parseD();
+                Node[] children = { c1, c2, c3, c4 };
                 return new nNode("POS", children);
 
             default:
@@ -691,10 +693,10 @@ public class Parser {
     private Node parseInt() throws Exception {
         switch (input.getToken()) {
             case P_DIGIT:
-                tNode c1=new tNode(input);
+                tNode c1 = new tNode(input);
                 match(Token.P_DIGIT);
-                Node c2=parseMore();
-                Node [] children={c1,c2};
+                Node c2 = parseMore();
+                Node[] children = { c1, c2 };
                 return new nNode("INT", children);
 
             default:
@@ -706,10 +708,10 @@ public class Parser {
     private Node parseNumVar() throws Exception {
         switch (input.getToken()) {
             case DEC_NUMVAR:
-                tNode c1= new tNode(input);
+                tNode c1 = new tNode(input);
                 match(Token.DEC_NUMVAR);
-                Node c2=parseDigits();
-                Node[] children={c1,c2};
+                Node c2 = parseDigits();
+                Node[] children = { c1, c2 };
                 return new nNode("NUMVAR", children);
             default:
                 System.out.println("Error, with token " + count + " did not expect " + input + " at parseNumVar");
@@ -720,12 +722,12 @@ public class Parser {
     private Node parseOutput() throws Exception {
         switch (input.getToken()) {
             case VALUE:
-                Node c1=parseValue();
-                Node[] children={c1};
+                Node c1 = parseValue();
+                Node[] children = { c1 };
                 return new nNode("OUTPUT", children);
             case TEXT:
-                Node c1_1=parseText();
-                Node[] children_1={c1_1};
+                Node c1_1 = parseText();
+                Node[] children_1 = { c1_1 };
                 return new nNode("OUTPUT", children_1);
 
             default:
@@ -737,10 +739,10 @@ public class Parser {
     private Node parseText() throws Exception {
         switch (input.getToken()) {
             case TEXT:
-                tNode c1=new tNode(input);
+                tNode c1 = new tNode(input);
                 match(Token.TEXT);
-                Node c2=parseStringV();
-                Node[] children={c1,c2};
+                Node c2 = parseStringV();
+                Node[] children = { c1, c2 };
                 return new nNode("TEXT", children);
 
             default:
@@ -752,10 +754,10 @@ public class Parser {
     private Node parseValue() throws Exception {
         switch (input.getToken()) {
             case VALUE:
-            tNode c1=new tNode(input);
+                tNode c1 = new tNode(input);
                 match(Token.VALUE);
-                Node c2=parseNumVar();
-                Node[] children={c1,c2};
+                Node c2 = parseNumVar();
+                Node[] children = { c1, c2 };
                 return new nNode("VALUE", children);
 
             default:
@@ -767,10 +769,10 @@ public class Parser {
     private Node parseInput() throws Exception {
         switch (input.getToken()) {
             case GET:
-            tNode c1=new tNode(input);
+                tNode c1 = new tNode(input);
                 match(Token.GET);
-                Node c2=parseNumVar();
-                Node[] children={c1,c2};
+                Node c2 = parseNumVar();
+                Node[] children = { c1, c2 };
                 return new nNode("INPUT", children);
             default:
                 System.out.println("Error, with token " + count + " did not expect " + input + " at parseInput");

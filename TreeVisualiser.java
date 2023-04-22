@@ -4,7 +4,7 @@ import java.util.*;
 import javax.swing.*;
 import java.awt.geom.*;
 
-public class TreeVisualiser extends JPanel implements MouseListener, MouseMotionListener {
+public class TreeVisualiser extends JPanel implements MouseListener, MouseMotionListener, MouseWheelListener {
     Graphics2D g2;
     DrawableNode[] squares;
     Color colour;
@@ -16,12 +16,13 @@ public class TreeVisualiser extends JPanel implements MouseListener, MouseMotion
     boolean dragging = false;
 
     public TreeVisualiser(Tree tree) throws Exception {
-        t=tree;
+        t = tree;
         squares = new DrawableNode[t.getAllNodes().size()];
         int i = 0;
         for (int j = 0; j < t.getNodesPerLevel().length; j++) {
             for (int j2 = 0; j2 < t.getNodesPerLevel()[j]; j2++) {
-                squares[i] = new DrawableNode(1600/(t.getNodesPerLevel()[j]+1) * (j2+1)+j, j*60, t.getAllNodes().get(i));
+                squares[i] = new DrawableNode(1600 / (t.getNodesPerLevel()[j] + 1) * (j2 + 1) + j, j * 60,
+                        t.getAllNodes().get(i));
                 i++;
             }
         }
@@ -31,12 +32,13 @@ public class TreeVisualiser extends JPanel implements MouseListener, MouseMotion
         setFocusable(true);
         addMouseListener(this);
         addMouseMotionListener(this);
+        addMouseWheelListener(this);
         this.requestFocus();
 
     }
 
-    public int getDepth(){
-        return t.getNodesPerLevel().length*62;
+    public int getDepth() {
+        return t.getNodesPerLevel().length * 62;
     }
 
     public void paintComponent(Graphics g) {
@@ -50,34 +52,34 @@ public class TreeVisualiser extends JPanel implements MouseListener, MouseMotion
         for (int i = 0; i < squares.length; i++) {
 
             // Draw state circle
-            if(squares[i].getNode() instanceof tNode){
+            if (squares[i].getNode() instanceof tNode) {
                 g2.setColor(Color.RED);
                 g2.setFont(new Font("Arial", Font.PLAIN, 14));
-            }else{
+            } else {
                 g2.setColor(Color.BLACK);
                 g2.setFont(new Font("Arial", Font.PLAIN, 8));
             }
             g2.draw(squares[i].getEllipse2d());
-           
 
             // Draw state name
             g2.drawString(squares[i].getNode().getDisplayName(),
-                    (int) squares[i].getEllipse2d().getCenterX() - (int)(squares[i].getNode().getDisplayName().length() * 2.5),
+                    (int) squares[i].getEllipse2d().getCenterX()
+                            - (int) (squares[i].getNode().getDisplayName().length() * 2.5),
                     (int) squares[i].getEllipse2d().getCenterY() + 5);
             int c = 0;
 
             // cater for arrow to initial node
-           
+
             // Draw transitions
             for (Node op : squares[i].getChildren()) {
-                
-                    DrawableNode dNode=getDrawableState(op);
-                 
-                    drawArrowLine(g2, squares[i].getEllipse2d().getCenterX(), squares[i].getEllipse2d().getCenterY(),
-                    dNode.getEllipse2d().getCenterX(),
-                    dNode.getEllipse2d().getCenterY(), 10,
-                            10);
-                
+
+                DrawableNode dNode = getDrawableState(op);
+
+                drawArrowLine(g2, squares[i].getEllipse2d().getCenterX(), squares[i].getEllipse2d().getCenterY(),
+                        dNode.getEllipse2d().getCenterX(),
+                        dNode.getEllipse2d().getCenterY(), 10,
+                        10);
+
             }
 
         }
@@ -85,8 +87,7 @@ public class TreeVisualiser extends JPanel implements MouseListener, MouseMotion
     }
 
     private void drawArrowLine(Graphics2D g, double x1, double y1, double x2, double y2, int d, int h) {
-        
-        
+
         int midX = (int) ((x1 + x2) / 2);
         int midY = (int) ((y1 + y2) / 2);
 
@@ -94,20 +95,18 @@ public class TreeVisualiser extends JPanel implements MouseListener, MouseMotion
         double D = Math.sqrt(dx * dx + dy * dy);
         double sin = dy / D, cos = dx / D;
 
-        
         // Initial up and left of final
-         if (sin > 0 && cos > 0) {
+        if (sin > 0 && cos > 0) {
             y1 += (DrawableNode.SIZE / 2);
             y2 -= (DrawableNode.SIZE / 2);
-            x2 -= 0;//(DrawableNode.SIZE / 2);
+            x2 -= 0;// (DrawableNode.SIZE / 2);
         }
 
-        
         // Initial up and right of final
         else if (sin > 0 && cos < 0) {
             y1 += (DrawableNode.SIZE / 2);
             y2 -= (DrawableNode.SIZE / 2);
-            x2 += 0;//(DrawableNode.SIZE / 2);
+            x2 += 0;// (DrawableNode.SIZE / 2);
         }
 
         dx = x2 - midX;
@@ -125,27 +124,20 @@ public class TreeVisualiser extends JPanel implements MouseListener, MouseMotion
         yn = xn * sin + yn * cos + midY;
         xn = x;
 
-        if(x1==x2 && y1==y2){
-            midY-=100;
-            x1-=DrawableNode.SIZE/4;
-            x2+=DrawableNode.SIZE/4;
-            y1-=DrawableNode.SIZE/2;
-            y2-=DrawableNode.SIZE/2;
-            
-        }else{
-            
+        if (x1 == x2 && y1 == y2) {
+            midY -= 100;
+            x1 -= DrawableNode.SIZE / 4;
+            x2 += DrawableNode.SIZE / 4;
+            y1 -= DrawableNode.SIZE / 2;
+            y2 -= DrawableNode.SIZE / 2;
+
+        } else {
 
         }
         int[] xpoints = { (int) x2, (int) xm, (int) xn };
         int[] ypoints = { (int) y2, (int) ym, (int) yn };
 
-        
-        
-        
-
         // g.drawLine((int) x1, (int) y1, (int) x2, (int) y2);
-
-        
 
         Path2D path = new Path2D.Double();
         path.moveTo(x1, y1);
@@ -157,17 +149,32 @@ public class TreeVisualiser extends JPanel implements MouseListener, MouseMotion
 
     @Override
     public void mouseDragged(MouseEvent ev) {
+        repaint();
         if (dragging) {
             double mx = ev.getX();
             double my = ev.getY();
 
             double x1 = mx - offsetX;
             double y1 = my - offsetY;
-            selected.getEllipse2d().setFrame(x1, y1, selected.getEllipse2d().getHeight(),
-                    selected.getEllipse2d().getWidth());
+            if (selected != null) {
+
+                selected.getEllipse2d().setFrame(x1, y1, selected.getEllipse2d().getHeight(),
+                        selected.getEllipse2d().getWidth());
+                repaint();
+            } else {
+                for (DrawableNode drawableNode : squares) {
+                    double chX = x1 + drawableNode.getEllipse2d().getMinX();
+                    double chY = y1 + drawableNode.getEllipse2d().getMinY();
+                    drawableNode.getEllipse2d().setFrame(chX, chY,
+                            drawableNode.getEllipse2d().getHeight(),
+                            drawableNode.getEllipse2d().getWidth());
+                }
+                offsetX = mx;
+                offsetY = my;
+            }
             // selected = new Rectangle2D.Double(x1, y1, selected.getHeight(),
             // selected.getWidth());
-            repaint();
+
         }
 
     }
@@ -190,14 +197,18 @@ public class TreeVisualiser extends JPanel implements MouseListener, MouseMotion
                 offsetX = mx - x1;
                 offsetY = my - y1;
             }
+        } else {
+            dragging = true;
+            offsetX = mx;
+            offsetY = my;
         }
-
+        repaint();
     }
 
     public DrawableNode getClickedShape(MouseEvent ev) {
         for (int j = 0; j < squares.length; j++) {
             if (squares[j].getEllipse2d().contains(getMousePosition())) {
-                
+
                 return squares[j];
             }
         }
@@ -208,6 +219,7 @@ public class TreeVisualiser extends JPanel implements MouseListener, MouseMotion
     @Override
     public void mouseReleased(MouseEvent arg0) {
         dragging = false;
+        repaint();
     }
 
     @Override
@@ -231,7 +243,6 @@ public class TreeVisualiser extends JPanel implements MouseListener, MouseMotion
     }
 
     public static void main(String args[]) {
-        
 
     }
 
@@ -243,6 +254,18 @@ public class TreeVisualiser extends JPanel implements MouseListener, MouseMotion
         }
         System.out.println("Could not find drawable node");
         return null;
+    }
+
+    @Override
+    public void mouseWheelMoved(MouseWheelEvent e) {
+        int notches = e.getWheelRotation();
+        for (DrawableNode drawableNode : squares) {
+            drawableNode.getEllipse2d().setFrame(drawableNode.getEllipse2d().getMinX(),
+                    drawableNode.getEllipse2d().getMinY(),
+                    drawableNode.getEllipse2d().getHeight() - notches,
+                    drawableNode.getEllipse2d().getWidth() - notches);
+        }
+        repaint();
     }
 
 }
