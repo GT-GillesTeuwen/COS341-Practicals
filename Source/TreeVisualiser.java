@@ -9,7 +9,8 @@ public class TreeVisualiser extends JPanel implements MouseListener, MouseMotion
     DrawableNode[] squares;
     Color colour;
     Tree t;
-    Stack<int[]> q=new Stack<>();
+    Stack<int[]> q = new Stack<>();
+    int zoom;
 
     double offsetX, offsetY;
     DrawableNode selected;
@@ -17,6 +18,7 @@ public class TreeVisualiser extends JPanel implements MouseListener, MouseMotion
     boolean dragging = false;
 
     public TreeVisualiser(Tree tree) throws Exception {
+        zoom = 0;
         t = tree;
         squares = new DrawableNode[t.getAllNodes().size()];
         int i = 0;
@@ -262,37 +264,54 @@ public class TreeVisualiser extends JPanel implements MouseListener, MouseMotion
         int notches = e.getWheelRotation();
         double mx = e.getX();
         double my = e.getY();
-        double scale = 0;
-        if (notches < 0) {
-            scale = 1;
-        }
-        if (notches > 0) {
-            scale = -1;
-        }
+        System.out.println("zoom before scroll: " + zoom);
         System.out.println(mx + "  " + my);
         for (DrawableNode drawableNode : squares) {
             double newX = drawableNode.getEllipse2d().getCenterX();
             double newY = drawableNode.getEllipse2d().getCenterY();
+            if (notches > 0) {
+                if (zoom <= 0) {
+                    System.out.println("zoom out from 0");
+                    double adjustX = (drawableNode.getEllipse2d().getCenterX() - mx) * 0.1;
+                    double adjustY = (drawableNode.getEllipse2d().getCenterY() - my) * 0.11;
+                    double[] adjusts = { adjustX, adjustY };
+                    drawableNode.pushAdjust(adjusts);
+                    newX = ((drawableNode.getEllipse2d().getCenterX()) - adjustX);
+                    newY = ((drawableNode.getEllipse2d().getCenterY()) - adjustY);
+                } else {
+                    double[] adjustsments = drawableNode.popAdjust();
+                    newX = ((drawableNode.getEllipse2d().getCenterX()) - adjustsments[0]);
+                    newY = ((drawableNode.getEllipse2d().getCenterY()) - adjustsments[1]);
+                }
 
-            if (scale == -1) {
-                double[] adjustsments=drawableNode.popAdjust();
-                newX = ((drawableNode.getEllipse2d().getCenterX())-adjustsments[0]);
-                newY = ((drawableNode.getEllipse2d().getCenterY())-adjustsments[1]);
             }
-            if (scale == 1) {
-                double adjustX=(drawableNode.getEllipse2d().getCenterX() - mx)*0.5;
-                double adjustY=(drawableNode.getEllipse2d().getCenterY() - my)*0.5;
-                double [] adjusts={adjustX,adjustY};
-                drawableNode.pushAdjust(adjusts);
-                newX = ((drawableNode.getEllipse2d().getCenterX())+adjustX);
-                newY = ((drawableNode.getEllipse2d().getCenterY()) + adjustY);
+            if (notches < 0) {
+                if (zoom >= 0) {
+                    double adjustX = (drawableNode.getEllipse2d().getCenterX() - mx) * 0.5;
+                    double adjustY = (drawableNode.getEllipse2d().getCenterY() - my) * 0.5;
+                    double[] adjusts = { adjustX, adjustY };
+                    drawableNode.pushAdjust(adjusts);
+                    newX = ((drawableNode.getEllipse2d().getCenterX()) + adjustX);
+                    newY = ((drawableNode.getEllipse2d().getCenterY()) + adjustY);
+                } else {
+                    double[] adjustsments = drawableNode.popAdjust();
+                    newX = ((drawableNode.getEllipse2d().getCenterX()) + adjustsments[0]);
+                    newY = ((drawableNode.getEllipse2d().getCenterY()) + adjustsments[1]);
+                }
             }
 
             drawableNode.getEllipse2d().setFrame(newX,
                     newY,
-                    drawableNode.getEllipse2d().getHeight() - notches*2,
-                    drawableNode.getEllipse2d().getWidth() - notches*2);
+                    drawableNode.getEllipse2d().getHeight() - notches * 2,
+                    drawableNode.getEllipse2d().getWidth() - notches * 2);
         }
+        if (notches < 0) {
+            zoom++;
+        }
+        if (notches > 0) {
+            zoom--;
+        }
+        System.out.println("zoom after scroll: " + zoom);
 
         repaint();
     }
