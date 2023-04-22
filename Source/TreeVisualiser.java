@@ -9,6 +9,7 @@ public class TreeVisualiser extends JPanel implements MouseListener, MouseMotion
     DrawableNode[] squares;
     Color colour;
     Tree t;
+    Stack<int[]> q=new Stack<>();
 
     double offsetX, offsetY;
     DrawableNode selected;
@@ -259,12 +260,40 @@ public class TreeVisualiser extends JPanel implements MouseListener, MouseMotion
     @Override
     public void mouseWheelMoved(MouseWheelEvent e) {
         int notches = e.getWheelRotation();
-        for (DrawableNode drawableNode : squares) {
-            drawableNode.getEllipse2d().setFrame(drawableNode.getEllipse2d().getMinX(),
-                    drawableNode.getEllipse2d().getMinY(),
-                    drawableNode.getEllipse2d().getHeight() - notches,
-                    drawableNode.getEllipse2d().getWidth() - notches);
+        double mx = e.getX();
+        double my = e.getY();
+        double scale = 0;
+        if (notches < 0) {
+            scale = 1;
         }
+        if (notches > 0) {
+            scale = -1;
+        }
+        System.out.println(mx + "  " + my);
+        for (DrawableNode drawableNode : squares) {
+            double newX = drawableNode.getEllipse2d().getCenterX();
+            double newY = drawableNode.getEllipse2d().getCenterY();
+
+            if (scale == -1) {
+                double[] adjustsments=drawableNode.popAdjust();
+                newX = ((drawableNode.getEllipse2d().getCenterX())-adjustsments[0]);
+                newY = ((drawableNode.getEllipse2d().getCenterY())-adjustsments[1]);
+            }
+            if (scale == 1) {
+                double adjustX=(drawableNode.getEllipse2d().getCenterX() - mx)*0.5;
+                double adjustY=(drawableNode.getEllipse2d().getCenterY() - my)*0.5;
+                double [] adjusts={adjustX,adjustY};
+                drawableNode.pushAdjust(adjusts);
+                newX = ((drawableNode.getEllipse2d().getCenterX())+adjustX);
+                newY = ((drawableNode.getEllipse2d().getCenterY()) + adjustY);
+            }
+
+            drawableNode.getEllipse2d().setFrame(newX,
+                    newY,
+                    drawableNode.getEllipse2d().getHeight() - notches*2,
+                    drawableNode.getEllipse2d().getWidth() - notches*2);
+        }
+
         repaint();
     }
 

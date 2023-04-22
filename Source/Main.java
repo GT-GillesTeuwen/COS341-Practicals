@@ -17,13 +17,13 @@ import javax.swing.filechooser.FileSystemView;
 
 class Main {
     public static void main(String[] args) {
-        JFileChooser j = new JFileChooser(FileSystemView.getFileSystemView());
-        j.setDialogTitle("Choose a text file to parse");
-        FileNameExtensionFilter filter = new FileNameExtensionFilter("TEXT FILES", "txt", "text");
-        j.setFileFilter(filter);
+        //JFileChooser j = new JFileChooser(FileSystemView.getFileSystemView());
+        //j.setDialogTitle("Choose a text file to parse");
+        //FileNameExtensionFilter filter = new FileNameExtensionFilter("TEXT FILES", "txt", "text");
+        //j.setFileFilter(filter);
         // Open the save dialog
-        j.showOpenDialog(null);
-        String textFileName = j.getSelectedFile().getAbsolutePath();
+        //j.showOpenDialog(null);
+        String textFileName ="Tests/test9.txt" ;//j.getSelectedFile().getAbsolutePath();
         Lexer lexer;
         ArrayList<Symbol> tokens = new ArrayList<>();
         try {
@@ -34,7 +34,6 @@ class Main {
             }
 
             if (lexer.isSuccessful()) {
-                System.out.println("Ok! :D");
                 tokens = lexer.getAllTokens();
                 tokens.add(new Symbol("$", Token.DOLLAR));
             } else {

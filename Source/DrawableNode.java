@@ -1,12 +1,14 @@
 
 import java.awt.geom.*;
 import java.util.Map;
+import java.util.Stack;
 
 public class DrawableNode {
     public static final int SIZE = 30;
     Ellipse2D ellipse2d;
     Node node;
     Node[] children;
+    Stack<double[]> adjustments=new Stack();
 
     public DrawableNode(int initialX, int initialY, Node node) {
         this.ellipse2d = new Ellipse2D.Double(initialX, initialY, SIZE, SIZE);
@@ -16,6 +18,14 @@ public class DrawableNode {
         }else{
             this.children=new Node[0];
         }
+    }
+
+    public void pushAdjust(double[] adjust){
+        adjustments.push(adjust);
+    }
+
+    public double[] popAdjust(){
+        return adjustments.pop();
     }
 
     public Ellipse2D getEllipse2d() {
