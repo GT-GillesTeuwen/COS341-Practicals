@@ -6,6 +6,7 @@ import java.util.Stack;
 public class DrawableNode {
     public static final int SIZE = 30;
     Ellipse2D ellipse2d;
+    Node parent;
     Node node;
     Node[] children;
     Stack<double[]> adjustments=new Stack();
@@ -18,6 +19,14 @@ public class DrawableNode {
         }else{
             this.children=new Node[0];
         }
+    }
+
+    public void setParent(Node parent) {
+        this.parent = parent;
+    }
+
+    public Node getParent() {
+        return parent;
     }
 
     public void pushAdjust(double[] adjust){

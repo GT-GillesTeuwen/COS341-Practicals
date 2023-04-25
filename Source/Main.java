@@ -23,7 +23,7 @@ class Main {
         //j.setFileFilter(filter);
         // Open the save dialog
         //j.showOpenDialog(null);
-        String textFileName ="Tests/test9.txt" ;//j.getSelectedFile().getAbsolutePath();
+        String textFileName ="Tests/test1.txt" ;//j.getSelectedFile().getAbsolutePath();
         Lexer lexer;
         ArrayList<Symbol> tokens = new ArrayList<>();
         try {
