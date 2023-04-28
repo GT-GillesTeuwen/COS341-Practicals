@@ -1,10 +1,12 @@
+package Lexing;
+
 public class Symbol {
     private String symbol;
     private Token token;
 
-    public Symbol(String symbol,Token token){
-        this.symbol=symbol;
-        this.token=token;
+    public Symbol(String symbol, Token token) {
+        this.symbol = symbol;
+        this.token = token;
     }
 
     public String getSymbol() {

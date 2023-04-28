@@ -1,6 +1,12 @@
+package Visualisation;
+
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
+
+import Nodes.Node;
+import Nodes.nNode;
+import Nodes.tNode;
 
 public class Tree {
     private Node root;
@@ -11,7 +17,7 @@ public class Tree {
         if (root == null) {
             throw new Exception("Tree Error: No tree to build");
         }
-        root.reduce();
+        root.reduceOneStepDerivations();
         this.root = root;
         allNodes = new ArrayList<>();
         int depth = maxDepth();
@@ -116,51 +122,50 @@ public class Tree {
         return childXML;
     }
 
-    private String nTabs(int n){
-        String out="";
+    private String nTabs(int n) {
+        String out = "";
         for (int i = 0; i < n; i++) {
-            out+="\t";
+            out += "\t";
         }
         return out;
     }
 
-    private String childrenIds(nNode node){
-        String out="";
+    private String childrenIds(nNode node) {
+        String out = "";
         for (int i = 0; i < node.getChildren().length; i++) {
-            out+=node.getChildren()[i].getId();
-            if(i<node.getChildren().length-1){
-                out+=",";
+            out += node.getChildren()[i].getId();
+            if (i < node.getChildren().length - 1) {
+                out += ",";
             }
         }
         return out;
     }
 
-    public String toTutorXML(){
-        return printNonTerminal((nNode)root, 0);
+    public String toTutorXML() {
+        return printNonTerminal((nNode) root, 0);
     }
 
-    public String printNonTerminal(nNode node,int indentation){
-        String out="";
-        out+=nTabs(indentation);
-        out+="<"+node.getDisplayName()+" ID=\""+node.getId()+"\" Children=\""+childrenIds(node)+"\">\n";
+    public String printNonTerminal(nNode node, int indentation) {
+        String out = "";
+        out += nTabs(indentation);
+        out += "<" + node.getDisplayName() + " ID=\"" + node.getId() + "\" Children=\"" + childrenIds(node) + "\">\n";
         for (int i = 0; i < node.getChildren().length; i++) {
-            if(node.getChildren()[i] instanceof nNode){
-                out+=printNonTerminal(((nNode)node.getChildren()[i]), indentation+1);
-            }else{
-                out+=printTerminal(((tNode)node.getChildren()[i]), indentation+1);
+            if (node.getChildren()[i] instanceof nNode) {
+                out += printNonTerminal(((nNode) node.getChildren()[i]), indentation + 1);
+            } else {
+                out += printTerminal(((tNode) node.getChildren()[i]), indentation + 1);
             }
         }
-        out+=nTabs(indentation);
-        out+="</"+node.getDisplayName()+">\n";
+        out += nTabs(indentation);
+        out += "</" + node.getDisplayName() + ">\n";
         return out;
     }
-
-
 
     private String printTerminal(tNode node, int indentation) {
-        String out="";
-        out+=nTabs(indentation);
-        out+="<Terminal ID=\""+node.getId()+"\" Children=\""+"\">"+node.getDisplayName().replace(">", "&gt;").replace("<", "&lt;")+"</"+"Terminal"+">\n";
+        String out = "";
+        out += nTabs(indentation);
+        out += "<Terminal ID=\"" + node.getId() + "\" Children=\"" + "\">"
+                + node.getDisplayName().replace(">", "&gt;").replace("<", "&lt;") + "</" + "Terminal" + ">\n";
         return out;
     }
 }

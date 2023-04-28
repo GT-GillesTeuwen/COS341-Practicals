@@ -1,10 +1,12 @@
+package OutputCreation;
+
 import java.io.FileWriter;
 import java.io.IOException;
 
 public class xmlWriter {
-    static class implement {
+    public static class implement {
         public static void writeXml(String name, String xml) {
-            name=name.replace(".txt", "_Parsed");
+            name = name.replace(".txt", "_Parsed");
             try {
                 FileWriter writer = new FileWriter(name + ".xml", false);
                 writer.write(xml);

@@ -15,15 +15,25 @@ import javax.swing.SpringLayout;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.filechooser.FileSystemView;
 
+import Lexing.Lexer;
+import Lexing.Symbol;
+import Lexing.Token;
+import Nodes.Node;
+import OutputCreation.xmlWriter;
+import Parsing.Parser;
+import Visualisation.Tree;
+import Visualisation.TreeVisualiser;
+
 class Main {
     public static void main(String[] args) {
-        //JFileChooser j = new JFileChooser(FileSystemView.getFileSystemView());
-        //j.setDialogTitle("Choose a text file to parse");
-        //FileNameExtensionFilter filter = new FileNameExtensionFilter("TEXT FILES", "txt", "text");
-        //j.setFileFilter(filter);
+        // JFileChooser j = new JFileChooser(FileSystemView.getFileSystemView());
+        // j.setDialogTitle("Choose a text file to parse");
+        // FileNameExtensionFilter filter = new FileNameExtensionFilter("TEXT FILES",
+        // "txt", "text");
+        // j.setFileFilter(filter);
         // Open the save dialog
-        //j.showOpenDialog(null);
-        String textFileName ="Tests/test1.txt" ;//j.getSelectedFile().getAbsolutePath();
+        // j.showOpenDialog(null);
+        String textFileName = "Tests/test1.txt";// j.getSelectedFile().getAbsolutePath();
         Lexer lexer;
         ArrayList<Symbol> tokens = new ArrayList<>();
         try {
@@ -60,17 +70,6 @@ class Main {
             System.out.println(e.toString().replace("java.lang.Exception:", ""));
 
         }
-
-        // System.out.println("DONE");
-
-        // Tree t=new Tree(n);
-        // System.out.println(t.maxDepth());
-
-        // JFrame f= new JFrame("Panel Example");
-        // f.setSize(1500, 1080);
-        // TreeVisualiser v=new TreeVisualiser(n);
-        // f.add(v);
-        // f.setVisible(true);
         try {
             Tree tree = new Tree(n);
             xmlWriter.implement.writeXml(textFileName, tree.toSpecXML());

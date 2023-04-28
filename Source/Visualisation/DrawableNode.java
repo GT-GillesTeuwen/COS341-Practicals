@@ -1,7 +1,11 @@
+package Visualisation;
 
 import java.awt.geom.*;
 import java.util.Map;
 import java.util.Stack;
+
+import Nodes.Node;
+import Nodes.nNode;
 
 public class DrawableNode {
     public static final int SIZE = 30;
@@ -9,15 +13,15 @@ public class DrawableNode {
     Node parent;
     Node node;
     Node[] children;
-    Stack<double[]> adjustments=new Stack();
+    Stack<double[]> adjustments = new Stack();
 
     public DrawableNode(int initialX, int initialY, Node node) {
         this.ellipse2d = new Ellipse2D.Double(initialX, initialY, SIZE, SIZE);
         this.node = node;
-        if(node instanceof nNode){
-            this.children=((nNode)(node)).getChildren();
-        }else{
-            this.children=new Node[0];
+        if (node instanceof nNode) {
+            this.children = ((nNode) (node)).getChildren();
+        } else {
+            this.children = new Node[0];
         }
     }
 
@@ -29,11 +33,11 @@ public class DrawableNode {
         return parent;
     }
 
-    public void pushAdjust(double[] adjust){
+    public void pushAdjust(double[] adjust) {
         adjustments.push(adjust);
     }
 
-    public double[] popAdjust(){
+    public double[] popAdjust() {
         return adjustments.pop();
     }
 

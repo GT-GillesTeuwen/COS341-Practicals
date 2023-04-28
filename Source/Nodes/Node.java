@@ -1,8 +1,9 @@
+package Nodes;
 
 public class Node {
-    private String displayName;
-    private int id;
-    private static int idCount = 0;
+    protected String displayName;
+    protected int id;
+    protected static int idCount = 0;
 
     public Node(String displayName) {
         this.displayName = displayName;
@@ -17,7 +18,11 @@ public class Node {
         return id;
     }
 
-    public Node reduce() {
+    public Node reduceOneStepDerivations() {
+        return null;
+    }
+
+    public Node reduceType() {
         return null;
     }
 }

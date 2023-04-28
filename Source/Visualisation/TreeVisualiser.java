@@ -1,7 +1,13 @@
+package Visualisation;
+
 import java.awt.*;
 import java.awt.event.*;
 import java.util.*;
 import javax.swing.*;
+
+import Nodes.Node;
+import Nodes.tNode;
+
 import java.awt.geom.*;
 
 public class TreeVisualiser extends JPanel implements MouseListener, MouseMotionListener, MouseWheelListener {
@@ -30,7 +36,6 @@ public class TreeVisualiser extends JPanel implements MouseListener, MouseMotion
         }
         setParents();
 
-
         colour = Color.BLACK;
 
         setFocusable(true);
@@ -40,10 +45,10 @@ public class TreeVisualiser extends JPanel implements MouseListener, MouseMotion
         this.requestFocus();
     }
 
-    private void setParents(){
+    private void setParents() {
         for (DrawableNode drawableNode : squares) {
             for (Node child : drawableNode.getChildren()) {
-                DrawableNode childNode=getDrawableState(child);
+                DrawableNode childNode = getDrawableState(child);
                 childNode.setParent(drawableNode.getNode());
             }
         }
@@ -58,26 +63,26 @@ public class TreeVisualiser extends JPanel implements MouseListener, MouseMotion
             Force[] totalForces = new Force[squares.length];
             for (int i = 0; i < squares.length; i++) {
                 totalForces[i] = calculateForceForNode(squares[i]);
-                if(totalForces[i].getMagnitude()>maxForce.getMagnitude()){
-                    maxForce=totalForces[i];
+                if (totalForces[i].getMagnitude() > maxForce.getMagnitude()) {
+                    maxForce = totalForces[i];
                 }
             }
             for (int i = 0; i < squares.length; i++) {
                 applyForceToNode(squares[i], totalForces[i], cooling(t));
                 repaint();
             }
-            t=t+1;
+            t = t + 1;
             repaint();
-            
+
         } while (t < maxIterations && maxForce.getMagnitude() > forceThreshold);
     }
 
     private void applyForceToNode(DrawableNode drawableNode, Force force, double cooling) {
-        double chX = force.getxComponent()*cooling + drawableNode.getEllipse2d().getMinX();
-        double chY = force.getyComponent()*cooling + drawableNode.getEllipse2d().getMinY();
+        double chX = force.getxComponent() * cooling + drawableNode.getEllipse2d().getMinX();
+        double chY = force.getyComponent() * cooling + drawableNode.getEllipse2d().getMinY();
         drawableNode.getEllipse2d().setFrame(chX, chY,
-        drawableNode.getEllipse2d().getHeight(),
-        drawableNode.getEllipse2d().getWidth());
+                drawableNode.getEllipse2d().getHeight(),
+                drawableNode.getEllipse2d().getWidth());
     }
 
     private Force calculateForceForNode(DrawableNode node) {
@@ -89,15 +94,15 @@ public class TreeVisualiser extends JPanel implements MouseListener, MouseMotion
             DrawableNode child = getDrawableState(node.getChildren()[i]);
             allForces.add(calculateAttrForceBetweenTwoNodes(node, child));
         }
-        if(node.getParent()!=null){
-            DrawableNode parent=getDrawableState(node.getParent());
+        if (node.getParent() != null) {
+            DrawableNode parent = getDrawableState(node.getParent());
             allForces.add(calculateAttrForceBetweenTwoNodes(node, parent));
         }
         return new Force(allForces);
     }
 
-    private double max(double d1, double d2){
-        if(d1>d2){
+    private double max(double d1, double d2) {
+        if (d1 > d2) {
             return d1;
         }
         return d2;
@@ -108,67 +113,65 @@ public class TreeVisualiser extends JPanel implements MouseListener, MouseMotion
             return new Force(0, 0);
         }
 
-        double xDiff=(n1.getEllipse2d().getCenterX() - n2.getEllipse2d().getCenterX());
-        if(xDiff>0 && xDiff<DISTLIMIT){
-            xDiff=DISTLIMIT;
+        double xDiff = (n1.getEllipse2d().getCenterX() - n2.getEllipse2d().getCenterX());
+        if (xDiff > 0 && xDiff < DISTLIMIT) {
+            xDiff = DISTLIMIT;
         }
-        if(xDiff<0 && xDiff>-DISTLIMIT){
-            xDiff=-DISTLIMIT;
+        if (xDiff < 0 && xDiff > -DISTLIMIT) {
+            xDiff = -DISTLIMIT;
         }
-        double xComponent = (1.0/xDiff);
-        if(xDiff==0){
-            xComponent=0;
+        double xComponent = (1.0 / xDiff);
+        if (xDiff == 0) {
+            xComponent = 0;
         }
 
-        double yDiff=n1.getEllipse2d().getCenterY() - n2.getEllipse2d().getCenterY();
-        if(yDiff>0 && yDiff<DISTLIMIT){
-            yDiff=DISTLIMIT;
+        double yDiff = n1.getEllipse2d().getCenterY() - n2.getEllipse2d().getCenterY();
+        if (yDiff > 0 && yDiff < DISTLIMIT) {
+            yDiff = DISTLIMIT;
         }
-        if(yDiff<0 && yDiff>-DISTLIMIT){
-            yDiff=-DISTLIMIT;
+        if (yDiff < 0 && yDiff > -DISTLIMIT) {
+            yDiff = -DISTLIMIT;
         }
-        double yComponent = (1.0/yDiff);
-        if(yDiff==0){
-            yComponent=0;
+        double yComponent = (1.0 / yDiff);
+        if (yDiff == 0) {
+            yComponent = 0;
         }
-        
-        return new Force(600*xComponent, 600*yComponent);
+
+        return new Force(600 * xComponent, 600 * yComponent);
     }
 
-    double DISTLIMIT=1;
+    double DISTLIMIT = 1;
 
     private Force calculateAttrForceBetweenTwoNodes(DrawableNode n1, DrawableNode n2) {
         if (n1 == n2) {
             return new Force(0, 0);
         }
 
-        double xDiff=(n1.getEllipse2d().getCenterX() - n2.getEllipse2d().getCenterX());
-        if(xDiff>0 && xDiff<DISTLIMIT){
-            xDiff=DISTLIMIT;
+        double xDiff = (n1.getEllipse2d().getCenterX() - n2.getEllipse2d().getCenterX());
+        if (xDiff > 0 && xDiff < DISTLIMIT) {
+            xDiff = DISTLIMIT;
         }
-        if(xDiff<0 && xDiff>-DISTLIMIT){
-            xDiff=-DISTLIMIT;
+        if (xDiff < 0 && xDiff > -DISTLIMIT) {
+            xDiff = -DISTLIMIT;
         }
         double xComponent = -(xDiff);
-        if(xDiff==0){
-            xComponent=0;
+        if (xDiff == 0) {
+            xComponent = 0;
         }
 
-        double yDiff=n1.getEllipse2d().getCenterY() - n2.getEllipse2d().getCenterY();
-        if(yDiff>0 && yDiff<DISTLIMIT){
-            yDiff=DISTLIMIT;
+        double yDiff = n1.getEllipse2d().getCenterY() - n2.getEllipse2d().getCenterY();
+        if (yDiff > 0 && yDiff < DISTLIMIT) {
+            yDiff = DISTLIMIT;
         }
-        if(yDiff<0 && yDiff>-DISTLIMIT){
-            yDiff=-DISTLIMIT;
+        if (yDiff < 0 && yDiff > -DISTLIMIT) {
+            yDiff = -DISTLIMIT;
         }
         double yComponent = -(yDiff);
-        if(yDiff==0){
-            yComponent=0;
+        if (yDiff == 0) {
+            yComponent = 0;
         }
-        return new Force(0.1*xComponent, 0.1*yComponent);
+        return new Force(0.1 * xComponent, 0.1 * yComponent);
     }
-
-
 
     public double cooling(int t) {
         return Math.exp(((-t) * 1.0) / 10.0);
@@ -206,7 +209,7 @@ public class TreeVisualiser extends JPanel implements MouseListener, MouseMotion
             int c = 0;
 
             // cater for arrow to initial node
-            
+
             // Draw transitions
             for (Node op : squares[i].getChildren()) {
 
@@ -396,14 +399,14 @@ public class TreeVisualiser extends JPanel implements MouseListener, MouseMotion
     @Override
     public void mouseWheelMoved(MouseWheelEvent e) {
         // try {
-        //     for (int i = 0; i < squares.length; i++) {
-        //         forceDirectedArrange(5, 2);
-        //         repaint();
-        //         new Thread().wait(1000);
-        //     }
+        // for (int i = 0; i < squares.length; i++) {
+        // forceDirectedArrange(5, 2);
+        // repaint();
+        // new Thread().wait(1000);
+        // }
         // } catch (InterruptedException e1) {
-        //     // TODO Auto-generated catch block
-        //     e1.printStackTrace();
+        // // TODO Auto-generated catch block
+        // e1.printStackTrace();
         // }
         int notches = e.getWheelRotation();
         double mx = e.getX();

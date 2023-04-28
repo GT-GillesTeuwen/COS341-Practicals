@@ -1,3 +1,5 @@
+package Lexing;
+
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -27,14 +29,13 @@ public class Lexer {
         allTokens = new ArrayList<>();
         try (Stream<String> st = Files.lines(Paths.get(filePath))) {
             st.forEach(input::append);
-            String trimmed=input.toString().trim();
-            input=new StringBuilder(trimmed);
+            String trimmed = input.toString().trim();
+            input = new StringBuilder(trimmed);
         } catch (IOException ex) {
             hasMore = false;
             errorMessage = "Could not read file: " + filePath;
             return;
         }
-        
 
         moveAhead();
     }
@@ -57,7 +58,6 @@ public class Lexer {
         }
     }
 
-
     private boolean findNextToken() throws Exception {
         for (Token t : Token.values()) {
             int end = t.endOfMatch(input.toString());
@@ -74,7 +74,7 @@ public class Lexer {
                         if (input.toString().length() == 0) {
                             throw new Exception("String error: Too short\tContent: " + content);
                         }
-                        
+
                         lexema = input.substring(0, 1);
                         if (lexema.equals("\"")) {
                             throw new Exception("String error: Too short\tContent: " + content);
