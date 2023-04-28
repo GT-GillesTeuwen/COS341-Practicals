@@ -79,14 +79,16 @@ public class NodeVisualiser extends JPanel {
             data[3][1] = children;
 
             data[4][0] = "Parent ID";
-            data[4][1] = drawableNode.getParent().getId() + "";
+            if (drawableNode.getParent() != null) {
+
+                data[4][1] = drawableNode.getParent().getId() + "";
+            }
         }
         JTable table = new JTable(data, cols);
         JPanel p = new JPanel();
         p.add(table);
         table.setPreferredSize(new Dimension(200, data.length * 20));
         this.setSize(200, data.length * 20);
-        System.out.println(table.getWidth() + " " + table.getHeight());
         this.add(p);
         SpringLayout layout = new SpringLayout();
         this.setLayout(layout);

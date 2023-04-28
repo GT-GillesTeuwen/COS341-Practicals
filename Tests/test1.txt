@@ -1,12 +1,15 @@
-cp1,
+cp4,
 p1{
-    n1:=0.00 *_The total sum_*;
-    n1:=a(n1,1.00);
-    n1:=0.00 *_The total sum_*,
+    cp2,
     p3{
+        cp3,
+        p1{
+            cp1
+        }
+    },
+    p425{
     n1:=0.00 *_The total sum_*
-    
-}
+    }
 },
 p2{
     n1:=0.00 *_The total sum_*

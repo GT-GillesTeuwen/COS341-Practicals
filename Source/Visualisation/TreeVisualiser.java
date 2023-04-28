@@ -365,6 +365,7 @@ public class TreeVisualiser extends JPanel implements MouseListener, MouseMotion
             if (selected == null) {
                 return;
             }
+            System.out.println(selected);
             NodeVisualiser n = new NodeVisualiser(selected);
             JFrame nodeFrame = new JFrame("Node");
             nodeFrame.setContentPane(n);

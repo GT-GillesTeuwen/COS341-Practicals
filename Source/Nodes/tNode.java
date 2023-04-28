@@ -11,7 +11,7 @@ public class tNode extends Node {
     public tNode(Symbol symbol) {
         super(symbol.getSymbol());
         this.symbol = symbol;
-        this.color = Color.RED;
+        this.color = Color.BLUE;
     }
 
     public tNode() {

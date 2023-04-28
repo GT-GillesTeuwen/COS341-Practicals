@@ -4,13 +4,19 @@ import java.awt.Color;
 
 import Nodes.Node;
 import Nodes.nNode;
+import Nodes.tNode;
 
 public class ReducePROC extends NodeReductionStrategy {
     public void handle(nNode node) {
         String data = "";
         int i = 0;
         while (!node.getChildren()[i].getDisplayName().equals("{")) {
-            data += node.getChildren()[i].getDisplayName();
+            if (node.getChildren()[i] instanceof tNode) {
+
+                data += node.getChildren()[i].getDisplayName();
+            } else {
+                data += ((nNode) node.getChildren()[i]).getData();
+            }
             i++;
         }
         i++;

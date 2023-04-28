@@ -7,26 +7,77 @@ import java.util.Set;
 import Nodes.Node;
 import Nodes.nNode;
 import Nodes.tNode;
+import Scoping.ScopeTable;
 
 public class Tree {
     private Node root;
     private ArrayList<Node> allNodes;
     private int[] nodesPerLevel;
+    private ScopeTable scopeTable;
 
     public Tree(Node root) throws Exception {
         if (root == null) {
             throw new Exception("Tree Error: No tree to build");
         }
+        scopeTable = new ScopeTable();
+        allNodes = new ArrayList<>();
+
         root.reduceOneStepDerivations();
         root.reduceType();
         this.root = root;
-        allNodes = new ArrayList<>();
+
         int depth = maxDepth();
         nodesPerLevel = new int[depth];
         nodesPerLevel[0] = 1;
         countLevel(root, 1);
-        for (int i = 1; i <= depth; i++)
+        for (int i = 1; i <= depth; i++) {
             addLevel(root, i);
+        }
+
+        scopeTable.setCurrentScope(root);
+        scopeTable.add(root);
+        setChildrenScopes(root);
+        checkCallScopes(root);
+        scopeTable.unusedProcedures();
+    }
+
+    private void setChildrenScopes(Node root) {
+        if (root instanceof nNode) {
+            if (root.getDisplayName().equals("PROC")) {
+                scopeTable.setCurrentScope(root);
+            }
+            nNode nodeN = (nNode) root;
+            for (int i = 0; i < nodeN.getChildren().length; i++) {
+                if (nodeN.getChildren()[i].getDisplayName().contains("VAR")
+                        || nodeN.getChildren()[i].getDisplayName().contains("STRINGV")) {
+                    scopeTable.add(nodeN.getChildren()[i], 0);
+                } else {
+
+                    scopeTable.add(nodeN.getChildren()[i]);
+                }
+            }
+            for (int i = 0; i < nodeN.getChildren().length; i++) {
+                setChildrenScopes(nodeN.getChildren()[i]);
+            }
+
+        }
+
+    }
+
+    public void checkCallScopes(Node root) {
+        if (root instanceof nNode) {
+
+            nNode nodeN = (nNode) root;
+            if (root.getDisplayName().equals("CALL")) {
+                if (!scopeTable.inScope(nodeN.getData(), nodeN.getId(), nodeN)) {
+
+                }
+            }
+            for (int i = 0; i < nodeN.getChildren().length; i++) {
+                checkCallScopes(nodeN.getChildren()[i]);
+            }
+
+        }
     }
 
     public void addLevel(Node root, int level) {
@@ -149,6 +200,10 @@ public class Tree {
 
     public String toTutorXML() {
         return printNonTerminal((nNode) root, 0);
+    }
+
+    public ScopeTable getScopeTable() {
+        return scopeTable;
     }
 
     public String printNonTerminal(nNode node, int indentation) {

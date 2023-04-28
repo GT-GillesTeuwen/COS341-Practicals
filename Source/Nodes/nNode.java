@@ -155,4 +155,14 @@ public class nNode extends Node {
         }
         return updatedChildren;
     }
+
+    public void setSubtreeColour(Color colour) {
+        this.setColor(colour);
+        for (int i = 0; i < children.length; i++) {
+            children[i].setColor(colour);
+            if (children[i] instanceof nNode) {
+                ((nNode) children[i]).setSubtreeColour(colour);
+            }
+        }
+    }
 }
