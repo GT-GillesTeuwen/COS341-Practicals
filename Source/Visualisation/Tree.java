@@ -76,10 +76,15 @@ public class Tree {
     }
 
     private int getDepth(Node node) {
-        if (node instanceof tNode)
+        if (node instanceof tNode) {
             return 1;
+        }
+
         else {
             nNode nodeN = (nNode) node;
+            if (nodeN.getChildren().length == 0) {
+                return 1;
+            }
             /* compute the depth of each subtree */
             int[] depths = new int[nodeN.getChildren().length];
             for (int i = 0; i < depths.length; i++) {

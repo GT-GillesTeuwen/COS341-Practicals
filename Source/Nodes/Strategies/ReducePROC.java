@@ -20,5 +20,9 @@ public class ReducePROC extends NodeReductionStrategy {
             newChildren[j] = node.getChildren()[j + i];
         }
         node.setChildren(newChildren);
+        // Prune PROGR nodes
+        if (node.getChildren().length == 1 && node.getChildren()[0].getDisplayName().equals("PROGR")) {
+            node.setChildren(((nNode) (node.getChildren()[0])).getChildren());
+        }
     }
 }

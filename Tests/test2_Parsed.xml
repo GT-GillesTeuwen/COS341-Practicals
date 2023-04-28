@@ -1,0 +1,36 @@
+<Tree>
+	<Node>
+		<ID>54</ID>
+		<Contents>PROGR</Contents>
+		<Children>
+			<ChildID>51</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>51</ID>
+		<Contents>ALGO</Contents>
+		<Children>
+			<ChildID>45</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>45</ID>
+		<Contents>ASSIGN</Contents>
+		<Children>
+			<ChildID>18</ChildID>
+			<ChildID>41</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>18</ID>
+		<Contents>NUMVAR</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>41</ID>
+		<Contents>POS</Contents>
+		<Children>
+		</Children>
+	</Node>
+</Tree>

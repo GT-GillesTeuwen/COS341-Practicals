@@ -1,51 +1,69 @@
 <Tree>
 	<Node>
-		<ID>79</ID>
+		<ID>297</ID>
 		<Contents>PROGR</Contents>
 		<Children>
+			<ChildID>12</ChildID>
+			<ChildID>296</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>12</ID>
+		<Contents>ALGO</Contents>
+		<Children>
 			<ChildID>6</ChildID>
-			<ChildID>78</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>296</ID>
+		<Contents>PROCDEFS</Contents>
+		<Children>
+			<ChildID>229</ChildID>
+			<ChildID>292</ChildID>
 		</Children>
 	</Node>
 	<Node>
 		<ID>6</ID>
 		<Contents>CALL</Contents>
 		<Children>
-			<ChildID>0</ChildID>
-			<ChildID>1</ChildID>
 		</Children>
 	</Node>
 	<Node>
-		<ID>78</ID>
-		<Contents>PROCDEFS</Contents>
-		<Children>
-			<ChildID>13</ChildID>
-			<ChildID>75</ChildID>
-		</Children>
-	</Node>
-	<Node>
-		<ID>0</ID>
-		<Contents>cp</Contents>
-		<Children>
-		</Children>
-	</Node>
-	<Node>
-		<ID>1</ID>
-		<Contents>1</Contents>
-		<Children>
-		</Children>
-	</Node>
-	<Node>
-		<ID>13</ID>
-		<Contents>,</Contents>
-		<Children>
-		</Children>
-	</Node>
-	<Node>
-		<ID>75</ID>
+		<ID>229</ID>
 		<Contents>PROC</Contents>
 		<Children>
+			<ChildID>160</ChildID>
+			<ChildID>226</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>292</ID>
+		<Contents>PROC</Contents>
+		<Children>
+			<ChildID>287</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>160</ID>
+		<Contents>ALGO</Contents>
+		<Children>
 			<ChildID>33</ChildID>
+			<ChildID>102</ChildID>
+			<ChildID>119</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>226</ID>
+		<Contents>PROCDEFS</Contents>
+		<Children>
+			<ChildID>223</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>287</ID>
+		<Contents>ALGO</Contents>
+		<Children>
+			<ChildID>250</ChildID>
 		</Children>
 	</Node>
 	<Node>
@@ -57,6 +75,37 @@
 		</Children>
 	</Node>
 	<Node>
+		<ID>102</ID>
+		<Contents>ASSIGN</Contents>
+		<Children>
+			<ChildID>75</ChildID>
+			<ChildID>101</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>119</ID>
+		<Contents>ASSIGN</Contents>
+		<Children>
+			<ChildID>113</ChildID>
+			<ChildID>115</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>223</ID>
+		<Contents>PROC</Contents>
+		<Children>
+			<ChildID>218</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>250</ID>
+		<Contents>ASSIGN</Contents>
+		<Children>
+			<ChildID>244</ChildID>
+			<ChildID>246</ChildID>
+		</Children>
+	</Node>
+	<Node>
 		<ID>27</ID>
 		<Contents>NUMVAR</Contents>
 		<Children>
@@ -64,6 +113,83 @@
 	</Node>
 	<Node>
 		<ID>29</ID>
+		<Contents>0.00</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>75</ID>
+		<Contents>NUMVAR</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>101</ID>
+		<Contents>NUMEXPR</Contents>
+		<Children>
+			<ChildID>84</ChildID>
+			<ChildID>97</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>113</ID>
+		<Contents>NUMVAR</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>115</ID>
+		<Contents>0.00</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>218</ID>
+		<Contents>ALGO</Contents>
+		<Children>
+			<ChildID>181</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>244</ID>
+		<Contents>NUMVAR</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>246</ID>
+		<Contents>0.00</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>84</ID>
+		<Contents>NUMVAR</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>97</ID>
+		<Contents>POS</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>181</ID>
+		<Contents>ASSIGN</Contents>
+		<Children>
+			<ChildID>175</ChildID>
+			<ChildID>177</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>175</ID>
+		<Contents>NUMVAR</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>177</ID>
 		<Contents>0.00</Contents>
 		<Children>
 		</Children>

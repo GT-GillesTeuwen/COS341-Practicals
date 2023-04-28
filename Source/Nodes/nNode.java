@@ -2,11 +2,26 @@ package Nodes;
 
 import java.awt.Color;
 import java.util.ArrayList;
-
-import Nodes.Strategies.ReduceNUMVAR;
 import Nodes.Strategies.ReducePROC;
+import Nodes.Strategies.ReducePROCDEFS;
+import Nodes.Strategies.ReduceSEQ;
+import Nodes.Strategies.ReduceSTRI;
+import Nodes.Strategies.ReduceTEXT;
+import Nodes.Strategies.ReduceVALUE;
+import Nodes.Strategies.ReduceVAR;
 import Nodes.Strategies.NodeReductionStrategy;
+import Nodes.Strategies.ReduceALGO;
 import Nodes.Strategies.ReduceASSIGN;
+import Nodes.Strategies.ReduceCALL;
+import Nodes.Strategies.ReduceCMPR;
+import Nodes.Strategies.ReduceDIGITS;
+import Nodes.Strategies.ReduceELSE;
+import Nodes.Strategies.ReduceFLOW;
+import Nodes.Strategies.ReduceINPUT;
+import Nodes.Strategies.ReduceINT;
+import Nodes.Strategies.ReduceLOGIC;
+import Nodes.Strategies.ReduceNUMEXPR;
+import Nodes.Strategies.ReducePOSandNEG;
 
 public class nNode extends Node {
     private boolean allowComments = false;
@@ -40,10 +55,10 @@ public class nNode extends Node {
             children[i] = children[i].reduceOneStepDerivations();
         }
         children = reworkChildren();
-        if (children.length == 0) {
+        if (children.length == 0 && data.equals("") && !displayName.equals("ALGO")) {
             return null;
         }
-        if (children.length == 1) {
+        if (children.length == 1 && data.equals("") && !displayName.equals("ALGO")) {
             return children[0];
         }
         return this;
@@ -56,15 +71,66 @@ public class nNode extends Node {
         }
         NodeReductionStrategy reductionStrategy = new NodeReductionStrategy();
         switch (this.displayName) {
-            case "NUMVAR":
-                reductionStrategy = new ReduceNUMVAR();
+            case "PROCDEFS":
+                reductionStrategy = new ReducePROCDEFS();
+                break;
+            case "PROC":
+                reductionStrategy = new ReducePROC();
+                break;
+            case "DIGITS":
+                reductionStrategy = new ReduceDIGITS();
+                break;
+            case "ALGO":
+                reductionStrategy = new ReduceALGO();
+                break;
+            case "SEQ":
+                reductionStrategy = new ReduceSEQ();
+                break;
+            case "CALL":
+                reductionStrategy = new ReduceCALL();
                 break;
             case "ASSIGN":
                 reductionStrategy = new ReduceASSIGN();
                 break;
-
-            case "PROC":
-                reductionStrategy = new ReducePROC();
+            case "LOOP":
+            case "BRANCH":
+                reductionStrategy = new ReduceFLOW();
+                break;
+            case "ELSE":
+                reductionStrategy = new ReduceELSE();
+                break;
+            case "NUMVAR":
+            case "BOOLVAR":
+            case "STRINGV":
+                reductionStrategy = new ReduceVAR();
+                break;
+            case "NUMEXPR":
+                reductionStrategy = new ReduceNUMEXPR();
+                break;
+            case "POS":
+            case "NEG":
+                reductionStrategy = new ReducePOSandNEG();
+                break;
+            case "INT":
+                reductionStrategy = new ReduceINT();
+                break;
+            case "LOGIC":
+                reductionStrategy = new ReduceLOGIC();
+                break;
+            case "CMPR":
+                reductionStrategy = new ReduceCMPR();
+                break;
+            case "STRI":
+                reductionStrategy = new ReduceSTRI();
+                break;
+            case "INPUT":
+                reductionStrategy = new ReduceINPUT();
+                break;
+            case "VALUE":
+                reductionStrategy = new ReduceVALUE();
+                break;
+            case "TEXT":
+                reductionStrategy = new ReduceTEXT();
                 break;
 
             default:
