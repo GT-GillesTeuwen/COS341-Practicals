@@ -18,6 +18,7 @@ public class Tree {
             throw new Exception("Tree Error: No tree to build");
         }
         root.reduceOneStepDerivations();
+        root.reduceType();
         this.root = root;
         allNodes = new ArrayList<>();
         int depth = maxDepth();

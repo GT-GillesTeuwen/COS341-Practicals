@@ -1,18 +1,38 @@
 package Nodes;
 
+import java.awt.Color;
 import java.util.ArrayList;
+
+import Nodes.Strategies.ReduceNUMVAR;
+import Nodes.Strategies.ReducePROC;
+import Nodes.Strategies.NodeReductionStrategy;
+import Nodes.Strategies.ReduceASSIGN;
 
 public class nNode extends Node {
     private boolean allowComments = false;
     private Node[] children;
+    private String data;
 
     public nNode(String displayName, Node[] children) {
         super(displayName);
         this.children = children;
+        data = "";
     }
 
     public Node[] getChildren() {
         return children;
+    }
+
+    public String getData() {
+        return data;
+    }
+
+    public void setData(String data) {
+        this.data = data;
+    }
+
+    public void setChildren(Node[] nodes) {
+        this.children = nodes;
     }
 
     public Node reduceOneStepDerivations() {
@@ -31,14 +51,26 @@ public class nNode extends Node {
     }
 
     public Node reduceType() {
+        for (int i = 0; i < children.length; i++) {
+            children[i].reduceType();
+        }
+        NodeReductionStrategy reductionStrategy = new NodeReductionStrategy();
         switch (this.displayName) {
             case "NUMVAR":
+                reductionStrategy = new ReduceNUMVAR();
+                break;
+            case "ASSIGN":
+                reductionStrategy = new ReduceASSIGN();
+                break;
 
+            case "PROC":
+                reductionStrategy = new ReducePROC();
                 break;
 
             default:
                 break;
         }
+        reductionStrategy.handle(this);
         return this;
 
     }

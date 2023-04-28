@@ -1,6 +1,8 @@
 
 package Nodes;
 
+import java.awt.Color;
+
 import Lexing.Symbol;
 
 public class tNode extends Node {
@@ -9,6 +11,7 @@ public class tNode extends Node {
     public tNode(Symbol symbol) {
         super(symbol.getSymbol());
         this.symbol = symbol;
+        this.color = Color.RED;
     }
 
     public tNode() {

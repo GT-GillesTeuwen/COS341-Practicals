@@ -25,7 +25,7 @@ import Visualisation.Tree;
 import Visualisation.TreeVisualiser;
 
 class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // JFileChooser j = new JFileChooser(FileSystemView.getFileSystemView());
         // j.setDialogTitle("Choose a text file to parse");
         // FileNameExtensionFilter filter = new FileNameExtensionFilter("TEXT FILES",
@@ -70,35 +70,36 @@ class Main {
             System.out.println(e.toString().replace("java.lang.Exception:", ""));
 
         }
-        try {
-            Tree tree = new Tree(n);
-            xmlWriter.implement.writeXml(textFileName, tree.toSpecXML());
-            JFrame frame = new JFrame("SpringLayout");
-            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            JScrollPane scroll = new JScrollPane();
-            Container contentPane = frame.getContentPane();
+        // try {
+        Tree tree = new Tree(n);
+        xmlWriter.implement.writeXml(textFileName, tree.toSpecXML());
+        JFrame frame = new JFrame("SpringLayout");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        JScrollPane scroll = new JScrollPane();
+        Container contentPane = frame.getContentPane();
 
-            SpringLayout layout = new SpringLayout();
-            JPanel mainPanel;
-            TreeVisualiser v = new TreeVisualiser(tree);
-            mainPanel = v;
+        SpringLayout layout = new SpringLayout();
+        JPanel mainPanel;
+        TreeVisualiser v = new TreeVisualiser(tree);
+        mainPanel = v;
 
-            mainPanel.setLayout(layout);
-            contentPane.setLayout(new BorderLayout());
+        mainPanel.setLayout(layout);
+        contentPane.setLayout(new BorderLayout());
 
-            mainPanel.setPreferredSize(new Dimension(1600, v.getDepth()));
-            scroll.setPreferredSize(new Dimension(1600, 500));
-            scroll.setViewportView(mainPanel);
-            contentPane.add(scroll);
-            // mainWindow.add(contentPane);
-            frame.setSize(500, 600);
-            frame.setVisible(true);
-            JOptionPane.showMessageDialog(null,
-                    "Parsing complete, find the xml file at " + textFileName.replace(".txt", "_Parsed") + ".xml");
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e.toString().replace("java.lang.Exception:", ""));
-            System.out.println(e.toString().replace("java.lang.Exception:", ""));
+        mainPanel.setPreferredSize(new Dimension(1600, v.getDepth()));
+        scroll.setPreferredSize(new Dimension(1600, 500));
+        scroll.setViewportView(mainPanel);
+        contentPane.add(scroll);
+        // mainWindow.add(contentPane);
+        frame.setSize(500, 600);
+        frame.setVisible(true);
+        JOptionPane.showMessageDialog(null,
+                "Parsing complete, find the xml file at " + textFileName.replace(".txt", "_Parsed") + ".xml");
+        // } catch (Exception e) {
+        // JOptionPane.showMessageDialog(null,
+        // e.toString().replace("java.lang.Exception:", ""));
+        // System.out.println(e.toString().replace("java.lang.Exception:", ""));
 
-        }
+        // }
     }
 }

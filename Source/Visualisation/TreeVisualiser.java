@@ -101,13 +101,6 @@ public class TreeVisualiser extends JPanel implements MouseListener, MouseMotion
         return new Force(allForces);
     }
 
-    private double max(double d1, double d2) {
-        if (d1 > d2) {
-            return d1;
-        }
-        return d2;
-    }
-
     private Force calculateRepForceBetweenTwoNodes(DrawableNode n1, DrawableNode n2) {
         if (n1 == n2) {
             return new Force(0, 0);
@@ -192,11 +185,10 @@ public class TreeVisualiser extends JPanel implements MouseListener, MouseMotion
         for (int i = 0; i < squares.length; i++) {
 
             // Draw state circle
+            g2.setColor(squares[i].node.getColor());
             if (squares[i].getNode() instanceof tNode) {
-                g2.setColor(Color.RED);
                 g2.setFont(new Font("Arial", Font.PLAIN, 14));
             } else {
-                g2.setColor(Color.BLACK);
                 g2.setFont(new Font("Arial", Font.PLAIN, 8));
             }
             g2.draw(squares[i].getEllipse2d());
@@ -369,7 +361,18 @@ public class TreeVisualiser extends JPanel implements MouseListener, MouseMotion
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        // TODO Auto-generated method stub
+        try {
+            NodeVisualiser n = new NodeVisualiser(selected);
+            JFrame nodeFrame = new JFrame("Node");
+            nodeFrame.setContentPane(n);
+            nodeFrame.setLocation(e.getX(), e.getY());
+            nodeFrame.setVisible(true);
+            nodeFrame.setSize(250, 200);
+            n.repaint();
+        } catch (Exception e1) {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+        }
     }
 
     @Override
