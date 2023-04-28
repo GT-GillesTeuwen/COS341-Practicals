@@ -1,10 +1,10 @@
 <Tree>
 	<Node>
-		<ID>186</ID>
+		<ID>79</ID>
 		<Contents>PROGR</Contents>
 		<Children>
 			<ChildID>6</ChildID>
-			<ChildID>185</ChildID>
+			<ChildID>78</ChildID>
 		</Children>
 	</Node>
 	<Node>
@@ -16,11 +16,11 @@
 		</Children>
 	</Node>
 	<Node>
-		<ID>185</ID>
+		<ID>78</ID>
 		<Contents>PROCDEFS</Contents>
 		<Children>
 			<ChildID>13</ChildID>
-			<ChildID>182</ChildID>
+			<ChildID>75</ChildID>
 		</Children>
 	</Node>
 	<Node>
@@ -42,14 +42,14 @@
 		</Children>
 	</Node>
 	<Node>
-		<ID>182</ID>
+		<ID>75</ID>
 		<Contents>PROC</Contents>
 		<Children>
 			<ChildID>14</ChildID>
 			<ChildID>15</ChildID>
 			<ChildID>20</ChildID>
-			<ChildID>177</ChildID>
-			<ChildID>181</ChildID>
+			<ChildID>33</ChildID>
+			<ChildID>74</ChildID>
 		</Children>
 	</Node>
 	<Node>
@@ -71,181 +71,48 @@
 		</Children>
 	</Node>
 	<Node>
-		<ID>177</ID>
-		<Contents>ALGO</Contents>
-		<Children>
-			<ChildID>90</ChildID>
-			<ChildID>176</ChildID>
-		</Children>
-	</Node>
-	<Node>
-		<ID>181</ID>
-		<Contents>}</Contents>
-		<Children>
-		</Children>
-	</Node>
-	<Node>
-		<ID>90</ID>
-		<Contents>LOOP</Contents>
-		<Children>
-			<ChildID>21</ChildID>
-			<ChildID>22</ChildID>
-			<ChildID>25</ChildID>
-			<ChildID>82</ChildID>
-			<ChildID>89</ChildID>
-		</Children>
-	</Node>
-	<Node>
-		<ID>176</ID>
-		<Contents>SEQ</Contents>
-		<Children>
-			<ChildID>125</ChildID>
-			<ChildID>138</ChildID>
-		</Children>
-	</Node>
-	<Node>
-		<ID>21</ID>
-		<Contents>w(</Contents>
-		<Children>
-		</Children>
-	</Node>
-	<Node>
-		<ID>22</ID>
-		<Contents>T</Contents>
-		<Children>
-		</Children>
-	</Node>
-	<Node>
-		<ID>25</ID>
-		<Contents>){</Contents>
-		<Children>
-		</Children>
-	</Node>
-	<Node>
-		<ID>82</ID>
-		<Contents>LOOP</Contents>
-		<Children>
-			<ChildID>26</ChildID>
-			<ChildID>27</ChildID>
-			<ChildID>30</ChildID>
-			<ChildID>43</ChildID>
-			<ChildID>81</ChildID>
-		</Children>
-	</Node>
-	<Node>
-		<ID>89</ID>
-		<Contents>}</Contents>
-		<Children>
-		</Children>
-	</Node>
-	<Node>
-		<ID>125</ID>
-		<Contents>;</Contents>
-		<Children>
-		</Children>
-	</Node>
-	<Node>
-		<ID>138</ID>
+		<ID>33</ID>
 		<Contents>ASSIGN</Contents>
 		<Children>
-			<ChildID>132</ChildID>
-			<ChildID>133</ChildID>
-			<ChildID>134</ChildID>
+			<ChildID>27</ChildID>
+			<ChildID>28</ChildID>
+			<ChildID>29</ChildID>
 		</Children>
 	</Node>
 	<Node>
-		<ID>26</ID>
-		<Contents>w(</Contents>
+		<ID>74</ID>
+		<Contents>}</Contents>
 		<Children>
 		</Children>
 	</Node>
 	<Node>
 		<ID>27</ID>
-		<Contents>T</Contents>
-		<Children>
-		</Children>
-	</Node>
-	<Node>
-		<ID>30</ID>
-		<Contents>){</Contents>
-		<Children>
-		</Children>
-	</Node>
-	<Node>
-		<ID>43</ID>
-		<Contents>ASSIGN</Contents>
-		<Children>
-			<ChildID>37</ChildID>
-			<ChildID>38</ChildID>
-			<ChildID>39</ChildID>
-		</Children>
-	</Node>
-	<Node>
-		<ID>81</ID>
-		<Contents>}</Contents>
-		<Children>
-		</Children>
-	</Node>
-	<Node>
-		<ID>132</ID>
 		<Contents>NUMVAR</Contents>
 		<Children>
-			<ChildID>126</ChildID>
-			<ChildID>127</ChildID>
+			<ChildID>21</ChildID>
+			<ChildID>22</ChildID>
 		</Children>
 	</Node>
 	<Node>
-		<ID>133</ID>
+		<ID>28</ID>
 		<Contents>:=</Contents>
 		<Children>
 		</Children>
 	</Node>
 	<Node>
-		<ID>134</ID>
+		<ID>29</ID>
 		<Contents>0.00</Contents>
 		<Children>
 		</Children>
 	</Node>
 	<Node>
-		<ID>37</ID>
-		<Contents>NUMVAR</Contents>
-		<Children>
-			<ChildID>31</ChildID>
-			<ChildID>32</ChildID>
-		</Children>
-	</Node>
-	<Node>
-		<ID>38</ID>
-		<Contents>:=</Contents>
-		<Children>
-		</Children>
-	</Node>
-	<Node>
-		<ID>39</ID>
-		<Contents>0.00</Contents>
-		<Children>
-		</Children>
-	</Node>
-	<Node>
-		<ID>126</ID>
+		<ID>21</ID>
 		<Contents>n</Contents>
 		<Children>
 		</Children>
 	</Node>
 	<Node>
-		<ID>127</ID>
-		<Contents>1</Contents>
-		<Children>
-		</Children>
-	</Node>
-	<Node>
-		<ID>31</ID>
-		<Contents>n</Contents>
-		<Children>
-		</Children>
-	</Node>
-	<Node>
-		<ID>32</ID>
+		<ID>22</ID>
 		<Contents>1</Contents>
 		<Children>
 		</Children>

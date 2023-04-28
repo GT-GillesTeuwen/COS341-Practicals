@@ -1,10 +1,5 @@
 cp1,
 p1{
-    w(T){
-        w(T){
-                n1:=0.00 *_The total sum_*
-        }
-    } *_The total sum_*;
     n1:=0.00 *_The total sum_*
     
 }
