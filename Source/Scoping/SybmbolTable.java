@@ -6,6 +6,7 @@ import java.util.HashMap;
 import javax.print.attribute.IntegerSyntax;
 import javax.swing.JOptionPane;
 
+import CONSTANTS.ANSI_COLOURS;
 import Exceptions.AmbiguousDeclarationException;
 import Exceptions.ProcedureNotDeclaredException;
 import Nodes.Node;
@@ -70,9 +71,9 @@ public class SybmbolTable {
             }
         }
         ((nNode) node).setSubtreeColour(Color.RED, true);
-        System.out.println("Procedure not defined:\n\tNode ID: " + nodeID + ".\n\tProcdure "
+        System.out.println(ANSI_COLOURS.ANSI_Red + "Procedure not defined:\n\tNode ID: " + nodeID + ".\n\tProcdure "
                 + procName + " is not declared in the scope of "
-                + ((nNode) symbolTable.get(callScope).getNode()).getData());
+                + ((nNode) symbolTable.get(callScope).getNode()).getData() + ANSI_COLOURS.ANSI_Reset);
         throw new ProcedureNotDeclaredException("Procedure not defined:\n\tNode ID: " + nodeID + ".\n\tProcdure "
                 + procName + " is not declared in the scope of "
                 + ((nNode) symbolTable.get(callScope).getNode()).getData());
@@ -84,8 +85,10 @@ public class SybmbolTable {
         for (Attributes a : symbolTable.values()) {
             if (a.getNode().getDisplayName().equals("PROC") && !a.isCalled()) {
                 System.out
-                        .println(((nNode) a.getNode()).getData() + " in scope " + a.getScopeID()
-                                + " is never called. All child nodes will be greyed out in the visual tree");
+                        .println(ANSI_COLOURS.ANSI_Yellow + ((nNode) a.getNode()).getData() + " in scope "
+                                + a.getScopeID()
+                                + " is never called. All child nodes will be greyed out in the visual tree"
+                                + ANSI_COLOURS.ANSI_Reset);
                 ((nNode) (a.getNode())).setSubtreeColour(Color.LIGHT_GRAY, false);
                 JOptionPane.showMessageDialog(null,
                         ((nNode) a.getNode()).getData() + " in scope " + a.getScopeID()
@@ -106,9 +109,10 @@ public class SybmbolTable {
             this.currentScope = root.getId();
         } else {
             int scopeIDConflict = symbolTable.get(root.getId()).getScopeID();
-            String exString = ("Ambiguous procedure name:\n\tNode ID: " + root.getId() + ".\n\tProcdure "
+            String exString = (ANSI_COLOURS.ANSI_Red + "Ambiguous procedure name:\n\tNode ID: " + root.getId()
+                    + ".\n\tProcdure "
                     + ((nNode) root).getData() + " already declared in scope of procedure "
-                    + ((nNode) symbolTable.get(scopeIDConflict).getNode()).getData());
+                    + ((nNode) symbolTable.get(scopeIDConflict).getNode()).getData() + ANSI_COLOURS.ANSI_Reset);
             throw new AmbiguousDeclarationException(exString);
         }
     }

@@ -161,7 +161,6 @@ public class nNode extends Node {
             this.setColor(colour);
         } else {
             if (this.displayName.equals("CALL")) {
-                System.out.println("call");
             }
             if (this.color.getRed() != 255) {
                 this.setColor(colour);

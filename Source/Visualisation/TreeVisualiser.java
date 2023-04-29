@@ -350,7 +350,6 @@ public class TreeVisualiser extends JPanel implements MouseListener, MouseMotion
             if (selected == null) {
                 return;
             }
-            System.out.println(selected);
             NodeVisualiser n = new NodeVisualiser(selected);
             JFrame nodeFrame = new JFrame("Node");
             nodeFrame.setContentPane(n);
@@ -403,14 +402,11 @@ public class TreeVisualiser extends JPanel implements MouseListener, MouseMotion
         int notches = e.getWheelRotation();
         double mx = e.getX();
         double my = e.getY();
-        System.out.println("zoom before scroll: " + zoom);
-        System.out.println(mx + "  " + my);
         for (DrawableNode drawableNode : squares) {
             double newX = drawableNode.getEllipse2d().getCenterX();
             double newY = drawableNode.getEllipse2d().getCenterY();
             if (notches > 0) {
                 if (zoom <= 0) {
-                    System.out.println("zoom out from 0");
                     double adjustX = (drawableNode.getEllipse2d().getCenterX() - mx) * 0.1;
                     double adjustY = (drawableNode.getEllipse2d().getCenterY() - my) * 0.11;
                     double[] adjusts = { adjustX, adjustY };
@@ -450,7 +446,6 @@ public class TreeVisualiser extends JPanel implements MouseListener, MouseMotion
         if (notches > 0) {
             zoom--;
         }
-        System.out.println("zoom after scroll: " + zoom);
 
         repaint();
     }

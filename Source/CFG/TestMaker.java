@@ -11,7 +11,5 @@ public class TestMaker {
             c = (cfg.create());
         }
 
-        System.out.println(c);
-
     }
 }

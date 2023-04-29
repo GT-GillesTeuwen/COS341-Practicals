@@ -22,7 +22,6 @@ public class ReduceALGO extends NodeReductionStrategy {
 
             } else {
                 children.add(node.getChildren()[i]);
-                System.out.println(i);
             }
         }
         Node[] newChildren = new Node[children.size()];
