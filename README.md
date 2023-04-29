@@ -12,7 +12,7 @@ Java version 19 was used to write this parser. Java's backwards compatabiliy may
 
 The program is an exe file and can be launched on a Windows system by clicking on it.
 
-## Using application
+## Using the Application
 
 1. Launch the program
 2. A file-chooser will appear. Select a text file containing student programming language code.
@@ -20,7 +20,6 @@ The program is an exe file and can be launched on a Windows system by clicking o
 4. Output:
    1. If errors have occured JMessageDialogues will inform the user of the errors. The console can then be used to trace the specfic token which caused the error. If an error occured while lexing then the error may only appear in the console
    2. If no errors occured then a visual AST will appear, note that the nodes are draggable. Also a dialogue will appear informing the user of the location of the xml file. For convenience, the parsed xml file is created in the same directory as the original text file
-
 
 ## Credits
 
