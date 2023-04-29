@@ -39,14 +39,19 @@ public class SymbolTableVisualiser extends JPanel {
     }
 
     private void addTable() {
-        String[] cols = { "ID", "SCOPE" };
-        String[][] data = new String[symbolTable.getScopeTable().size()][2];
+        String[] cols = { "ID", "SCOPE ID", "TYPE", "NAME" };
+        String[][] data = new String[symbolTable.getScopeTable().size() - 1][4];
 
         int i = 0;
         for (Integer id : symbolTable.getScopeTable().keySet()) {
-            data[i][0] = id + "";
-            data[i][1] = symbolTable.getScopeTable().get(id).toString();
-            i++;
+            if (id != symbolTable.getMainScope()) {
+                data[i][0] = id + "";
+                data[i][1] = symbolTable.getScopeTable().get(id).getAtts()[0];
+                data[i][2] = symbolTable.getScopeTable().get(id).getAtts()[1];
+                data[i][3] = symbolTable.getScopeTable().get(id).getAtts()[2];
+                i++;
+            }
+
         }
 
         JTable table = new JTable(data, cols);

@@ -1,1885 +1,2388 @@
-<PROGR ID="2709" Children="164,2708">
-	<ALGO ID="164" Children="127,161">
-		<BRANCH ID="127" Children="0,94,96,117,124">
-			<Terminal ID="0" Children="">i(</Terminal>
-			<LOGIC ID="94" Children="1,91,93">
-				<Terminal ID="1" Children="">!(</Terminal>
-				<CMPR ID="91" Children="2,75,76,87,90">
-					<Terminal ID="2" Children="">&lt;(</Terminal>
-					<NUMEXPR ID="75" Children="3,60,61,72,74">
-						<Terminal ID="3" Children="">d(</Terminal>
-						<NUMEXPR ID="60" Children="4,40,44,56,59">
-							<Terminal ID="4" Children="">d(</Terminal>
-							<NEG ID="40" Children="5,39">
-								<Terminal ID="5" Children="">-</Terminal>
-								<POS ID="39" Children="33,34,35,37">
-									<INT ID="33" Children="6,31">
-										<Terminal ID="6" Children="">2</Terminal>
-										<DIGITS ID="31" Children="7,29">
-											<Terminal ID="7" Children="">2</Terminal>
-											<DIGITS ID="29" Children="9,27">
-												<Terminal ID="9" Children="">6</Terminal>
-												<DIGITS ID="27" Children="11,25">
-													<Terminal ID="11" Children="">1</Terminal>
-													<DIGITS ID="25" Children="13,23">
-														<Terminal ID="13" Children="">3</Terminal>
-														<DIGITS ID="23" Children="15,17">
-															<Terminal ID="15" Children="">8</Terminal>
-															<Terminal ID="17" Children="">2</Terminal>
-														</DIGITS>
-													</DIGITS>
-												</DIGITS>
-											</DIGITS>
-										</DIGITS>
-									</INT>
-									<Terminal ID="34" Children="">.</Terminal>
-									<Terminal ID="35" Children="">4</Terminal>
-									<Terminal ID="37" Children="">2</Terminal>
-								</POS>
-							</NEG>
-							<Terminal ID="44" Children="">,</Terminal>
-							<NEG ID="56" Children="45,55">
-								<Terminal ID="45" Children="">-</Terminal>
-								<POS ID="55" Children="46,50,51,53">
-									<Terminal ID="46" Children="">4</Terminal>
-									<Terminal ID="50" Children="">.</Terminal>
-									<Terminal ID="51" Children="">9</Terminal>
-									<Terminal ID="53" Children="">7</Terminal>
-								</POS>
-							</NEG>
-							<Terminal ID="59" Children="">)</Terminal>
-						</NUMEXPR>
-						<Terminal ID="61" Children="">,</Terminal>
-						<NUMVAR ID="72" Children="62,71">
-							<Terminal ID="62" Children="">n</Terminal>
-							<DIGITS ID="71" Children="63,65">
-								<Terminal ID="63" Children="">3</Terminal>
-								<Terminal ID="65" Children="">1</Terminal>
-							</DIGITS>
-						</NUMVAR>
-						<Terminal ID="74" Children="">)</Terminal>
-					</NUMEXPR>
-					<Terminal ID="76" Children="">,</Terminal>
-					<NUMVAR ID="87" Children="77,86">
-						<Terminal ID="77" Children="">n</Terminal>
-						<DIGITS ID="86" Children="78,80">
-							<Terminal ID="78" Children="">1</Terminal>
-							<Terminal ID="80" Children="">3</Terminal>
-						</DIGITS>
-					</NUMVAR>
-					<Terminal ID="90" Children="">)</Terminal>
-				</CMPR>
-				<Terminal ID="93" Children="">)</Terminal>
-			</LOGIC>
-			<Terminal ID="96" Children="">)t{</Terminal>
-			<INPUT ID="117" Children="97,116">
-				<Terminal ID="97" Children="">g</Terminal>
-				<NUMVAR ID="116" Children="98,115">
-					<Terminal ID="98" Children="">n</Terminal>
-					<DIGITS ID="115" Children="99,113">
-						<Terminal ID="99" Children="">7</Terminal>
-						<DIGITS ID="113" Children="101,111">
-							<Terminal ID="101" Children="">2</Terminal>
-							<DIGITS ID="111" Children="103,105">
-								<Terminal ID="103" Children="">9</Terminal>
-								<Terminal ID="105" Children="">4</Terminal>
-							</DIGITS>
-						</DIGITS>
-					</DIGITS>
-				</NUMVAR>
-			</INPUT>
-			<Terminal ID="124" Children="">}</Terminal>
-		</BRANCH>
-		<COMMENT ID="161" Children="129,130,132,134,136,138,140,142,144,146,148,150,152,154,156,158,160">
-			<Terminal ID="129" Children="">*</Terminal>
-			<Terminal ID="130" Children="">@</Terminal>
-			<Terminal ID="132" Children="">@</Terminal>
-			<Terminal ID="134" Children="">@</Terminal>
-			<Terminal ID="136" Children="">@</Terminal>
-			<Terminal ID="138" Children="">@</Terminal>
-			<Terminal ID="140" Children="">@</Terminal>
-			<Terminal ID="142" Children="">@</Terminal>
-			<Terminal ID="144" Children="">@</Terminal>
-			<Terminal ID="146" Children="">@</Terminal>
-			<Terminal ID="148" Children="">@</Terminal>
-			<Terminal ID="150" Children="">@</Terminal>
-			<Terminal ID="152" Children="">@</Terminal>
-			<Terminal ID="154" Children="">@</Terminal>
-			<Terminal ID="156" Children="">@</Terminal>
-			<Terminal ID="158" Children="">@</Terminal>
-			<Terminal ID="160" Children="">*</Terminal>
-		</COMMENT>
-	</ALGO>
-	<PROCDEFS ID="2708" Children="165,235,2707">
-		<Terminal ID="165" Children="">,</Terminal>
-		<PROC ID="235" Children="166,175,176,230,234">
-			<Terminal ID="166" Children="">p</Terminal>
-			<DIGITS ID="175" Children="167,169">
-				<Terminal ID="167" Children="">2</Terminal>
-				<Terminal ID="169" Children="">6</Terminal>
-			</DIGITS>
-			<Terminal ID="176" Children="">{</Terminal>
-			<ALGO ID="230" Children="177,211,229">
-				<Terminal ID="177" Children="">h</Terminal>
-				<COMMENT ID="211" Children="179,180,182,184,186,188,190,192,194,196,198,200,202,204,206,208,210">
-					<Terminal ID="179" Children="">*</Terminal>
-					<Terminal ID="180" Children="">@</Terminal>
-					<Terminal ID="182" Children="">@</Terminal>
-					<Terminal ID="184" Children="">@</Terminal>
-					<Terminal ID="186" Children="">@</Terminal>
-					<Terminal ID="188" Children="">@</Terminal>
-					<Terminal ID="190" Children="">@</Terminal>
-					<Terminal ID="192" Children="">@</Terminal>
-					<Terminal ID="194" Children="">@</Terminal>
-					<Terminal ID="196" Children="">@</Terminal>
-					<Terminal ID="198" Children="">@</Terminal>
-					<Terminal ID="200" Children="">@</Terminal>
-					<Terminal ID="202" Children="">@</Terminal>
-					<Terminal ID="204" Children="">@</Terminal>
-					<Terminal ID="206" Children="">@</Terminal>
-					<Terminal ID="208" Children="">@</Terminal>
-					<Terminal ID="210" Children="">*</Terminal>
-				</COMMENT>
-				<SEQ ID="229" Children="212,221">
-					<Terminal ID="212" Children="">;</Terminal>
-					<TEXT ID="221" Children="213,220">
-						<Terminal ID="213" Children="">r</Terminal>
-						<STRINGV ID="220" Children="214,215">
-							<Terminal ID="214" Children="">s</Terminal>
-							<Terminal ID="215" Children="">7</Terminal>
-						</STRINGV>
-					</TEXT>
-				</SEQ>
-			</ALGO>
-			<Terminal ID="234" Children="">}</Terminal>
-		</PROC>
-		<PROCDEFS ID="2707" Children="236,2704">
-			<Terminal ID="236" Children="">,</Terminal>
-			<PROC ID="2704" Children="237,254,255,2702,2703">
-				<Terminal ID="237" Children="">p</Terminal>
-				<DIGITS ID="254" Children="238,252">
-					<Terminal ID="238" Children="">8</Terminal>
-					<DIGITS ID="252" Children="240,250">
-						<Terminal ID="240" Children="">8</Terminal>
-						<DIGITS ID="250" Children="242,244">
-							<Terminal ID="242" Children="">7</Terminal>
-							<Terminal ID="244" Children="">3</Terminal>
-						</DIGITS>
-					</DIGITS>
-				</DIGITS>
-				<Terminal ID="255" Children="">{</Terminal>
-				<PROGR ID="2702" Children="499,2701">
-					<ALGO ID="499" Children="256,498">
-						<Terminal ID="256" Children="">h</Terminal>
-						<SEQ ID="498" Children="260,497">
-							<Terminal ID="260" Children="">;</Terminal>
-							<ALGO ID="497" Children="273,496">
-								<TEXT ID="273" Children="261,272">
-									<Terminal ID="261" Children="">r</Terminal>
-									<STRINGV ID="272" Children="262,271">
-										<Terminal ID="262" Children="">s</Terminal>
-										<DIGITS ID="271" Children="263,265">
-											<Terminal ID="263" Children="">1</Terminal>
-											<Terminal ID="265" Children="">6</Terminal>
-										</DIGITS>
-									</STRINGV>
-								</TEXT>
-								<SEQ ID="496" Children="278,489">
-									<Terminal ID="278" Children="">;</Terminal>
-									<BRANCH ID="489" Children="279,286,289,479,486">
-										<Terminal ID="279" Children="">i(</Terminal>
-										<BOOLVAR ID="286" Children="280,281">
-											<Terminal ID="280" Children="">b</Terminal>
-											<Terminal ID="281" Children="">2</Terminal>
-										</BOOLVAR>
-										<Terminal ID="289" Children="">)t{</Terminal>
-										<BRANCH ID="479" Children="290,426,428,475,476">
-											<Terminal ID="290" Children="">i(</Terminal>
-											<CMPR ID="426" Children="291,336,337,424,425">
-												<Terminal ID="291" Children="">&lt;(</Terminal>
-												<NUMEXPR ID="336" Children="292,325,326,333,335">
-													<Terminal ID="292" Children="">d(</Terminal>
-													<NUMEXPR ID="325" Children="293,314,315,322,324">
-														<Terminal ID="293" Children="">a(</Terminal>
-														<NUMEXPR ID="314" Children="294,301,304,311,313">
-															<Terminal ID="294" Children="">d(</Terminal>
-															<NUMVAR ID="301" Children="295,296">
-																<Terminal ID="295" Children="">n</Terminal>
-																<Terminal ID="296" Children="">7</Terminal>
-															</NUMVAR>
-															<Terminal ID="304" Children="">,</Terminal>
-															<NUMVAR ID="311" Children="305,306">
-																<Terminal ID="305" Children="">n</Terminal>
-																<Terminal ID="306" Children="">4</Terminal>
-															</NUMVAR>
-															<Terminal ID="313" Children="">)</Terminal>
-														</NUMEXPR>
-														<Terminal ID="315" Children="">,</Terminal>
-														<NUMVAR ID="322" Children="316,317">
-															<Terminal ID="316" Children="">n</Terminal>
-															<Terminal ID="317" Children="">5</Terminal>
-														</NUMVAR>
-														<Terminal ID="324" Children="">)</Terminal>
-													</NUMEXPR>
-													<Terminal ID="326" Children="">,</Terminal>
-													<NUMVAR ID="333" Children="327,328">
-														<Terminal ID="327" Children="">n</Terminal>
-														<Terminal ID="328" Children="">1</Terminal>
-													</NUMVAR>
-													<Terminal ID="335" Children="">)</Terminal>
-												</NUMEXPR>
-												<Terminal ID="337" Children="">,</Terminal>
-												<NUMEXPR ID="424" Children="338,418,419,420,423">
-													<Terminal ID="338" Children="">a(</Terminal>
-													<NUMEXPR ID="418" Children="339,403,404,415,417">
-														<Terminal ID="339" Children="">d(</Terminal>
-														<NUMEXPR ID="403" Children="340,392,393,400,402">
-															<Terminal ID="340" Children="">a(</Terminal>
-															<NUMEXPR ID="392" Children="341,377,378,388,391">
-																<Terminal ID="341" Children="">a(</Terminal>
-																<NUMEXPR ID="377" Children="342,362,363,373,376">
-																	<Terminal ID="342" Children="">a(</Terminal>
-																	<NUMEXPR ID="362" Children="343,344,348,358,361">
-																		<Terminal ID="343" Children="">d(</Terminal>
-																		<Terminal ID="344" Children="">0.00</Terminal>
-																		<Terminal ID="348" Children="">,</Terminal>
-																		<POS ID="358" Children="349,353,354,356">
-																			<Terminal ID="349" Children="">4</Terminal>
-																			<Terminal ID="353" Children="">.</Terminal>
-																			<Terminal ID="354" Children="">3</Terminal>
-																			<Terminal ID="356" Children="">6</Terminal>
-																		</POS>
-																		<Terminal ID="361" Children="">)</Terminal>
-																	</NUMEXPR>
-																	<Terminal ID="363" Children="">,</Terminal>
-																	<POS ID="373" Children="364,368,369,371">
-																		<Terminal ID="364" Children="">1</Terminal>
-																		<Terminal ID="368" Children="">.</Terminal>
-																		<Terminal ID="369" Children="">9</Terminal>
-																		<Terminal ID="371" Children="">0</Terminal>
-																	</POS>
-																	<Terminal ID="376" Children="">)</Terminal>
-																</NUMEXPR>
-																<Terminal ID="378" Children="">,</Terminal>
-																<POS ID="388" Children="379,383,384,386">
-																	<Terminal ID="379" Children="">2</Terminal>
-																	<Terminal ID="383" Children="">.</Terminal>
-																	<Terminal ID="384" Children="">9</Terminal>
-																	<Terminal ID="386" Children="">4</Terminal>
-																</POS>
-																<Terminal ID="391" Children="">)</Terminal>
-															</NUMEXPR>
-															<Terminal ID="393" Children="">,</Terminal>
-															<NUMVAR ID="400" Children="394,395">
-																<Terminal ID="394" Children="">n</Terminal>
-																<Terminal ID="395" Children="">7</Terminal>
-															</NUMVAR>
-															<Terminal ID="402" Children="">)</Terminal>
-														</NUMEXPR>
-														<Terminal ID="404" Children="">,</Terminal>
-														<NUMVAR ID="415" Children="405,414">
-															<Terminal ID="405" Children="">n</Terminal>
-															<DIGITS ID="414" Children="406,408">
-																<Terminal ID="406" Children="">8</Terminal>
-																<Terminal ID="408" Children="">0</Terminal>
-															</DIGITS>
-														</NUMVAR>
-														<Terminal ID="417" Children="">)</Terminal>
-													</NUMEXPR>
-													<Terminal ID="419" Children="">,</Terminal>
-													<Terminal ID="420" Children="">0.00</Terminal>
-													<Terminal ID="423" Children="">)</Terminal>
-												</NUMEXPR>
-												<Terminal ID="425" Children="">)</Terminal>
-											</CMPR>
-											<Terminal ID="428" Children="">)t{</Terminal>
-											<ALGO ID="475" Children="437,472">
-												<VALUE ID="437" Children="429,436">
-													<Terminal ID="429" Children="">o</Terminal>
-													<NUMVAR ID="436" Children="430,431">
-														<Terminal ID="430" Children="">n</Terminal>
-														<Terminal ID="431" Children="">2</Terminal>
-													</NUMVAR>
-												</VALUE>
-												<COMMENT ID="472" Children="440,441,443,445,447,449,451,453,455,457,459,461,463,465,467,469,471">
-													<Terminal ID="440" Children="">*</Terminal>
-													<Terminal ID="441" Children="">@</Terminal>
-													<Terminal ID="443" Children="">@</Terminal>
-													<Terminal ID="445" Children="">@</Terminal>
-													<Terminal ID="447" Children="">@</Terminal>
-													<Terminal ID="449" Children="">@</Terminal>
-													<Terminal ID="451" Children="">@</Terminal>
-													<Terminal ID="453" Children="">@</Terminal>
-													<Terminal ID="455" Children="">@</Terminal>
-													<Terminal ID="457" Children="">@</Terminal>
-													<Terminal ID="459" Children="">@</Terminal>
-													<Terminal ID="461" Children="">@</Terminal>
-													<Terminal ID="463" Children="">@</Terminal>
-													<Terminal ID="465" Children="">@</Terminal>
-													<Terminal ID="467" Children="">@</Terminal>
-													<Terminal ID="469" Children="">@</Terminal>
-													<Terminal ID="471" Children="">*</Terminal>
-												</COMMENT>
-											</ALGO>
-											<Terminal ID="476" Children="">}</Terminal>
-										</BRANCH>
-										<Terminal ID="486" Children="">}</Terminal>
-									</BRANCH>
-								</SEQ>
-							</ALGO>
-						</SEQ>
-					</ALGO>
-					<PROCDEFS ID="2701" Children="500,2321,2700">
-						<Terminal ID="500" Children="">,</Terminal>
-						<PROC ID="2321" Children="501,502,507,2310,2320">
-							<Terminal ID="501" Children="">p</Terminal>
-							<Terminal ID="502" Children="">6</Terminal>
-							<Terminal ID="507" Children="">{</Terminal>
-							<LOOP ID="2310" Children="508,680,682,2308,2309">
-								<Terminal ID="508" Children="">w(</Terminal>
-								<LOGIC ID="680" Children="509,667,669,676,679">
-									<Terminal ID="509" Children="">^(</Terminal>
-									<CMPR ID="667" Children="510,517,520,665,666">
-										<Terminal ID="510" Children="">E(</Terminal>
-										<NUMVAR ID="517" Children="511,512">
-											<Terminal ID="511" Children="">n</Terminal>
-											<Terminal ID="512" Children="">3</Terminal>
-										</NUMVAR>
-										<Terminal ID="520" Children="">,</Terminal>
-										<NUMEXPR ID="665" Children="521,654,655,662,664">
-											<Terminal ID="521" Children="">m(</Terminal>
-											<NUMEXPR ID="654" Children="522,643,644,651,653">
-												<Terminal ID="522" Children="">d(</Terminal>
-												<NUMEXPR ID="643" Children="523,628,629,640,642">
-													<Terminal ID="523" Children="">a(</Terminal>
-													<NUMEXPR ID="628" Children="524,617,618,625,627">
-														<Terminal ID="524" Children="">m(</Terminal>
-														<NUMEXPR ID="617" Children="525,600,601,613,616">
-															<Terminal ID="525" Children="">a(</Terminal>
-															<NUMEXPR ID="600" Children="526,589,590,597,599">
-																<Terminal ID="526" Children="">d(</Terminal>
-																<NUMEXPR ID="589" Children="527,566,567,585,588">
-																	<Terminal ID="527" Children="">a(</Terminal>
-																	<NUMEXPR ID="566" Children="528,555,556,563,565">
-																		<Terminal ID="528" Children="">a(</Terminal>
-																		<NUMEXPR ID="555" Children="529,541,545,552,554">
-																			<Terminal ID="529" Children="">a(</Terminal>
-																			<NEG ID="541" Children="530,540">
-																				<Terminal ID="530" Children="">-</Terminal>
-																				<POS ID="540" Children="531,535,536,538">
-																					<Terminal ID="531" Children="">6</Terminal>
-																					<Terminal ID="535" Children="">.</Terminal>
-																					<Terminal ID="536" Children="">1</Terminal>
-																					<Terminal ID="538" Children="">4</Terminal>
-																				</POS>
-																			</NEG>
-																			<Terminal ID="545" Children="">,</Terminal>
-																			<NUMVAR ID="552" Children="546,547">
-																				<Terminal ID="546" Children="">n</Terminal>
-																				<Terminal ID="547" Children="">4</Terminal>
-																			</NUMVAR>
-																			<Terminal ID="554" Children="">)</Terminal>
-																		</NUMEXPR>
-																		<Terminal ID="556" Children="">,</Terminal>
-																		<NUMVAR ID="563" Children="557,558">
-																			<Terminal ID="557" Children="">n</Terminal>
-																			<Terminal ID="558" Children="">4</Terminal>
-																		</NUMVAR>
-																		<Terminal ID="565" Children="">)</Terminal>
-																	</NUMEXPR>
-																	<Terminal ID="567" Children="">,</Terminal>
-																	<POS ID="585" Children="579,580,581,583">
-																		<INT ID="579" Children="568,577">
-																			<Terminal ID="568" Children="">5</Terminal>
-																			<DIGITS ID="577" Children="569,571">
-																				<Terminal ID="569" Children="">1</Terminal>
-																				<Terminal ID="571" Children="">0</Terminal>
-																			</DIGITS>
-																		</INT>
-																		<Terminal ID="580" Children="">.</Terminal>
-																		<Terminal ID="581" Children="">9</Terminal>
-																		<Terminal ID="583" Children="">4</Terminal>
-																	</POS>
-																	<Terminal ID="588" Children="">)</Terminal>
-																</NUMEXPR>
-																<Terminal ID="590" Children="">,</Terminal>
-																<NUMVAR ID="597" Children="591,592">
-																	<Terminal ID="591" Children="">n</Terminal>
-																	<Terminal ID="592" Children="">2</Terminal>
-																</NUMVAR>
-																<Terminal ID="599" Children="">)</Terminal>
-															</NUMEXPR>
-															<Terminal ID="601" Children="">,</Terminal>
-															<NEG ID="613" Children="602,612">
-																<Terminal ID="602" Children="">-</Terminal>
-																<POS ID="612" Children="603,607,608,610">
-																	<Terminal ID="603" Children="">7</Terminal>
-																	<Terminal ID="607" Children="">.</Terminal>
-																	<Terminal ID="608" Children="">7</Terminal>
-																	<Terminal ID="610" Children="">7</Terminal>
-																</POS>
-															</NEG>
-															<Terminal ID="616" Children="">)</Terminal>
-														</NUMEXPR>
-														<Terminal ID="618" Children="">,</Terminal>
-														<NUMVAR ID="625" Children="619,620">
-															<Terminal ID="619" Children="">n</Terminal>
-															<Terminal ID="620" Children="">7</Terminal>
-														</NUMVAR>
-														<Terminal ID="627" Children="">)</Terminal>
-													</NUMEXPR>
-													<Terminal ID="629" Children="">,</Terminal>
-													<NUMVAR ID="640" Children="630,639">
-														<Terminal ID="630" Children="">n</Terminal>
-														<DIGITS ID="639" Children="631,633">
-															<Terminal ID="631" Children="">8</Terminal>
-															<Terminal ID="633" Children="">4</Terminal>
-														</DIGITS>
-													</NUMVAR>
-													<Terminal ID="642" Children="">)</Terminal>
-												</NUMEXPR>
-												<Terminal ID="644" Children="">,</Terminal>
-												<NUMVAR ID="651" Children="645,646">
-													<Terminal ID="645" Children="">n</Terminal>
-													<Terminal ID="646" Children="">0</Terminal>
-												</NUMVAR>
-												<Terminal ID="653" Children="">)</Terminal>
-											</NUMEXPR>
-											<Terminal ID="655" Children="">,</Terminal>
-											<NUMVAR ID="662" Children="656,657">
-												<Terminal ID="656" Children="">n</Terminal>
-												<Terminal ID="657" Children="">4</Terminal>
-											</NUMVAR>
-											<Terminal ID="664" Children="">)</Terminal>
-										</NUMEXPR>
-										<Terminal ID="666" Children="">)</Terminal>
-									</CMPR>
-									<Terminal ID="669" Children="">,</Terminal>
-									<BOOLVAR ID="676" Children="670,671">
-										<Terminal ID="670" Children="">b</Terminal>
-										<Terminal ID="671" Children="">3</Terminal>
-									</BOOLVAR>
-									<Terminal ID="679" Children="">)</Terminal>
-								</LOGIC>
-								<Terminal ID="682" Children="">){</Terminal>
-								<ALGO ID="2308" Children="683,717,2307">
-									<Terminal ID="683" Children="">h</Terminal>
-									<COMMENT ID="717" Children="685,686,688,690,692,694,696,698,700,702,704,706,708,710,712,714,716">
-										<Terminal ID="685" Children="">*</Terminal>
-										<Terminal ID="686" Children="">@</Terminal>
-										<Terminal ID="688" Children="">@</Terminal>
-										<Terminal ID="690" Children="">@</Terminal>
-										<Terminal ID="692" Children="">@</Terminal>
-										<Terminal ID="694" Children="">@</Terminal>
-										<Terminal ID="696" Children="">@</Terminal>
-										<Terminal ID="698" Children="">@</Terminal>
-										<Terminal ID="700" Children="">@</Terminal>
-										<Terminal ID="702" Children="">@</Terminal>
-										<Terminal ID="704" Children="">@</Terminal>
-										<Terminal ID="706" Children="">@</Terminal>
-										<Terminal ID="708" Children="">@</Terminal>
-										<Terminal ID="710" Children="">@</Terminal>
-										<Terminal ID="712" Children="">@</Terminal>
-										<Terminal ID="714" Children="">@</Terminal>
-										<Terminal ID="716" Children="">*</Terminal>
-									</COMMENT>
-									<SEQ ID="2307" Children="718,2300">
-										<Terminal ID="718" Children="">;</Terminal>
-										<LOOP ID="2300" Children="719,986,988,2298,2299">
-											<Terminal ID="719" Children="">w(</Terminal>
-											<LOGIC ID="986" Children="720,979,981,982,985">
-												<Terminal ID="720" Children="">^(</Terminal>
-												<CMPR ID="979" Children="721,798,799,977,978">
-													<Terminal ID="721" Children="">&gt;(</Terminal>
-													<NUMEXPR ID="798" Children="722,781,782,794,797">
-														<Terminal ID="722" Children="">a(</Terminal>
-														<NUMEXPR ID="781" Children="723,766,767,778,780">
-															<Terminal ID="723" Children="">a(</Terminal>
-															<NUMEXPR ID="766" Children="724,755,756,763,765">
-																<Terminal ID="724" Children="">d(</Terminal>
-																<NUMEXPR ID="755" Children="725,741,745,752,754">
-																	<Terminal ID="725" Children="">a(</Terminal>
-																	<NEG ID="741" Children="726,740">
-																		<Terminal ID="726" Children="">-</Terminal>
-																		<POS ID="740" Children="734,735,736,738">
-																			<INT ID="734" Children="727,728">
-																				<Terminal ID="727" Children="">2</Terminal>
-																				<Terminal ID="728" Children="">3</Terminal>
-																			</INT>
-																			<Terminal ID="735" Children="">.</Terminal>
-																			<Terminal ID="736" Children="">3</Terminal>
-																			<Terminal ID="738" Children="">8</Terminal>
-																		</POS>
-																	</NEG>
-																	<Terminal ID="745" Children="">,</Terminal>
-																	<NUMVAR ID="752" Children="746,747">
-																		<Terminal ID="746" Children="">n</Terminal>
-																		<Terminal ID="747" Children="">3</Terminal>
-																	</NUMVAR>
-																	<Terminal ID="754" Children="">)</Terminal>
-																</NUMEXPR>
-																<Terminal ID="756" Children="">,</Terminal>
-																<NUMVAR ID="763" Children="757,758">
-																	<Terminal ID="757" Children="">n</Terminal>
-																	<Terminal ID="758" Children="">5</Terminal>
-																</NUMVAR>
-																<Terminal ID="765" Children="">)</Terminal>
-															</NUMEXPR>
-															<Terminal ID="767" Children="">,</Terminal>
-															<NUMVAR ID="778" Children="768,777">
-																<Terminal ID="768" Children="">n</Terminal>
-																<DIGITS ID="777" Children="769,771">
-																	<Terminal ID="769" Children="">1</Terminal>
-																	<Terminal ID="771" Children="">4</Terminal>
-																</DIGITS>
-															</NUMVAR>
-															<Terminal ID="780" Children="">)</Terminal>
-														</NUMEXPR>
-														<Terminal ID="782" Children="">,</Terminal>
-														<NEG ID="794" Children="783,793">
-															<Terminal ID="783" Children="">-</Terminal>
-															<POS ID="793" Children="784,788,789,791">
-																<Terminal ID="784" Children="">3</Terminal>
-																<Terminal ID="788" Children="">.</Terminal>
-																<Terminal ID="789" Children="">6</Terminal>
-																<Terminal ID="791" Children="">7</Terminal>
-															</POS>
-														</NEG>
-														<Terminal ID="797" Children="">)</Terminal>
-													</NUMEXPR>
-													<Terminal ID="799" Children="">,</Terminal>
-													<NUMEXPR ID="977" Children="800,962,963,974,976">
-														<Terminal ID="800" Children="">d(</Terminal>
-														<NUMEXPR ID="962" Children="801,945,946,958,961">
-															<Terminal ID="801" Children="">d(</Terminal>
-															<NUMEXPR ID="945" Children="802,924,925,941,944">
-																<Terminal ID="802" Children="">a(</Terminal>
-																<NUMEXPR ID="924" Children="803,913,914,921,923">
-																	<Terminal ID="803" Children="">d(</Terminal>
-																	<NUMEXPR ID="913" Children="804,907,908,909,912">
-																		<Terminal ID="804" Children="">m(</Terminal>
-																		<NUMEXPR ID="907" Children="805,890,891,903,906">
-																			<Terminal ID="805" Children="">d(</Terminal>
-																			<NUMEXPR ID="890" Children="806,873,874,886,889">
-																				<Terminal ID="806" Children="">a(</Terminal>
-																				<NUMEXPR ID="873" Children="807,858,859,870,872">
-																					<Terminal ID="807" Children="">a(</Terminal>
-																					<NUMEXPR ID="858" Children="808,843,844,855,857">
-																						<Terminal ID="808" Children="">a(</Terminal>
-																						<NUMEXPR ID="843" Children="809,825,829,840,842">
-																							<Terminal ID="809" Children="">m(</Terminal>
-																							<NEG ID="825" Children="810,824">
-																								<Terminal ID="810" Children="">-</Terminal>
-																								<POS ID="824" Children="818,819,820,822">
-																									<INT ID="818" Children="811,812">
-																										<Terminal ID="811" Children="">5</Terminal>
-																										<Terminal ID="812" Children="">4</Terminal>
-																									</INT>
-																									<Terminal ID="819" Children="">.</Terminal>
-																									<Terminal ID="820" Children="">9</Terminal>
-																									<Terminal ID="822" Children="">5</Terminal>
-																								</POS>
-																							</NEG>
-																							<Terminal ID="829" Children="">,</Terminal>
-																							<NUMVAR ID="840" Children="830,839">
-																								<Terminal ID="830" Children="">n</Terminal>
-																								<DIGITS ID="839" Children="831,833">
-																									<Terminal ID="831" Children="">2</Terminal>
-																									<Terminal ID="833" Children="">7</Terminal>
-																								</DIGITS>
-																							</NUMVAR>
-																							<Terminal ID="842" Children="">)</Terminal>
-																						</NUMEXPR>
-																						<Terminal ID="844" Children="">,</Terminal>
-																						<NUMVAR ID="855" Children="845,854">
-																							<Terminal ID="845" Children="">n</Terminal>
-																							<DIGITS ID="854" Children="846,848">
-																								<Terminal ID="846" Children="">2</Terminal>
-																								<Terminal ID="848" Children="">0</Terminal>
-																							</DIGITS>
-																						</NUMVAR>
-																						<Terminal ID="857" Children="">)</Terminal>
-																					</NUMEXPR>
-																					<Terminal ID="859" Children="">,</Terminal>
-																					<NUMVAR ID="870" Children="860,869">
-																						<Terminal ID="860" Children="">n</Terminal>
-																						<DIGITS ID="869" Children="861,863">
-																							<Terminal ID="861" Children="">5</Terminal>
-																							<Terminal ID="863" Children="">6</Terminal>
-																						</DIGITS>
-																					</NUMVAR>
-																					<Terminal ID="872" Children="">)</Terminal>
-																				</NUMEXPR>
-																				<Terminal ID="874" Children="">,</Terminal>
-																				<NEG ID="886" Children="875,885">
-																					<Terminal ID="875" Children="">-</Terminal>
-																					<POS ID="885" Children="876,880,881,883">
-																						<Terminal ID="876" Children="">9</Terminal>
-																						<Terminal ID="880" Children="">.</Terminal>
-																						<Terminal ID="881" Children="">5</Terminal>
-																						<Terminal ID="883" Children="">9</Terminal>
-																					</POS>
-																				</NEG>
-																				<Terminal ID="889" Children="">)</Terminal>
-																			</NUMEXPR>
-																			<Terminal ID="891" Children="">,</Terminal>
-																			<NEG ID="903" Children="892,902">
-																				<Terminal ID="892" Children="">-</Terminal>
-																				<POS ID="902" Children="893,897,898,900">
-																					<Terminal ID="893" Children="">6</Terminal>
-																					<Terminal ID="897" Children="">.</Terminal>
-																					<Terminal ID="898" Children="">4</Terminal>
-																					<Terminal ID="900" Children="">6</Terminal>
-																				</POS>
-																			</NEG>
-																			<Terminal ID="906" Children="">)</Terminal>
-																		</NUMEXPR>
-																		<Terminal ID="908" Children="">,</Terminal>
-																		<Terminal ID="909" Children="">0.00</Terminal>
-																		<Terminal ID="912" Children="">)</Terminal>
-																	</NUMEXPR>
-																	<Terminal ID="914" Children="">,</Terminal>
-																	<NUMVAR ID="921" Children="915,916">
-																		<Terminal ID="915" Children="">n</Terminal>
-																		<Terminal ID="916" Children="">2</Terminal>
-																	</NUMVAR>
-																	<Terminal ID="923" Children="">)</Terminal>
-																</NUMEXPR>
-																<Terminal ID="925" Children="">,</Terminal>
-																<NEG ID="941" Children="926,940">
-																	<Terminal ID="926" Children="">-</Terminal>
-																	<POS ID="940" Children="934,935,936,938">
-																		<INT ID="934" Children="927,928">
-																			<Terminal ID="927" Children="">4</Terminal>
-																			<Terminal ID="928" Children="">6</Terminal>
-																		</INT>
-																		<Terminal ID="935" Children="">.</Terminal>
-																		<Terminal ID="936" Children="">2</Terminal>
-																		<Terminal ID="938" Children="">1</Terminal>
-																	</POS>
-																</NEG>
-																<Terminal ID="944" Children="">)</Terminal>
-															</NUMEXPR>
-															<Terminal ID="946" Children="">,</Terminal>
-															<NEG ID="958" Children="947,957">
-																<Terminal ID="947" Children="">-</Terminal>
-																<POS ID="957" Children="948,952,953,955">
-																	<Terminal ID="948" Children="">6</Terminal>
-																	<Terminal ID="952" Children="">.</Terminal>
-																	<Terminal ID="953" Children="">5</Terminal>
-																	<Terminal ID="955" Children="">4</Terminal>
-																</POS>
-															</NEG>
-															<Terminal ID="961" Children="">)</Terminal>
-														</NUMEXPR>
-														<Terminal ID="963" Children="">,</Terminal>
-														<NUMVAR ID="974" Children="964,973">
-															<Terminal ID="964" Children="">n</Terminal>
-															<DIGITS ID="973" Children="965,967">
-																<Terminal ID="965" Children="">9</Terminal>
-																<Terminal ID="967" Children="">9</Terminal>
-															</DIGITS>
-														</NUMVAR>
-														<Terminal ID="976" Children="">)</Terminal>
-													</NUMEXPR>
-													<Terminal ID="978" Children="">)</Terminal>
-												</CMPR>
-												<Terminal ID="981" Children="">,</Terminal>
-												<Terminal ID="982" Children="">F</Terminal>
-												<Terminal ID="985" Children="">)</Terminal>
-											</LOGIC>
-											<Terminal ID="988" Children="">){</Terminal>
-											<ALGO ID="2298" Children="1076,2297">
-												<BRANCH ID="1076" Children="989,990,993,1072,1073">
-													<Terminal ID="989" Children="">i(</Terminal>
-													<Terminal ID="990" Children="">T</Terminal>
-													<Terminal ID="993" Children="">)t{</Terminal>
-													<ALGO ID="1072" Children="1035,1069">
-														<ASSIGN ID="1035" Children="1000,1001,1034">
-															<STRINGV ID="1000" Children="994,995">
-																<Terminal ID="994" Children="">s</Terminal>
-																<Terminal ID="995" Children="">1</Terminal>
-															</STRINGV>
-															<Terminal ID="1001" Children="">:=</Terminal>
-															<STRI ID="1034" Children="1002,1003,1005,1007,1009,1011,1013,1015,1017,1019,1021,1023,1025,1027,1029,1031,1033">
-																<Terminal ID="1002" Children="">"</Terminal>
-																<Terminal ID="1003" Children="">@</Terminal>
-																<Terminal ID="1005" Children="">@</Terminal>
-																<Terminal ID="1007" Children="">@</Terminal>
-																<Terminal ID="1009" Children="">@</Terminal>
-																<Terminal ID="1011" Children="">@</Terminal>
-																<Terminal ID="1013" Children="">@</Terminal>
-																<Terminal ID="1015" Children="">@</Terminal>
-																<Terminal ID="1017" Children="">@</Terminal>
-																<Terminal ID="1019" Children="">@</Terminal>
-																<Terminal ID="1021" Children="">@</Terminal>
-																<Terminal ID="1023" Children="">@</Terminal>
-																<Terminal ID="1025" Children="">@</Terminal>
-																<Terminal ID="1027" Children="">@</Terminal>
-																<Terminal ID="1029" Children="">@</Terminal>
-																<Terminal ID="1031" Children="">@</Terminal>
-																<Terminal ID="1033" Children="">"</Terminal>
-															</STRI>
-														</ASSIGN>
-														<COMMENT ID="1069" Children="1037,1038,1040,1042,1044,1046,1048,1050,1052,1054,1056,1058,1060,1062,1064,1066,1068">
-															<Terminal ID="1037" Children="">*</Terminal>
-															<Terminal ID="1038" Children="">@</Terminal>
-															<Terminal ID="1040" Children="">@</Terminal>
-															<Terminal ID="1042" Children="">@</Terminal>
-															<Terminal ID="1044" Children="">@</Terminal>
-															<Terminal ID="1046" Children="">@</Terminal>
-															<Terminal ID="1048" Children="">@</Terminal>
-															<Terminal ID="1050" Children="">@</Terminal>
-															<Terminal ID="1052" Children="">@</Terminal>
-															<Terminal ID="1054" Children="">@</Terminal>
-															<Terminal ID="1056" Children="">@</Terminal>
-															<Terminal ID="1058" Children="">@</Terminal>
-															<Terminal ID="1060" Children="">@</Terminal>
-															<Terminal ID="1062" Children="">@</Terminal>
-															<Terminal ID="1064" Children="">@</Terminal>
-															<Terminal ID="1066" Children="">@</Terminal>
-															<Terminal ID="1068" Children="">*</Terminal>
-														</COMMENT>
-													</ALGO>
-													<Terminal ID="1073" Children="">}</Terminal>
-												</BRANCH>
-												<SEQ ID="2297" Children="1080,2290">
-													<Terminal ID="1080" Children="">;</Terminal>
-													<LOOP ID="2290" Children="1081,1101,1103,2282,2289">
-														<Terminal ID="1081" Children="">w(</Terminal>
-														<LOGIC ID="1101" Children="1082,1097,1100">
-															<Terminal ID="1082" Children="">!(</Terminal>
-															<BOOLVAR ID="1097" Children="1083,1096">
-																<Terminal ID="1083" Children="">b</Terminal>
-																<DIGITS ID="1096" Children="1084,1094">
-																	<Terminal ID="1084" Children="">7</Terminal>
-																	<DIGITS ID="1094" Children="1086,1088">
-																		<Terminal ID="1086" Children="">0</Terminal>
-																		<Terminal ID="1088" Children="">4</Terminal>
-																	</DIGITS>
-																</DIGITS>
-															</BOOLVAR>
-															<Terminal ID="1100" Children="">)</Terminal>
-														</LOGIC>
-														<Terminal ID="1103" Children="">){</Terminal>
-														<BRANCH ID="2282" Children="1104,1105,1108,1115,1122,2281">
-															<Terminal ID="1104" Children="">i(</Terminal>
-															<Terminal ID="1105" Children="">T</Terminal>
-															<Terminal ID="1108" Children="">)t{</Terminal>
-															<CALL ID="1115" Children="1109,1110">
-																<Terminal ID="1109" Children="">cp</Terminal>
-																<Terminal ID="1110" Children="">6</Terminal>
-															</CALL>
-															<Terminal ID="1122" Children="">}</Terminal>
-															<ELSE ID="2281" Children="1123,2273,2280">
-																<Terminal ID="1123" Children="">e{</Terminal>
-																<LOOP ID="2273" Children="1124,2032,2034,2271,2272">
-																	<Terminal ID="1124" Children="">w(</Terminal>
-																	<LOGIC ID="2032" Children="1125,1627,1629,2029,2031">
-																		<Terminal ID="1125" Children="">v(</Terminal>
-																		<LOGIC ID="1627" Children="1126,1624,1626">
-																			<Terminal ID="1126" Children="">!(</Terminal>
-																			<LOGIC ID="1624" Children="1127,1471,1473,1621,1623">
-																				<Terminal ID="1127" Children="">^(</Terminal>
-																				<LOGIC ID="1471" Children="1128,1374,1376,1468,1470">
-																					<Terminal ID="1128" Children="">v(</Terminal>
-																					<LOGIC ID="1374" Children="1129,1195,1197,1371,1373">
-																						<Terminal ID="1129" Children="">^(</Terminal>
-																						<CMPR ID="1195" Children="1130,1151,1152,1193,1194">
-																							<Terminal ID="1130" Children="">&gt;(</Terminal>
-																							<NUMEXPR ID="1151" Children="1131,1138,1141,1148,1150">
-																								<Terminal ID="1131" Children="">a(</Terminal>
-																								<NUMVAR ID="1138" Children="1132,1133">
-																									<Terminal ID="1132" Children="">n</Terminal>
-																									<Terminal ID="1133" Children="">3</Terminal>
-																								</NUMVAR>
-																								<Terminal ID="1141" Children="">,</Terminal>
-																								<NUMVAR ID="1148" Children="1142,1143">
-																									<Terminal ID="1142" Children="">n</Terminal>
-																									<Terminal ID="1143" Children="">7</Terminal>
-																								</NUMVAR>
-																								<Terminal ID="1150" Children="">)</Terminal>
-																							</NUMEXPR>
-																							<Terminal ID="1152" Children="">,</Terminal>
-																							<NUMEXPR ID="1193" Children="1153,1187,1188,1189,1192">
-																								<Terminal ID="1153" Children="">m(</Terminal>
-																								<NUMEXPR ID="1187" Children="1154,1176,1177,1184,1186">
-																									<Terminal ID="1154" Children="">m(</Terminal>
-																									<NUMEXPR ID="1176" Children="1155,1156,1160,1172,1175">
-																										<Terminal ID="1155" Children="">a(</Terminal>
-																										<Terminal ID="1156" Children="">0.00</Terminal>
-																										<Terminal ID="1160" Children="">,</Terminal>
-																										<NEG ID="1172" Children="1161,1171">
-																											<Terminal ID="1161" Children="">-</Terminal>
-																											<POS ID="1171" Children="1162,1166,1167,1169">
-																												<Terminal ID="1162" Children="">7</Terminal>
-																												<Terminal ID="1166" Children="">.</Terminal>
-																												<Terminal ID="1167" Children="">3</Terminal>
-																												<Terminal ID="1169" Children="">3</Terminal>
-																											</POS>
-																										</NEG>
-																										<Terminal ID="1175" Children="">)</Terminal>
-																									</NUMEXPR>
-																									<Terminal ID="1177" Children="">,</Terminal>
-																									<NUMVAR ID="1184" Children="1178,1179">
-																										<Terminal ID="1178" Children="">n</Terminal>
-																										<Terminal ID="1179" Children="">3</Terminal>
-																									</NUMVAR>
-																									<Terminal ID="1186" Children="">)</Terminal>
-																								</NUMEXPR>
-																								<Terminal ID="1188" Children="">,</Terminal>
-																								<Terminal ID="1189" Children="">0.00</Terminal>
-																								<Terminal ID="1192" Children="">)</Terminal>
-																							</NUMEXPR>
-																							<Terminal ID="1194" Children="">)</Terminal>
-																						</CMPR>
-																						<Terminal ID="1197" Children="">,</Terminal>
-																						<LOGIC ID="1371" Children="1198,1310,1312,1368,1370">
-																							<Terminal ID="1198" Children="">^(</Terminal>
-																							<CMPR ID="1310" Children="1199,1229,1230,1308,1309">
-																								<Terminal ID="1199" Children="">&gt;(</Terminal>
-																								<NUMEXPR ID="1229" Children="1200,1223,1224,1225,1228">
-																									<Terminal ID="1200" Children="">m(</Terminal>
-																									<NUMEXPR ID="1223" Children="1201,1217,1218,1219,1222">
-																										<Terminal ID="1201" Children="">d(</Terminal>
-																										<NUMEXPR ID="1217" Children="1202,1203,1207,1214,1216">
-																											<Terminal ID="1202" Children="">a(</Terminal>
-																											<Terminal ID="1203" Children="">0.00</Terminal>
-																											<Terminal ID="1207" Children="">,</Terminal>
-																											<NUMVAR ID="1214" Children="1208,1209">
-																												<Terminal ID="1208" Children="">n</Terminal>
-																												<Terminal ID="1209" Children="">9</Terminal>
-																											</NUMVAR>
-																											<Terminal ID="1216" Children="">)</Terminal>
-																										</NUMEXPR>
-																										<Terminal ID="1218" Children="">,</Terminal>
-																										<Terminal ID="1219" Children="">0.00</Terminal>
-																										<Terminal ID="1222" Children="">)</Terminal>
-																									</NUMEXPR>
-																									<Terminal ID="1224" Children="">,</Terminal>
-																									<Terminal ID="1225" Children="">0.00</Terminal>
-																									<Terminal ID="1228" Children="">)</Terminal>
-																								</NUMEXPR>
-																								<Terminal ID="1230" Children="">,</Terminal>
-																								<NUMEXPR ID="1308" Children="1231,1291,1292,1304,1307">
-																									<Terminal ID="1231" Children="">m(</Terminal>
-																									<NUMEXPR ID="1291" Children="1232,1280,1281,1288,1290">
-																										<Terminal ID="1232" Children="">a(</Terminal>
-																										<NUMEXPR ID="1280" Children="1233,1265,1266,1276,1279">
-																											<Terminal ID="1233" Children="">d(</Terminal>
-																											<NUMEXPR ID="1265" Children="1234,1254,1255,1262,1264">
-																												<Terminal ID="1234" Children="">a(</Terminal>
-																												<NUMEXPR ID="1254" Children="1235,1236,1240,1251,1253">
-																													<Terminal ID="1235" Children="">a(</Terminal>
-																													<Terminal ID="1236" Children="">0.00</Terminal>
-																													<Terminal ID="1240" Children="">,</Terminal>
-																													<NUMVAR ID="1251" Children="1241,1250">
-																														<Terminal ID="1241" Children="">n</Terminal>
-																														<DIGITS ID="1250" Children="1242,1244">
-																															<Terminal ID="1242" Children="">0</Terminal>
-																															<Terminal ID="1244" Children="">3</Terminal>
-																														</DIGITS>
-																													</NUMVAR>
-																													<Terminal ID="1253" Children="">)</Terminal>
-																												</NUMEXPR>
-																												<Terminal ID="1255" Children="">,</Terminal>
-																												<NUMVAR ID="1262" Children="1256,1257">
-																													<Terminal ID="1256" Children="">n</Terminal>
-																													<Terminal ID="1257" Children="">2</Terminal>
-																												</NUMVAR>
-																												<Terminal ID="1264" Children="">)</Terminal>
-																											</NUMEXPR>
-																											<Terminal ID="1266" Children="">,</Terminal>
-																											<POS ID="1276" Children="1267,1271,1272,1274">
-																												<Terminal ID="1267" Children="">9</Terminal>
-																												<Terminal ID="1271" Children="">.</Terminal>
-																												<Terminal ID="1272" Children="">9</Terminal>
-																												<Terminal ID="1274" Children="">3</Terminal>
-																											</POS>
-																											<Terminal ID="1279" Children="">)</Terminal>
-																										</NUMEXPR>
-																										<Terminal ID="1281" Children="">,</Terminal>
-																										<NUMVAR ID="1288" Children="1282,1283">
-																											<Terminal ID="1282" Children="">n</Terminal>
-																											<Terminal ID="1283" Children="">6</Terminal>
-																										</NUMVAR>
-																										<Terminal ID="1290" Children="">)</Terminal>
-																									</NUMEXPR>
-																									<Terminal ID="1292" Children="">,</Terminal>
-																									<NEG ID="1304" Children="1293,1303">
-																										<Terminal ID="1293" Children="">-</Terminal>
-																										<POS ID="1303" Children="1294,1298,1299,1301">
-																											<Terminal ID="1294" Children="">5</Terminal>
-																											<Terminal ID="1298" Children="">.</Terminal>
-																											<Terminal ID="1299" Children="">1</Terminal>
-																											<Terminal ID="1301" Children="">3</Terminal>
-																										</POS>
-																									</NEG>
-																									<Terminal ID="1307" Children="">)</Terminal>
-																								</NUMEXPR>
-																								<Terminal ID="1309" Children="">)</Terminal>
-																							</CMPR>
-																							<Terminal ID="1312" Children="">,</Terminal>
-																							<LOGIC ID="1368" Children="1313,1365,1367">
-																								<Terminal ID="1313" Children="">!(</Terminal>
-																								<CMPR ID="1365" Children="1314,1345,1346,1361,1364">
-																									<Terminal ID="1314" Children="">E(</Terminal>
-																									<NUMEXPR ID="1345" Children="1315,1339,1340,1341,1344">
-																										<Terminal ID="1315" Children="">m(</Terminal>
-																										<NUMEXPR ID="1339" Children="1316,1331,1334,1335,1338">
-																											<Terminal ID="1316" Children="">a(</Terminal>
-																											<NUMVAR ID="1331" Children="1317,1330">
-																												<Terminal ID="1317" Children="">n</Terminal>
-																												<DIGITS ID="1330" Children="1318,1328">
-																													<Terminal ID="1318" Children="">4</Terminal>
-																													<DIGITS ID="1328" Children="1320,1322">
-																														<Terminal ID="1320" Children="">7</Terminal>
-																														<Terminal ID="1322" Children="">5</Terminal>
-																													</DIGITS>
-																												</DIGITS>
-																											</NUMVAR>
-																											<Terminal ID="1334" Children="">,</Terminal>
-																											<Terminal ID="1335" Children="">0.00</Terminal>
-																											<Terminal ID="1338" Children="">)</Terminal>
-																										</NUMEXPR>
-																										<Terminal ID="1340" Children="">,</Terminal>
-																										<Terminal ID="1341" Children="">0.00</Terminal>
-																										<Terminal ID="1344" Children="">)</Terminal>
-																									</NUMEXPR>
-																									<Terminal ID="1346" Children="">,</Terminal>
-																									<NUMVAR ID="1361" Children="1347,1360">
-																										<Terminal ID="1347" Children="">n</Terminal>
-																										<DIGITS ID="1360" Children="1348,1358">
-																											<Terminal ID="1348" Children="">4</Terminal>
-																											<DIGITS ID="1358" Children="1350,1352">
-																												<Terminal ID="1350" Children="">9</Terminal>
-																												<Terminal ID="1352" Children="">2</Terminal>
-																											</DIGITS>
-																										</DIGITS>
-																									</NUMVAR>
-																									<Terminal ID="1364" Children="">)</Terminal>
-																								</CMPR>
-																								<Terminal ID="1367" Children="">)</Terminal>
-																							</LOGIC>
-																							<Terminal ID="1370" Children="">)</Terminal>
-																						</LOGIC>
-																						<Terminal ID="1373" Children="">)</Terminal>
-																					</LOGIC>
-																					<Terminal ID="1376" Children="">,</Terminal>
-																					<CMPR ID="1468" Children="1377,1443,1444,1466,1467">
-																						<Terminal ID="1377" Children="">E(</Terminal>
-																						<NUMEXPR ID="1443" Children="1378,1432,1433,1440,1442">
-																							<Terminal ID="1378" Children="">a(</Terminal>
-																							<NUMEXPR ID="1432" Children="1379,1415,1416,1428,1431">
-																								<Terminal ID="1379" Children="">d(</Terminal>
-																								<NUMEXPR ID="1415" Children="1380,1409,1410,1411,1414">
-																									<Terminal ID="1380" Children="">m(</Terminal>
-																									<NUMEXPR ID="1409" Children="1381,1391,1395,1405,1408">
-																										<Terminal ID="1381" Children="">a(</Terminal>
-																										<POS ID="1391" Children="1382,1386,1387,1389">
-																											<Terminal ID="1382" Children="">4</Terminal>
-																											<Terminal ID="1386" Children="">.</Terminal>
-																											<Terminal ID="1387" Children="">4</Terminal>
-																											<Terminal ID="1389" Children="">2</Terminal>
-																										</POS>
-																										<Terminal ID="1395" Children="">,</Terminal>
-																										<POS ID="1405" Children="1396,1400,1401,1403">
-																											<Terminal ID="1396" Children="">2</Terminal>
-																											<Terminal ID="1400" Children="">.</Terminal>
-																											<Terminal ID="1401" Children="">9</Terminal>
-																											<Terminal ID="1403" Children="">0</Terminal>
-																										</POS>
-																										<Terminal ID="1408" Children="">)</Terminal>
-																									</NUMEXPR>
-																									<Terminal ID="1410" Children="">,</Terminal>
-																									<Terminal ID="1411" Children="">0.00</Terminal>
-																									<Terminal ID="1414" Children="">)</Terminal>
-																								</NUMEXPR>
-																								<Terminal ID="1416" Children="">,</Terminal>
-																								<NEG ID="1428" Children="1417,1427">
-																									<Terminal ID="1417" Children="">-</Terminal>
-																									<POS ID="1427" Children="1418,1422,1423,1425">
-																										<Terminal ID="1418" Children="">6</Terminal>
-																										<Terminal ID="1422" Children="">.</Terminal>
-																										<Terminal ID="1423" Children="">9</Terminal>
-																										<Terminal ID="1425" Children="">3</Terminal>
-																									</POS>
-																								</NEG>
-																								<Terminal ID="1431" Children="">)</Terminal>
-																							</NUMEXPR>
-																							<Terminal ID="1433" Children="">,</Terminal>
-																							<NUMVAR ID="1440" Children="1434,1435">
-																								<Terminal ID="1434" Children="">n</Terminal>
-																								<Terminal ID="1435" Children="">9</Terminal>
-																							</NUMVAR>
-																							<Terminal ID="1442" Children="">)</Terminal>
-																						</NUMEXPR>
-																						<Terminal ID="1444" Children="">,</Terminal>
-																						<NUMEXPR ID="1466" Children="1445,1446,1450,1462,1465">
-																							<Terminal ID="1445" Children="">a(</Terminal>
-																							<Terminal ID="1446" Children="">0.00</Terminal>
-																							<Terminal ID="1450" Children="">,</Terminal>
-																							<NEG ID="1462" Children="1451,1461">
-																								<Terminal ID="1451" Children="">-</Terminal>
-																								<POS ID="1461" Children="1452,1456,1457,1459">
-																									<Terminal ID="1452" Children="">9</Terminal>
-																									<Terminal ID="1456" Children="">.</Terminal>
-																									<Terminal ID="1457" Children="">3</Terminal>
-																									<Terminal ID="1459" Children="">0</Terminal>
-																								</POS>
-																							</NEG>
-																							<Terminal ID="1465" Children="">)</Terminal>
-																						</NUMEXPR>
-																						<Terminal ID="1467" Children="">)</Terminal>
-																					</CMPR>
-																					<Terminal ID="1470" Children="">)</Terminal>
-																				</LOGIC>
-																				<Terminal ID="1473" Children="">,</Terminal>
-																				<CMPR ID="1621" Children="1474,1518,1519,1619,1620">
-																					<Terminal ID="1474" Children="">&gt;(</Terminal>
-																					<NUMEXPR ID="1518" Children="1475,1503,1504,1514,1517">
-																						<Terminal ID="1475" Children="">m(</Terminal>
-																						<NUMEXPR ID="1503" Children="1476,1494,1498,1499,1502">
-																							<Terminal ID="1476" Children="">d(</Terminal>
-																							<POS ID="1494" Children="1488,1489,1490,1492">
-																								<INT ID="1488" Children="1477,1486">
-																									<Terminal ID="1477" Children="">9</Terminal>
-																									<DIGITS ID="1486" Children="1478,1480">
-																										<Terminal ID="1478" Children="">1</Terminal>
-																										<Terminal ID="1480" Children="">5</Terminal>
-																									</DIGITS>
-																								</INT>
-																								<Terminal ID="1489" Children="">.</Terminal>
-																								<Terminal ID="1490" Children="">8</Terminal>
-																								<Terminal ID="1492" Children="">8</Terminal>
-																							</POS>
-																							<Terminal ID="1498" Children="">,</Terminal>
-																							<Terminal ID="1499" Children="">0.00</Terminal>
-																							<Terminal ID="1502" Children="">)</Terminal>
-																						</NUMEXPR>
-																						<Terminal ID="1504" Children="">,</Terminal>
-																						<POS ID="1514" Children="1505,1509,1510,1512">
-																							<Terminal ID="1505" Children="">7</Terminal>
-																							<Terminal ID="1509" Children="">.</Terminal>
-																							<Terminal ID="1510" Children="">4</Terminal>
-																							<Terminal ID="1512" Children="">3</Terminal>
-																						</POS>
-																						<Terminal ID="1517" Children="">)</Terminal>
-																					</NUMEXPR>
-																					<Terminal ID="1519" Children="">,</Terminal>
-																					<NUMEXPR ID="1619" Children="1520,1608,1609,1616,1618">
-																						<Terminal ID="1520" Children="">m(</Terminal>
-																						<NUMEXPR ID="1608" Children="1521,1597,1598,1605,1607">
-																							<Terminal ID="1521" Children="">m(</Terminal>
-																							<NUMEXPR ID="1597" Children="1522,1586,1587,1594,1596">
-																								<Terminal ID="1522" Children="">d(</Terminal>
-																								<NUMEXPR ID="1586" Children="1523,1575,1576,1583,1585">
-																									<Terminal ID="1523" Children="">m(</Terminal>
-																									<NUMEXPR ID="1575" Children="1524,1560,1561,1571,1574">
-																										<Terminal ID="1524" Children="">d(</Terminal>
-																										<NUMEXPR ID="1560" Children="1525,1554,1555,1556,1559">
-																											<Terminal ID="1525" Children="">a(</Terminal>
-																											<NUMEXPR ID="1554" Children="1526,1536,1540,1550,1553">
-																												<Terminal ID="1526" Children="">d(</Terminal>
-																												<POS ID="1536" Children="1527,1531,1532,1534">
-																													<Terminal ID="1527" Children="">1</Terminal>
-																													<Terminal ID="1531" Children="">.</Terminal>
-																													<Terminal ID="1532" Children="">7</Terminal>
-																													<Terminal ID="1534" Children="">1</Terminal>
-																												</POS>
-																												<Terminal ID="1540" Children="">,</Terminal>
-																												<POS ID="1550" Children="1541,1545,1546,1548">
-																													<Terminal ID="1541" Children="">3</Terminal>
-																													<Terminal ID="1545" Children="">.</Terminal>
-																													<Terminal ID="1546" Children="">2</Terminal>
-																													<Terminal ID="1548" Children="">4</Terminal>
-																												</POS>
-																												<Terminal ID="1553" Children="">)</Terminal>
-																											</NUMEXPR>
-																											<Terminal ID="1555" Children="">,</Terminal>
-																											<Terminal ID="1556" Children="">0.00</Terminal>
-																											<Terminal ID="1559" Children="">)</Terminal>
-																										</NUMEXPR>
-																										<Terminal ID="1561" Children="">,</Terminal>
-																										<POS ID="1571" Children="1562,1566,1567,1569">
-																											<Terminal ID="1562" Children="">2</Terminal>
-																											<Terminal ID="1566" Children="">.</Terminal>
-																											<Terminal ID="1567" Children="">9</Terminal>
-																											<Terminal ID="1569" Children="">5</Terminal>
-																										</POS>
-																										<Terminal ID="1574" Children="">)</Terminal>
-																									</NUMEXPR>
-																									<Terminal ID="1576" Children="">,</Terminal>
-																									<NUMVAR ID="1583" Children="1577,1578">
-																										<Terminal ID="1577" Children="">n</Terminal>
-																										<Terminal ID="1578" Children="">0</Terminal>
-																									</NUMVAR>
-																									<Terminal ID="1585" Children="">)</Terminal>
-																								</NUMEXPR>
-																								<Terminal ID="1587" Children="">,</Terminal>
-																								<NUMVAR ID="1594" Children="1588,1589">
-																									<Terminal ID="1588" Children="">n</Terminal>
-																									<Terminal ID="1589" Children="">0</Terminal>
-																								</NUMVAR>
-																								<Terminal ID="1596" Children="">)</Terminal>
-																							</NUMEXPR>
-																							<Terminal ID="1598" Children="">,</Terminal>
-																							<NUMVAR ID="1605" Children="1599,1600">
-																								<Terminal ID="1599" Children="">n</Terminal>
-																								<Terminal ID="1600" Children="">5</Terminal>
-																							</NUMVAR>
-																							<Terminal ID="1607" Children="">)</Terminal>
-																						</NUMEXPR>
-																						<Terminal ID="1609" Children="">,</Terminal>
-																						<NUMVAR ID="1616" Children="1610,1611">
-																							<Terminal ID="1610" Children="">n</Terminal>
-																							<Terminal ID="1611" Children="">7</Terminal>
-																						</NUMVAR>
-																						<Terminal ID="1618" Children="">)</Terminal>
-																					</NUMEXPR>
-																					<Terminal ID="1620" Children="">)</Terminal>
-																				</CMPR>
-																				<Terminal ID="1623" Children="">)</Terminal>
-																			</LOGIC>
-																			<Terminal ID="1626" Children="">)</Terminal>
-																		</LOGIC>
-																		<Terminal ID="1629" Children="">,</Terminal>
-																		<LOGIC ID="2029" Children="1630,1845,1847,2026,2028">
-																			<Terminal ID="1630" Children="">^(</Terminal>
-																			<CMPR ID="1845" Children="1631,1813,1814,1843,1844">
-																				<Terminal ID="1631" Children="">E(</Terminal>
-																				<NUMEXPR ID="1813" Children="1632,1802,1803,1810,1812">
-																					<Terminal ID="1632" Children="">m(</Terminal>
-																					<NUMEXPR ID="1802" Children="1633,1783,1784,1798,1801">
-																						<Terminal ID="1633" Children="">m(</Terminal>
-																						<NUMEXPR ID="1783" Children="1634,1772,1773,1780,1782">
-																							<Terminal ID="1634" Children="">a(</Terminal>
-																							<NUMEXPR ID="1772" Children="1635,1757,1758,1769,1771">
-																								<Terminal ID="1635" Children="">a(</Terminal>
-																								<NUMEXPR ID="1757" Children="1636,1740,1741,1753,1756">
-																									<Terminal ID="1636" Children="">m(</Terminal>
-																									<NUMEXPR ID="1740" Children="1637,1729,1730,1737,1739">
-																										<Terminal ID="1637" Children="">d(</Terminal>
-																										<NUMEXPR ID="1729" Children="1638,1723,1724,1725,1728">
-																											<Terminal ID="1638" Children="">m(</Terminal>
-																											<NUMEXPR ID="1723" Children="1639,1708,1709,1719,1722">
-																												<Terminal ID="1639" Children="">a(</Terminal>
-																												<NUMEXPR ID="1708" Children="1640,1693,1694,1704,1707">
-																													<Terminal ID="1640" Children="">a(</Terminal>
-																													<NUMEXPR ID="1693" Children="1641,1687,1688,1689,1692">
-																														<Terminal ID="1641" Children="">a(</Terminal>
-																														<NUMEXPR ID="1687" Children="1642,1670,1671,1683,1686">
-																															<Terminal ID="1642" Children="">a(</Terminal>
-																															<NUMEXPR ID="1670" Children="1643,1659,1660,1667,1669">
-																																<Terminal ID="1643" Children="">a(</Terminal>
-																																<NUMEXPR ID="1659" Children="1644,1645,1649,1656,1658">
-																																	<Terminal ID="1644" Children="">a(</Terminal>
-																																	<Terminal ID="1645" Children="">0.00</Terminal>
-																																	<Terminal ID="1649" Children="">,</Terminal>
-																																	<NUMVAR ID="1656" Children="1650,1651">
-																																		<Terminal ID="1650" Children="">n</Terminal>
-																																		<Terminal ID="1651" Children="">9</Terminal>
-																																	</NUMVAR>
-																																	<Terminal ID="1658" Children="">)</Terminal>
-																																</NUMEXPR>
-																																<Terminal ID="1660" Children="">,</Terminal>
-																																<NUMVAR ID="1667" Children="1661,1662">
-																																	<Terminal ID="1661" Children="">n</Terminal>
-																																	<Terminal ID="1662" Children="">4</Terminal>
-																																</NUMVAR>
-																																<Terminal ID="1669" Children="">)</Terminal>
-																															</NUMEXPR>
-																															<Terminal ID="1671" Children="">,</Terminal>
-																															<NEG ID="1683" Children="1672,1682">
-																																<Terminal ID="1672" Children="">-</Terminal>
-																																<POS ID="1682" Children="1673,1677,1678,1680">
-																																	<Terminal ID="1673" Children="">9</Terminal>
-																																	<Terminal ID="1677" Children="">.</Terminal>
-																																	<Terminal ID="1678" Children="">2</Terminal>
-																																	<Terminal ID="1680" Children="">3</Terminal>
-																																</POS>
-																															</NEG>
-																															<Terminal ID="1686" Children="">)</Terminal>
-																														</NUMEXPR>
-																														<Terminal ID="1688" Children="">,</Terminal>
-																														<Terminal ID="1689" Children="">0.00</Terminal>
-																														<Terminal ID="1692" Children="">)</Terminal>
-																													</NUMEXPR>
-																													<Terminal ID="1694" Children="">,</Terminal>
-																													<POS ID="1704" Children="1695,1699,1700,1702">
-																														<Terminal ID="1695" Children="">7</Terminal>
-																														<Terminal ID="1699" Children="">.</Terminal>
-																														<Terminal ID="1700" Children="">8</Terminal>
-																														<Terminal ID="1702" Children="">2</Terminal>
-																													</POS>
-																													<Terminal ID="1707" Children="">)</Terminal>
-																												</NUMEXPR>
-																												<Terminal ID="1709" Children="">,</Terminal>
-																												<POS ID="1719" Children="1710,1714,1715,1717">
-																													<Terminal ID="1710" Children="">3</Terminal>
-																													<Terminal ID="1714" Children="">.</Terminal>
-																													<Terminal ID="1715" Children="">1</Terminal>
-																													<Terminal ID="1717" Children="">7</Terminal>
-																												</POS>
-																												<Terminal ID="1722" Children="">)</Terminal>
-																											</NUMEXPR>
-																											<Terminal ID="1724" Children="">,</Terminal>
-																											<Terminal ID="1725" Children="">0.00</Terminal>
-																											<Terminal ID="1728" Children="">)</Terminal>
-																										</NUMEXPR>
-																										<Terminal ID="1730" Children="">,</Terminal>
-																										<NUMVAR ID="1737" Children="1731,1732">
-																											<Terminal ID="1731" Children="">n</Terminal>
-																											<Terminal ID="1732" Children="">0</Terminal>
-																										</NUMVAR>
-																										<Terminal ID="1739" Children="">)</Terminal>
-																									</NUMEXPR>
-																									<Terminal ID="1741" Children="">,</Terminal>
-																									<NEG ID="1753" Children="1742,1752">
-																										<Terminal ID="1742" Children="">-</Terminal>
-																										<POS ID="1752" Children="1743,1747,1748,1750">
-																											<Terminal ID="1743" Children="">9</Terminal>
-																											<Terminal ID="1747" Children="">.</Terminal>
-																											<Terminal ID="1748" Children="">1</Terminal>
-																											<Terminal ID="1750" Children="">6</Terminal>
-																										</POS>
-																									</NEG>
-																									<Terminal ID="1756" Children="">)</Terminal>
-																								</NUMEXPR>
-																								<Terminal ID="1758" Children="">,</Terminal>
-																								<NUMVAR ID="1769" Children="1759,1768">
-																									<Terminal ID="1759" Children="">n</Terminal>
-																									<DIGITS ID="1768" Children="1760,1762">
-																										<Terminal ID="1760" Children="">6</Terminal>
-																										<Terminal ID="1762" Children="">2</Terminal>
-																									</DIGITS>
-																								</NUMVAR>
-																								<Terminal ID="1771" Children="">)</Terminal>
-																							</NUMEXPR>
-																							<Terminal ID="1773" Children="">,</Terminal>
-																							<NUMVAR ID="1780" Children="1774,1775">
-																								<Terminal ID="1774" Children="">n</Terminal>
-																								<Terminal ID="1775" Children="">3</Terminal>
-																							</NUMVAR>
-																							<Terminal ID="1782" Children="">)</Terminal>
-																						</NUMEXPR>
-																						<Terminal ID="1784" Children="">,</Terminal>
-																						<POS ID="1798" Children="1792,1793,1794,1796">
-																							<INT ID="1792" Children="1785,1786">
-																								<Terminal ID="1785" Children="">6</Terminal>
-																								<Terminal ID="1786" Children="">6</Terminal>
-																							</INT>
-																							<Terminal ID="1793" Children="">.</Terminal>
-																							<Terminal ID="1794" Children="">5</Terminal>
-																							<Terminal ID="1796" Children="">0</Terminal>
-																						</POS>
-																						<Terminal ID="1801" Children="">)</Terminal>
-																					</NUMEXPR>
-																					<Terminal ID="1803" Children="">,</Terminal>
-																					<NUMVAR ID="1810" Children="1804,1805">
-																						<Terminal ID="1804" Children="">n</Terminal>
-																						<Terminal ID="1805" Children="">9</Terminal>
-																					</NUMVAR>
-																					<Terminal ID="1812" Children="">)</Terminal>
-																				</NUMEXPR>
-																				<Terminal ID="1814" Children="">,</Terminal>
-																				<NUMEXPR ID="1843" Children="1815,1826,1829,1840,1842">
-																					<Terminal ID="1815" Children="">a(</Terminal>
-																					<NUMVAR ID="1826" Children="1816,1825">
-																						<Terminal ID="1816" Children="">n</Terminal>
-																						<DIGITS ID="1825" Children="1817,1819">
-																							<Terminal ID="1817" Children="">1</Terminal>
-																							<Terminal ID="1819" Children="">1</Terminal>
-																						</DIGITS>
-																					</NUMVAR>
-																					<Terminal ID="1829" Children="">,</Terminal>
-																					<NUMVAR ID="1840" Children="1830,1839">
-																						<Terminal ID="1830" Children="">n</Terminal>
-																						<DIGITS ID="1839" Children="1831,1833">
-																							<Terminal ID="1831" Children="">7</Terminal>
-																							<Terminal ID="1833" Children="">9</Terminal>
-																						</DIGITS>
-																					</NUMVAR>
-																					<Terminal ID="1842" Children="">)</Terminal>
-																				</NUMEXPR>
-																				<Terminal ID="1844" Children="">)</Terminal>
-																			</CMPR>
-																			<Terminal ID="1847" Children="">,</Terminal>
-																			<CMPR ID="2026" Children="1848,1985,1986,2024,2025">
-																				<Terminal ID="1848" Children="">&gt;(</Terminal>
-																				<NUMEXPR ID="1985" Children="1849,1974,1975,1982,1984">
-																					<Terminal ID="1849" Children="">m(</Terminal>
-																					<NUMEXPR ID="1974" Children="1850,1959,1960,1971,1973">
-																						<Terminal ID="1850" Children="">m(</Terminal>
-																						<NUMEXPR ID="1959" Children="1851,1948,1949,1956,1958">
-																							<Terminal ID="1851" Children="">m(</Terminal>
-																							<NUMEXPR ID="1948" Children="1852,1937,1938,1945,1947">
-																								<Terminal ID="1852" Children="">a(</Terminal>
-																								<NUMEXPR ID="1937" Children="1853,1922,1923,1933,1936">
-																									<Terminal ID="1853" Children="">m(</Terminal>
-																									<NUMEXPR ID="1922" Children="1854,1916,1917,1918,1921">
-																										<Terminal ID="1854" Children="">a(</Terminal>
-																										<NUMEXPR ID="1916" Children="1855,1910,1911,1912,1915">
-																											<Terminal ID="1855" Children="">m(</Terminal>
-																											<NUMEXPR ID="1910" Children="1856,1889,1890,1906,1909">
-																												<Terminal ID="1856" Children="">d(</Terminal>
-																												<NUMEXPR ID="1889" Children="1857,1878,1879,1886,1888">
-																													<Terminal ID="1857" Children="">d(</Terminal>
-																													<NUMEXPR ID="1878" Children="1858,1865,1868,1875,1877">
-																														<Terminal ID="1858" Children="">m(</Terminal>
-																														<NUMVAR ID="1865" Children="1859,1860">
-																															<Terminal ID="1859" Children="">n</Terminal>
-																															<Terminal ID="1860" Children="">5</Terminal>
-																														</NUMVAR>
-																														<Terminal ID="1868" Children="">,</Terminal>
-																														<NUMVAR ID="1875" Children="1869,1870">
-																															<Terminal ID="1869" Children="">n</Terminal>
-																															<Terminal ID="1870" Children="">7</Terminal>
-																														</NUMVAR>
-																														<Terminal ID="1877" Children="">)</Terminal>
-																													</NUMEXPR>
-																													<Terminal ID="1879" Children="">,</Terminal>
-																													<NUMVAR ID="1886" Children="1880,1881">
-																														<Terminal ID="1880" Children="">n</Terminal>
-																														<Terminal ID="1881" Children="">8</Terminal>
-																													</NUMVAR>
-																													<Terminal ID="1888" Children="">)</Terminal>
-																												</NUMEXPR>
-																												<Terminal ID="1890" Children="">,</Terminal>
-																												<NEG ID="1906" Children="1891,1905">
-																													<Terminal ID="1891" Children="">-</Terminal>
-																													<POS ID="1905" Children="1899,1900,1901,1903">
-																														<INT ID="1899" Children="1892,1893">
-																															<Terminal ID="1892" Children="">9</Terminal>
-																															<Terminal ID="1893" Children="">4</Terminal>
-																														</INT>
-																														<Terminal ID="1900" Children="">.</Terminal>
-																														<Terminal ID="1901" Children="">2</Terminal>
-																														<Terminal ID="1903" Children="">8</Terminal>
-																													</POS>
-																												</NEG>
-																												<Terminal ID="1909" Children="">)</Terminal>
-																											</NUMEXPR>
-																											<Terminal ID="1911" Children="">,</Terminal>
-																											<Terminal ID="1912" Children="">0.00</Terminal>
-																											<Terminal ID="1915" Children="">)</Terminal>
-																										</NUMEXPR>
-																										<Terminal ID="1917" Children="">,</Terminal>
-																										<Terminal ID="1918" Children="">0.00</Terminal>
-																										<Terminal ID="1921" Children="">)</Terminal>
-																									</NUMEXPR>
-																									<Terminal ID="1923" Children="">,</Terminal>
-																									<POS ID="1933" Children="1924,1928,1929,1931">
-																										<Terminal ID="1924" Children="">8</Terminal>
-																										<Terminal ID="1928" Children="">.</Terminal>
-																										<Terminal ID="1929" Children="">5</Terminal>
-																										<Terminal ID="1931" Children="">3</Terminal>
-																									</POS>
-																									<Terminal ID="1936" Children="">)</Terminal>
-																								</NUMEXPR>
-																								<Terminal ID="1938" Children="">,</Terminal>
-																								<NUMVAR ID="1945" Children="1939,1940">
-																									<Terminal ID="1939" Children="">n</Terminal>
-																									<Terminal ID="1940" Children="">6</Terminal>
-																								</NUMVAR>
-																								<Terminal ID="1947" Children="">)</Terminal>
-																							</NUMEXPR>
-																							<Terminal ID="1949" Children="">,</Terminal>
-																							<NUMVAR ID="1956" Children="1950,1951">
-																								<Terminal ID="1950" Children="">n</Terminal>
-																								<Terminal ID="1951" Children="">7</Terminal>
-																							</NUMVAR>
-																							<Terminal ID="1958" Children="">)</Terminal>
-																						</NUMEXPR>
-																						<Terminal ID="1960" Children="">,</Terminal>
-																						<NUMVAR ID="1971" Children="1961,1970">
-																							<Terminal ID="1961" Children="">n</Terminal>
-																							<DIGITS ID="1970" Children="1962,1964">
-																								<Terminal ID="1962" Children="">7</Terminal>
-																								<Terminal ID="1964" Children="">4</Terminal>
-																							</DIGITS>
-																						</NUMVAR>
-																						<Terminal ID="1973" Children="">)</Terminal>
-																					</NUMEXPR>
-																					<Terminal ID="1975" Children="">,</Terminal>
-																					<NUMVAR ID="1982" Children="1976,1977">
-																						<Terminal ID="1976" Children="">n</Terminal>
-																						<Terminal ID="1977" Children="">1</Terminal>
-																					</NUMVAR>
-																					<Terminal ID="1984" Children="">)</Terminal>
-																				</NUMEXPR>
-																				<Terminal ID="1986" Children="">,</Terminal>
-																				<NUMEXPR ID="2024" Children="1987,2003,2004,2020,2023">
-																					<Terminal ID="1987" Children="">m(</Terminal>
-																					<NUMEXPR ID="2003" Children="1988,1995,1998,1999,2002">
-																						<Terminal ID="1988" Children="">m(</Terminal>
-																						<NUMVAR ID="1995" Children="1989,1990">
-																							<Terminal ID="1989" Children="">n</Terminal>
-																							<Terminal ID="1990" Children="">3</Terminal>
-																						</NUMVAR>
-																						<Terminal ID="1998" Children="">,</Terminal>
-																						<Terminal ID="1999" Children="">0.00</Terminal>
-																						<Terminal ID="2002" Children="">)</Terminal>
-																					</NUMEXPR>
-																					<Terminal ID="2004" Children="">,</Terminal>
-																					<NEG ID="2020" Children="2005,2019">
-																						<Terminal ID="2005" Children="">-</Terminal>
-																						<POS ID="2019" Children="2013,2014,2015,2017">
-																							<INT ID="2013" Children="2006,2007">
-																								<Terminal ID="2006" Children="">6</Terminal>
-																								<Terminal ID="2007" Children="">7</Terminal>
-																							</INT>
-																							<Terminal ID="2014" Children="">.</Terminal>
-																							<Terminal ID="2015" Children="">3</Terminal>
-																							<Terminal ID="2017" Children="">3</Terminal>
-																						</POS>
-																					</NEG>
-																					<Terminal ID="2023" Children="">)</Terminal>
-																				</NUMEXPR>
-																				<Terminal ID="2025" Children="">)</Terminal>
-																			</CMPR>
-																			<Terminal ID="2028" Children="">)</Terminal>
-																		</LOGIC>
-																		<Terminal ID="2031" Children="">)</Terminal>
-																	</LOGIC>
-																	<Terminal ID="2034" Children="">){</Terminal>
-																	<ALGO ID="2271" Children="2164,2198,2270">
-																		<ASSIGN ID="2164" Children="2041,2042,2162">
-																			<BOOLVAR ID="2041" Children="2035,2036">
-																				<Terminal ID="2035" Children="">b</Terminal>
-																				<Terminal ID="2036" Children="">3</Terminal>
-																			</BOOLVAR>
-																			<Terminal ID="2042" Children="">:=</Terminal>
-																			<LOGIC ID="2162" Children="2043,2159,2161">
-																				<Terminal ID="2043" Children="">!(</Terminal>
-																				<CMPR ID="2159" Children="2044,2089,2090,2157,2158">
-																					<Terminal ID="2044" Children="">&gt;(</Terminal>
-																					<NUMEXPR ID="2089" Children="2045,2070,2071,2086,2088">
-																						<Terminal ID="2045" Children="">m(</Terminal>
-																						<NUMEXPR ID="2070" Children="2046,2057,2060,2067,2069">
-																							<Terminal ID="2046" Children="">m(</Terminal>
-																							<NUMVAR ID="2057" Children="2047,2056">
-																								<Terminal ID="2047" Children="">n</Terminal>
-																								<DIGITS ID="2056" Children="2048,2050">
-																									<Terminal ID="2048" Children="">6</Terminal>
-																									<Terminal ID="2050" Children="">9</Terminal>
-																								</DIGITS>
-																							</NUMVAR>
-																							<Terminal ID="2060" Children="">,</Terminal>
-																							<NUMVAR ID="2067" Children="2061,2062">
-																								<Terminal ID="2061" Children="">n</Terminal>
-																								<Terminal ID="2062" Children="">7</Terminal>
-																							</NUMVAR>
-																							<Terminal ID="2069" Children="">)</Terminal>
-																						</NUMEXPR>
-																						<Terminal ID="2071" Children="">,</Terminal>
-																						<NUMVAR ID="2086" Children="2072,2085">
-																							<Terminal ID="2072" Children="">n</Terminal>
-																							<DIGITS ID="2085" Children="2073,2083">
-																								<Terminal ID="2073" Children="">1</Terminal>
-																								<DIGITS ID="2083" Children="2075,2077">
-																									<Terminal ID="2075" Children="">1</Terminal>
-																									<Terminal ID="2077" Children="">9</Terminal>
-																								</DIGITS>
-																							</DIGITS>
-																						</NUMVAR>
-																						<Terminal ID="2088" Children="">)</Terminal>
-																					</NUMEXPR>
-																					<Terminal ID="2090" Children="">,</Terminal>
-																					<NUMEXPR ID="2157" Children="2091,2146,2147,2154,2156">
-																						<Terminal ID="2091" Children="">m(</Terminal>
-																						<NUMEXPR ID="2146" Children="2092,2127,2128,2142,2145">
-																							<Terminal ID="2092" Children="">d(</Terminal>
-																							<NUMEXPR ID="2127" Children="2093,2105,2109,2124,2126">
-																								<Terminal ID="2093" Children="">a(</Terminal>
-																								<NEG ID="2105" Children="2094,2104">
-																									<Terminal ID="2094" Children="">-</Terminal>
-																									<POS ID="2104" Children="2095,2099,2100,2102">
-																										<Terminal ID="2095" Children="">3</Terminal>
-																										<Terminal ID="2099" Children="">.</Terminal>
-																										<Terminal ID="2100" Children="">1</Terminal>
-																										<Terminal ID="2102" Children="">6</Terminal>
-																									</POS>
-																								</NEG>
-																								<Terminal ID="2109" Children="">,</Terminal>
-																								<NUMVAR ID="2124" Children="2110,2123">
-																									<Terminal ID="2110" Children="">n</Terminal>
-																									<DIGITS ID="2123" Children="2111,2121">
-																										<Terminal ID="2111" Children="">7</Terminal>
-																										<DIGITS ID="2121" Children="2113,2115">
-																											<Terminal ID="2113" Children="">1</Terminal>
-																											<Terminal ID="2115" Children="">2</Terminal>
-																										</DIGITS>
-																									</DIGITS>
-																								</NUMVAR>
-																								<Terminal ID="2126" Children="">)</Terminal>
-																							</NUMEXPR>
-																							<Terminal ID="2128" Children="">,</Terminal>
-																							<POS ID="2142" Children="2136,2137,2138,2140">
-																								<INT ID="2136" Children="2129,2130">
-																									<Terminal ID="2129" Children="">7</Terminal>
-																									<Terminal ID="2130" Children="">7</Terminal>
-																								</INT>
-																								<Terminal ID="2137" Children="">.</Terminal>
-																								<Terminal ID="2138" Children="">3</Terminal>
-																								<Terminal ID="2140" Children="">4</Terminal>
-																							</POS>
-																							<Terminal ID="2145" Children="">)</Terminal>
-																						</NUMEXPR>
-																						<Terminal ID="2147" Children="">,</Terminal>
-																						<NUMVAR ID="2154" Children="2148,2149">
-																							<Terminal ID="2148" Children="">n</Terminal>
-																							<Terminal ID="2149" Children="">1</Terminal>
-																						</NUMVAR>
-																						<Terminal ID="2156" Children="">)</Terminal>
-																					</NUMEXPR>
-																					<Terminal ID="2158" Children="">)</Terminal>
-																				</CMPR>
-																				<Terminal ID="2161" Children="">)</Terminal>
-																			</LOGIC>
-																		</ASSIGN>
-																		<COMMENT ID="2198" Children="2166,2167,2169,2171,2173,2175,2177,2179,2181,2183,2185,2187,2189,2191,2193,2195,2197">
-																			<Terminal ID="2166" Children="">*</Terminal>
-																			<Terminal ID="2167" Children="">@</Terminal>
-																			<Terminal ID="2169" Children="">@</Terminal>
-																			<Terminal ID="2171" Children="">@</Terminal>
-																			<Terminal ID="2173" Children="">@</Terminal>
-																			<Terminal ID="2175" Children="">@</Terminal>
-																			<Terminal ID="2177" Children="">@</Terminal>
-																			<Terminal ID="2179" Children="">@</Terminal>
-																			<Terminal ID="2181" Children="">@</Terminal>
-																			<Terminal ID="2183" Children="">@</Terminal>
-																			<Terminal ID="2185" Children="">@</Terminal>
-																			<Terminal ID="2187" Children="">@</Terminal>
-																			<Terminal ID="2189" Children="">@</Terminal>
-																			<Terminal ID="2191" Children="">@</Terminal>
-																			<Terminal ID="2193" Children="">@</Terminal>
-																			<Terminal ID="2195" Children="">@</Terminal>
-																			<Terminal ID="2197" Children="">*</Terminal>
-																		</COMMENT>
-																		<SEQ ID="2270" Children="2199,2269">
-																			<Terminal ID="2199" Children="">;</Terminal>
-																			<ALGO ID="2269" Children="2232,2266">
-																				<LOOP ID="2232" Children="2200,2207,2210,2223,2231">
-																					<Terminal ID="2200" Children="">w(</Terminal>
-																					<BOOLVAR ID="2207" Children="2201,2202">
-																						<Terminal ID="2201" Children="">b</Terminal>
-																						<Terminal ID="2202" Children="">5</Terminal>
-																					</BOOLVAR>
-																					<Terminal ID="2210" Children="">){</Terminal>
-																					<VALUE ID="2223" Children="2211,2222">
-																						<Terminal ID="2211" Children="">o</Terminal>
-																						<NUMVAR ID="2222" Children="2212,2221">
-																							<Terminal ID="2212" Children="">n</Terminal>
-																							<DIGITS ID="2221" Children="2213,2215">
-																								<Terminal ID="2213" Children="">7</Terminal>
-																								<Terminal ID="2215" Children="">0</Terminal>
-																							</DIGITS>
-																						</NUMVAR>
-																					</VALUE>
-																					<Terminal ID="2231" Children="">}</Terminal>
-																				</LOOP>
-																				<COMMENT ID="2266" Children="2234,2235,2237,2239,2241,2243,2245,2247,2249,2251,2253,2255,2257,2259,2261,2263,2265">
-																					<Terminal ID="2234" Children="">*</Terminal>
-																					<Terminal ID="2235" Children="">@</Terminal>
-																					<Terminal ID="2237" Children="">@</Terminal>
-																					<Terminal ID="2239" Children="">@</Terminal>
-																					<Terminal ID="2241" Children="">@</Terminal>
-																					<Terminal ID="2243" Children="">@</Terminal>
-																					<Terminal ID="2245" Children="">@</Terminal>
-																					<Terminal ID="2247" Children="">@</Terminal>
-																					<Terminal ID="2249" Children="">@</Terminal>
-																					<Terminal ID="2251" Children="">@</Terminal>
-																					<Terminal ID="2253" Children="">@</Terminal>
-																					<Terminal ID="2255" Children="">@</Terminal>
-																					<Terminal ID="2257" Children="">@</Terminal>
-																					<Terminal ID="2259" Children="">@</Terminal>
-																					<Terminal ID="2261" Children="">@</Terminal>
-																					<Terminal ID="2263" Children="">@</Terminal>
-																					<Terminal ID="2265" Children="">*</Terminal>
-																				</COMMENT>
-																			</ALGO>
-																		</SEQ>
-																	</ALGO>
-																	<Terminal ID="2272" Children="">}</Terminal>
-																</LOOP>
-																<Terminal ID="2280" Children="">}</Terminal>
-															</ELSE>
-														</BRANCH>
-														<Terminal ID="2289" Children="">}</Terminal>
-													</LOOP>
-												</SEQ>
-											</ALGO>
-											<Terminal ID="2299" Children="">}</Terminal>
-										</LOOP>
-									</SEQ>
-								</ALGO>
-								<Terminal ID="2309" Children="">}</Terminal>
-							</LOOP>
-							<Terminal ID="2320" Children="">}</Terminal>
-						</PROC>
-						<PROCDEFS ID="2700" Children="2322,2697">
-							<Terminal ID="2322" Children="">,</Terminal>
-							<PROC ID="2697" Children="2323,2324,2329,2686,2696">
-								<Terminal ID="2323" Children="">p</Terminal>
-								<Terminal ID="2324" Children="">6</Terminal>
-								<Terminal ID="2329" Children="">{</Terminal>
-								<BRANCH ID="2686" Children="2330,2621,2623,2682,2683">
-									<Terminal ID="2330" Children="">i(</Terminal>
-									<LOGIC ID="2621" Children="2331,2405,2407,2618,2620">
-										<Terminal ID="2331" Children="">v(</Terminal>
-										<LOGIC ID="2405" Children="2332,2398,2400,2401,2404">
-											<Terminal ID="2332" Children="">v(</Terminal>
-											<CMPR ID="2398" Children="2333,2340,2343,2396,2397">
-												<Terminal ID="2333" Children="">E(</Terminal>
-												<NUMVAR ID="2340" Children="2334,2335">
-													<Terminal ID="2334" Children="">n</Terminal>
-													<Terminal ID="2335" Children="">5</Terminal>
-												</NUMVAR>
-												<Terminal ID="2343" Children="">,</Terminal>
-												<NUMEXPR ID="2396" Children="2344,2379,2380,2392,2395">
-													<Terminal ID="2344" Children="">d(</Terminal>
-													<NUMEXPR ID="2379" Children="2345,2355,2359,2375,2378">
-														<Terminal ID="2345" Children="">m(</Terminal>
-														<POS ID="2355" Children="2346,2350,2351,2353">
-															<Terminal ID="2346" Children="">6</Terminal>
-															<Terminal ID="2350" Children="">.</Terminal>
-															<Terminal ID="2351" Children="">1</Terminal>
-															<Terminal ID="2353" Children="">3</Terminal>
-														</POS>
-														<Terminal ID="2359" Children="">,</Terminal>
-														<NEG ID="2375" Children="2360,2374">
-															<Terminal ID="2360" Children="">-</Terminal>
-															<POS ID="2374" Children="2368,2369,2370,2372">
-																<INT ID="2368" Children="2361,2362">
-																	<Terminal ID="2361" Children="">1</Terminal>
-																	<Terminal ID="2362" Children="">9</Terminal>
-																</INT>
-																<Terminal ID="2369" Children="">.</Terminal>
-																<Terminal ID="2370" Children="">7</Terminal>
-																<Terminal ID="2372" Children="">3</Terminal>
-															</POS>
-														</NEG>
-														<Terminal ID="2378" Children="">)</Terminal>
-													</NUMEXPR>
-													<Terminal ID="2380" Children="">,</Terminal>
-													<NEG ID="2392" Children="2381,2391">
-														<Terminal ID="2381" Children="">-</Terminal>
-														<POS ID="2391" Children="2382,2386,2387,2389">
-															<Terminal ID="2382" Children="">4</Terminal>
-															<Terminal ID="2386" Children="">.</Terminal>
-															<Terminal ID="2387" Children="">9</Terminal>
-															<Terminal ID="2389" Children="">1</Terminal>
-														</POS>
-													</NEG>
-													<Terminal ID="2395" Children="">)</Terminal>
-												</NUMEXPR>
-												<Terminal ID="2397" Children="">)</Terminal>
-											</CMPR>
-											<Terminal ID="2400" Children="">,</Terminal>
-											<Terminal ID="2401" Children="">F</Terminal>
-											<Terminal ID="2404" Children="">)</Terminal>
-										</LOGIC>
-										<Terminal ID="2407" Children="">,</Terminal>
-										<LOGIC ID="2618" Children="2408,2597,2599,2615,2617">
-											<Terminal ID="2408" Children="">v(</Terminal>
-											<CMPR ID="2597" Children="2409,2527,2528,2595,2596">
-												<Terminal ID="2409" Children="">&lt;(</Terminal>
-												<NUMEXPR ID="2527" Children="2410,2516,2517,2524,2526">
-													<Terminal ID="2410" Children="">d(</Terminal>
-													<NUMEXPR ID="2516" Children="2411,2499,2500,2512,2515">
-														<Terminal ID="2411" Children="">m(</Terminal>
-														<NUMEXPR ID="2499" Children="2412,2488,2489,2496,2498">
-															<Terminal ID="2412" Children="">d(</Terminal>
-															<NUMEXPR ID="2488" Children="2413,2477,2478,2485,2487">
-																<Terminal ID="2413" Children="">m(</Terminal>
-																<NUMEXPR ID="2477" Children="2414,2462,2463,2474,2476">
-																	<Terminal ID="2414" Children="">d(</Terminal>
-																	<NUMEXPR ID="2462" Children="2415,2447,2448,2458,2461">
-																		<Terminal ID="2415" Children="">d(</Terminal>
-																		<NUMEXPR ID="2447" Children="2416,2441,2442,2443,2446">
-																			<Terminal ID="2416" Children="">a(</Terminal>
-																			<NUMEXPR ID="2441" Children="2417,2428,2431,2438,2440">
-																				<Terminal ID="2417" Children="">a(</Terminal>
-																				<NUMVAR ID="2428" Children="2418,2427">
-																					<Terminal ID="2418" Children="">n</Terminal>
-																					<DIGITS ID="2427" Children="2419,2421">
-																						<Terminal ID="2419" Children="">6</Terminal>
-																						<Terminal ID="2421" Children="">1</Terminal>
-																					</DIGITS>
-																				</NUMVAR>
-																				<Terminal ID="2431" Children="">,</Terminal>
-																				<NUMVAR ID="2438" Children="2432,2433">
-																					<Terminal ID="2432" Children="">n</Terminal>
-																					<Terminal ID="2433" Children="">3</Terminal>
-																				</NUMVAR>
-																				<Terminal ID="2440" Children="">)</Terminal>
-																			</NUMEXPR>
-																			<Terminal ID="2442" Children="">,</Terminal>
-																			<Terminal ID="2443" Children="">0.00</Terminal>
-																			<Terminal ID="2446" Children="">)</Terminal>
-																		</NUMEXPR>
-																		<Terminal ID="2448" Children="">,</Terminal>
-																		<POS ID="2458" Children="2449,2453,2454,2456">
-																			<Terminal ID="2449" Children="">4</Terminal>
-																			<Terminal ID="2453" Children="">.</Terminal>
-																			<Terminal ID="2454" Children="">5</Terminal>
-																			<Terminal ID="2456" Children="">7</Terminal>
-																		</POS>
-																		<Terminal ID="2461" Children="">)</Terminal>
-																	</NUMEXPR>
-																	<Terminal ID="2463" Children="">,</Terminal>
-																	<NUMVAR ID="2474" Children="2464,2473">
-																		<Terminal ID="2464" Children="">n</Terminal>
-																		<DIGITS ID="2473" Children="2465,2467">
-																			<Terminal ID="2465" Children="">6</Terminal>
-																			<Terminal ID="2467" Children="">0</Terminal>
-																		</DIGITS>
-																	</NUMVAR>
-																	<Terminal ID="2476" Children="">)</Terminal>
-																</NUMEXPR>
-																<Terminal ID="2478" Children="">,</Terminal>
-																<NUMVAR ID="2485" Children="2479,2480">
-																	<Terminal ID="2479" Children="">n</Terminal>
-																	<Terminal ID="2480" Children="">8</Terminal>
-																</NUMVAR>
-																<Terminal ID="2487" Children="">)</Terminal>
-															</NUMEXPR>
-															<Terminal ID="2489" Children="">,</Terminal>
-															<NUMVAR ID="2496" Children="2490,2491">
-																<Terminal ID="2490" Children="">n</Terminal>
-																<Terminal ID="2491" Children="">7</Terminal>
-															</NUMVAR>
-															<Terminal ID="2498" Children="">)</Terminal>
-														</NUMEXPR>
-														<Terminal ID="2500" Children="">,</Terminal>
-														<NEG ID="2512" Children="2501,2511">
-															<Terminal ID="2501" Children="">-</Terminal>
-															<POS ID="2511" Children="2502,2506,2507,2509">
-																<Terminal ID="2502" Children="">9</Terminal>
-																<Terminal ID="2506" Children="">.</Terminal>
-																<Terminal ID="2507" Children="">5</Terminal>
-																<Terminal ID="2509" Children="">7</Terminal>
-															</POS>
-														</NEG>
-														<Terminal ID="2515" Children="">)</Terminal>
-													</NUMEXPR>
-													<Terminal ID="2517" Children="">,</Terminal>
-													<NUMVAR ID="2524" Children="2518,2519">
-														<Terminal ID="2518" Children="">n</Terminal>
-														<Terminal ID="2519" Children="">6</Terminal>
-													</NUMVAR>
-													<Terminal ID="2526" Children="">)</Terminal>
-												</NUMEXPR>
-												<Terminal ID="2528" Children="">,</Terminal>
-												<NUMEXPR ID="2595" Children="2529,2580,2581,2591,2594">
-													<Terminal ID="2529" Children="">a(</Terminal>
-													<NUMEXPR ID="2580" Children="2530,2569,2570,2577,2579">
-														<Terminal ID="2530" Children="">m(</Terminal>
-														<NUMEXPR ID="2569" Children="2531,2547,2551,2565,2568">
-															<Terminal ID="2531" Children="">m(</Terminal>
-															<NEG ID="2547" Children="2532,2546">
-																<Terminal ID="2532" Children="">-</Terminal>
-																<POS ID="2546" Children="2540,2541,2542,2544">
-																	<INT ID="2540" Children="2533,2534">
-																		<Terminal ID="2533" Children="">8</Terminal>
-																		<Terminal ID="2534" Children="">0</Terminal>
-																	</INT>
-																	<Terminal ID="2541" Children="">.</Terminal>
-																	<Terminal ID="2542" Children="">4</Terminal>
-																	<Terminal ID="2544" Children="">0</Terminal>
-																</POS>
-															</NEG>
-															<Terminal ID="2551" Children="">,</Terminal>
-															<POS ID="2565" Children="2559,2560,2561,2563">
-																<INT ID="2559" Children="2552,2553">
-																	<Terminal ID="2552" Children="">2</Terminal>
-																	<Terminal ID="2553" Children="">6</Terminal>
-																</INT>
-																<Terminal ID="2560" Children="">.</Terminal>
-																<Terminal ID="2561" Children="">9</Terminal>
-																<Terminal ID="2563" Children="">2</Terminal>
-															</POS>
-															<Terminal ID="2568" Children="">)</Terminal>
-														</NUMEXPR>
-														<Terminal ID="2570" Children="">,</Terminal>
-														<NUMVAR ID="2577" Children="2571,2572">
-															<Terminal ID="2571" Children="">n</Terminal>
-															<Terminal ID="2572" Children="">7</Terminal>
-														</NUMVAR>
-														<Terminal ID="2579" Children="">)</Terminal>
-													</NUMEXPR>
-													<Terminal ID="2581" Children="">,</Terminal>
-													<POS ID="2591" Children="2582,2586,2587,2589">
-														<Terminal ID="2582" Children="">6</Terminal>
-														<Terminal ID="2586" Children="">.</Terminal>
-														<Terminal ID="2587" Children="">0</Terminal>
-														<Terminal ID="2589" Children="">7</Terminal>
-													</POS>
-													<Terminal ID="2594" Children="">)</Terminal>
-												</NUMEXPR>
-												<Terminal ID="2596" Children="">)</Terminal>
-											</CMPR>
-											<Terminal ID="2599" Children="">,</Terminal>
-											<LOGIC ID="2615" Children="2600,2611,2614">
-												<Terminal ID="2600" Children="">!(</Terminal>
-												<BOOLVAR ID="2611" Children="2601,2610">
-													<Terminal ID="2601" Children="">b</Terminal>
-													<DIGITS ID="2610" Children="2602,2604">
-														<Terminal ID="2602" Children="">4</Terminal>
-														<Terminal ID="2604" Children="">3</Terminal>
-													</DIGITS>
-												</BOOLVAR>
-												<Terminal ID="2614" Children="">)</Terminal>
-											</LOGIC>
-											<Terminal ID="2617" Children="">)</Terminal>
-										</LOGIC>
-										<Terminal ID="2620" Children="">)</Terminal>
-									</LOGIC>
-									<Terminal ID="2623" Children="">)t{</Terminal>
-									<ALGO ID="2682" Children="2645,2679">
-										<LOOP ID="2645" Children="2624,2625,2628,2637,2644">
-											<Terminal ID="2624" Children="">w(</Terminal>
-											<Terminal ID="2625" Children="">T</Terminal>
-											<Terminal ID="2628" Children="">){</Terminal>
-											<INPUT ID="2637" Children="2629,2636">
-												<Terminal ID="2629" Children="">g</Terminal>
-												<NUMVAR ID="2636" Children="2630,2631">
-													<Terminal ID="2630" Children="">n</Terminal>
-													<Terminal ID="2631" Children="">8</Terminal>
-												</NUMVAR>
-											</INPUT>
-											<Terminal ID="2644" Children="">}</Terminal>
-										</LOOP>
-										<COMMENT ID="2679" Children="2647,2648,2650,2652,2654,2656,2658,2660,2662,2664,2666,2668,2670,2672,2674,2676,2678">
-											<Terminal ID="2647" Children="">*</Terminal>
-											<Terminal ID="2648" Children="">1</Terminal>
-											<Terminal ID="2650" Children="">2</Terminal>
-											<Terminal ID="2652" Children="">3</Terminal>
-											<Terminal ID="2654" Children="">4</Terminal>
-											<Terminal ID="2656" Children="">5</Terminal>
-											<Terminal ID="2658" Children="">6</Terminal>
-											<Terminal ID="2660" Children="">7</Terminal>
-											<Terminal ID="2662" Children="">8</Terminal>
-											<Terminal ID="2664" Children="">9</Terminal>
-											<Terminal ID="2666" Children="">0</Terminal>
-											<Terminal ID="2668" Children="">1</Terminal>
-											<Terminal ID="2670" Children="">2</Terminal>
-											<Terminal ID="2672" Children="">3</Terminal>
-											<Terminal ID="2674" Children="">4</Terminal>
-											<Terminal ID="2676" Children="">5</Terminal>
-											<Terminal ID="2678" Children="">*</Terminal>
-										</COMMENT>
-									</ALGO>
-									<Terminal ID="2683" Children="">}</Terminal>
-								</BRANCH>
-								<Terminal ID="2696" Children="">}</Terminal>
-							</PROC>
-						</PROCDEFS>
-					</PROCDEFS>
-				</PROGR>
-				<Terminal ID="2703" Children="">}</Terminal>
-			</PROC>
-		</PROCDEFS>
-	</PROCDEFS>
-</PROGR>
+<Tree>
+	<Node>
+		<ID>2726</ID>
+		<Contents>PROGR</Contents>
+		<Children>
+			<ChildID>181</ChildID>
+			<ChildID>2725</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>181</ID>
+		<Contents>ALGO</Contents>
+		<Children>
+			<ChildID>10</ChildID>
+			<ChildID>142</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>2725</ID>
+		<Contents>PROCDEFS</Contents>
+		<Children>
+			<ChildID>252</ChildID>
+			<ChildID>2721</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>10</ID>
+		<Contents>CALL</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>142</ID>
+		<Contents>BRANCH</Contents>
+		<Children>
+			<ChildID>109</ChildID>
+			<ChildID>138</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>252</ID>
+		<Contents>PROC</Contents>
+		<Children>
+			<ChildID>247</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>2721</ID>
+		<Contents>PROC</Contents>
+		<Children>
+			<ChildID>516</ChildID>
+			<ChildID>2718</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>109</ID>
+		<Contents>LOGIC</Contents>
+		<Children>
+			<ChildID>106</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>138</ID>
+		<Contents>ALGO</Contents>
+		<Children>
+			<ChildID>132</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>247</ID>
+		<Contents>ALGO</Contents>
+		<Children>
+			<ChildID>194</ChildID>
+			<ChildID>238</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>516</ID>
+		<Contents>ALGO</Contents>
+		<Children>
+			<ChildID>273</ChildID>
+			<ChildID>290</ChildID>
+			<ChildID>506</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>2718</ID>
+		<Contents>PROCDEFS</Contents>
+		<Children>
+			<ChildID>2338</ChildID>
+			<ChildID>2714</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>106</ID>
+		<Contents>CMPR</Contents>
+		<Children>
+			<ChildID>90</ChildID>
+			<ChildID>102</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>132</ID>
+		<Contents>INPUT</Contents>
+		<Children>
+			<ChildID>131</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>194</ID>
+		<Contents>h</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>238</ID>
+		<Contents>TEXT</Contents>
+		<Children>
+			<ChildID>237</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>273</ID>
+		<Contents>h</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>290</ID>
+		<Contents>TEXT</Contents>
+		<Children>
+			<ChildID>289</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>506</ID>
+		<Contents>BRANCH</Contents>
+		<Children>
+			<ChildID>303</ChildID>
+			<ChildID>502</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>2338</ID>
+		<Contents>PROC</Contents>
+		<Children>
+			<ChildID>2333</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>2714</ID>
+		<Contents>PROC</Contents>
+		<Children>
+			<ChildID>2709</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>90</ID>
+		<Contents>NUMEXPR</Contents>
+		<Children>
+			<ChildID>75</ChildID>
+			<ChildID>87</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>102</ID>
+		<Contents>NUMVAR</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>131</ID>
+		<Contents>NUMVAR</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>237</ID>
+		<Contents>STRINGV</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>289</ID>
+		<Contents>STRINGV</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>303</ID>
+		<Contents>BOOLVAR</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>502</ID>
+		<Contents>ALGO</Contents>
+		<Children>
+			<ChildID>496</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>2333</ID>
+		<Contents>ALGO</Contents>
+		<Children>
+			<ChildID>2327</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>2709</ID>
+		<Contents>ALGO</Contents>
+		<Children>
+			<ChildID>2703</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>75</ID>
+		<Contents>NUMEXPR</Contents>
+		<Children>
+			<ChildID>55</ChildID>
+			<ChildID>71</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>87</ID>
+		<Contents>NUMVAR</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>496</ID>
+		<Contents>BRANCH</Contents>
+		<Children>
+			<ChildID>443</ChildID>
+			<ChildID>492</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>2327</ID>
+		<Contents>LOOP</Contents>
+		<Children>
+			<ChildID>697</ChildID>
+			<ChildID>2325</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>2703</ID>
+		<Contents>BRANCH</Contents>
+		<Children>
+			<ChildID>2638</ChildID>
+			<ChildID>2699</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>55</ID>
+		<Contents>NEG</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>71</ID>
+		<Contents>NEG</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>443</ID>
+		<Contents>CMPR</Contents>
+		<Children>
+			<ChildID>353</ChildID>
+			<ChildID>441</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>492</ID>
+		<Contents>ALGO</Contents>
+		<Children>
+			<ChildID>454</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>697</ID>
+		<Contents>LOGIC</Contents>
+		<Children>
+			<ChildID>684</ChildID>
+			<ChildID>693</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>2325</ID>
+		<Contents>ALGO</Contents>
+		<Children>
+			<ChildID>700</ChildID>
+			<ChildID>2317</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>2638</ID>
+		<Contents>LOGIC</Contents>
+		<Children>
+			<ChildID>2422</ChildID>
+			<ChildID>2635</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>2699</ID>
+		<Contents>ALGO</Contents>
+		<Children>
+			<ChildID>2662</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>353</ID>
+		<Contents>NUMEXPR</Contents>
+		<Children>
+			<ChildID>342</ChildID>
+			<ChildID>350</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>441</ID>
+		<Contents>NUMEXPR</Contents>
+		<Children>
+			<ChildID>435</ChildID>
+			<ChildID>437</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>454</ID>
+		<Contents>VALUE</Contents>
+		<Children>
+			<ChildID>453</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>684</ID>
+		<Contents>CMPR</Contents>
+		<Children>
+			<ChildID>534</ChildID>
+			<ChildID>682</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>693</ID>
+		<Contents>BOOLVAR</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>700</ID>
+		<Contents>h</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>2317</ID>
+		<Contents>LOOP</Contents>
+		<Children>
+			<ChildID>1003</ChildID>
+			<ChildID>2315</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>2422</ID>
+		<Contents>LOGIC</Contents>
+		<Children>
+			<ChildID>2415</ChildID>
+			<ChildID>2418</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>2635</ID>
+		<Contents>LOGIC</Contents>
+		<Children>
+			<ChildID>2614</ChildID>
+			<ChildID>2632</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>2662</ID>
+		<Contents>LOOP</Contents>
+		<Children>
+			<ChildID>2642</ChildID>
+			<ChildID>2660</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>342</ID>
+		<Contents>NUMEXPR</Contents>
+		<Children>
+			<ChildID>331</ChildID>
+			<ChildID>339</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>350</ID>
+		<Contents>NUMVAR</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>435</ID>
+		<Contents>NUMEXPR</Contents>
+		<Children>
+			<ChildID>420</ChildID>
+			<ChildID>432</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>437</ID>
+		<Contents>0.00</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>453</ID>
+		<Contents>NUMVAR</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>534</ID>
+		<Contents>NUMVAR</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>682</ID>
+		<Contents>NUMEXPR</Contents>
+		<Children>
+			<ChildID>671</ChildID>
+			<ChildID>679</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1003</ID>
+		<Contents>LOGIC</Contents>
+		<Children>
+			<ChildID>996</ChildID>
+			<ChildID>999</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>2315</ID>
+		<Contents>ALGO</Contents>
+		<Children>
+			<ChildID>1093</ChildID>
+			<ChildID>2307</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>2415</ID>
+		<Contents>CMPR</Contents>
+		<Children>
+			<ChildID>2357</ChildID>
+			<ChildID>2413</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>2418</ID>
+		<Contents>F</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>2614</ID>
+		<Contents>CMPR</Contents>
+		<Children>
+			<ChildID>2544</ChildID>
+			<ChildID>2612</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>2632</ID>
+		<Contents>LOGIC</Contents>
+		<Children>
+			<ChildID>2628</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>2642</ID>
+		<Contents>T</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>2660</ID>
+		<Contents>ALGO</Contents>
+		<Children>
+			<ChildID>2654</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>331</ID>
+		<Contents>NUMEXPR</Contents>
+		<Children>
+			<ChildID>318</ChildID>
+			<ChildID>328</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>339</ID>
+		<Contents>NUMVAR</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>420</ID>
+		<Contents>NUMEXPR</Contents>
+		<Children>
+			<ChildID>409</ChildID>
+			<ChildID>417</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>432</ID>
+		<Contents>NUMVAR</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>671</ID>
+		<Contents>NUMEXPR</Contents>
+		<Children>
+			<ChildID>660</ChildID>
+			<ChildID>668</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>679</ID>
+		<Contents>NUMVAR</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>996</ID>
+		<Contents>CMPR</Contents>
+		<Children>
+			<ChildID>815</ChildID>
+			<ChildID>994</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>999</ID>
+		<Contents>F</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1093</ID>
+		<Contents>BRANCH</Contents>
+		<Children>
+			<ChildID>1007</ChildID>
+			<ChildID>1089</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>2307</ID>
+		<Contents>LOOP</Contents>
+		<Children>
+			<ChildID>1118</ChildID>
+			<ChildID>2305</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>2357</ID>
+		<Contents>NUMVAR</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>2413</ID>
+		<Contents>NUMEXPR</Contents>
+		<Children>
+			<ChildID>2396</ChildID>
+			<ChildID>2409</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>2544</ID>
+		<Contents>NUMEXPR</Contents>
+		<Children>
+			<ChildID>2533</ChildID>
+			<ChildID>2541</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>2612</ID>
+		<Contents>NUMEXPR</Contents>
+		<Children>
+			<ChildID>2597</ChildID>
+			<ChildID>2608</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>2628</ID>
+		<Contents>BOOLVAR</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>2654</ID>
+		<Contents>INPUT</Contents>
+		<Children>
+			<ChildID>2653</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>318</ID>
+		<Contents>NUMVAR</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>328</ID>
+		<Contents>NUMVAR</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>409</ID>
+		<Contents>NUMEXPR</Contents>
+		<Children>
+			<ChildID>394</ChildID>
+			<ChildID>405</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>417</ID>
+		<Contents>NUMVAR</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>660</ID>
+		<Contents>NUMEXPR</Contents>
+		<Children>
+			<ChildID>645</ChildID>
+			<ChildID>657</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>668</ID>
+		<Contents>NUMVAR</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>815</ID>
+		<Contents>NUMEXPR</Contents>
+		<Children>
+			<ChildID>798</ChildID>
+			<ChildID>811</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>994</ID>
+		<Contents>NUMEXPR</Contents>
+		<Children>
+			<ChildID>979</ChildID>
+			<ChildID>991</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1007</ID>
+		<Contents>T</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1089</ID>
+		<Contents>ALGO</Contents>
+		<Children>
+			<ChildID>1052</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1118</ID>
+		<Contents>LOGIC</Contents>
+		<Children>
+			<ChildID>1114</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>2305</ID>
+		<Contents>ALGO</Contents>
+		<Children>
+			<ChildID>2299</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>2396</ID>
+		<Contents>NUMEXPR</Contents>
+		<Children>
+			<ChildID>2372</ChildID>
+			<ChildID>2392</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>2409</ID>
+		<Contents>NEG</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>2533</ID>
+		<Contents>NUMEXPR</Contents>
+		<Children>
+			<ChildID>2516</ChildID>
+			<ChildID>2529</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>2541</ID>
+		<Contents>NUMVAR</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>2597</ID>
+		<Contents>NUMEXPR</Contents>
+		<Children>
+			<ChildID>2586</ChildID>
+			<ChildID>2594</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>2608</ID>
+		<Contents>POS</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>2653</ID>
+		<Contents>NUMVAR</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>394</ID>
+		<Contents>NUMEXPR</Contents>
+		<Children>
+			<ChildID>379</ChildID>
+			<ChildID>390</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>405</ID>
+		<Contents>POS</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>645</ID>
+		<Contents>NUMEXPR</Contents>
+		<Children>
+			<ChildID>634</ChildID>
+			<ChildID>642</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>657</ID>
+		<Contents>NUMVAR</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>798</ID>
+		<Contents>NUMEXPR</Contents>
+		<Children>
+			<ChildID>783</ChildID>
+			<ChildID>795</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>811</ID>
+		<Contents>NEG</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>979</ID>
+		<Contents>NUMEXPR</Contents>
+		<Children>
+			<ChildID>962</ChildID>
+			<ChildID>975</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>991</ID>
+		<Contents>NUMVAR</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1052</ID>
+		<Contents>ASSIGN</Contents>
+		<Children>
+			<ChildID>1017</ChildID>
+			<ChildID>1051</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1114</ID>
+		<Contents>BOOLVAR</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>2299</ID>
+		<Contents>BRANCH</Contents>
+		<Children>
+			<ChildID>1122</ChildID>
+			<ChildID>1138</ChildID>
+			<ChildID>2298</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>2372</ID>
+		<Contents>POS</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>2392</ID>
+		<Contents>NEG</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>2516</ID>
+		<Contents>NUMEXPR</Contents>
+		<Children>
+			<ChildID>2505</ChildID>
+			<ChildID>2513</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>2529</ID>
+		<Contents>NEG</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>2586</ID>
+		<Contents>NUMEXPR</Contents>
+		<Children>
+			<ChildID>2564</ChildID>
+			<ChildID>2582</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>2594</ID>
+		<Contents>NUMVAR</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>379</ID>
+		<Contents>NUMEXPR</Contents>
+		<Children>
+			<ChildID>361</ChildID>
+			<ChildID>375</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>390</ID>
+		<Contents>POS</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>634</ID>
+		<Contents>NUMEXPR</Contents>
+		<Children>
+			<ChildID>617</ChildID>
+			<ChildID>630</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>642</ID>
+		<Contents>NUMVAR</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>783</ID>
+		<Contents>NUMEXPR</Contents>
+		<Children>
+			<ChildID>772</ChildID>
+			<ChildID>780</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>795</ID>
+		<Contents>NUMVAR</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>962</ID>
+		<Contents>NUMEXPR</Contents>
+		<Children>
+			<ChildID>941</ChildID>
+			<ChildID>958</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>975</ID>
+		<Contents>NEG</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1017</ID>
+		<Contents>STRINGV</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1051</ID>
+		<Contents>STRI</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1122</ID>
+		<Contents>T</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1138</ID>
+		<Contents>ALGO</Contents>
+		<Children>
+			<ChildID>1132</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>2298</ID>
+		<Contents>ELSE</Contents>
+		<Children>
+			<ChildID>2296</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>2505</ID>
+		<Contents>NUMEXPR</Contents>
+		<Children>
+			<ChildID>2494</ChildID>
+			<ChildID>2502</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>2513</ID>
+		<Contents>NUMVAR</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>2564</ID>
+		<Contents>NEG</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>2582</ID>
+		<Contents>POS</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>361</ID>
+		<Contents>0.00</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>375</ID>
+		<Contents>POS</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>617</ID>
+		<Contents>NUMEXPR</Contents>
+		<Children>
+			<ChildID>606</ChildID>
+			<ChildID>614</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>630</ID>
+		<Contents>NEG</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>772</ID>
+		<Contents>NUMEXPR</Contents>
+		<Children>
+			<ChildID>758</ChildID>
+			<ChildID>769</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>780</ID>
+		<Contents>NUMVAR</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>941</ID>
+		<Contents>NUMEXPR</Contents>
+		<Children>
+			<ChildID>930</ChildID>
+			<ChildID>938</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>958</ID>
+		<Contents>NEG</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1132</ID>
+		<Contents>CALL</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>2296</ID>
+		<Contents>ALGO</Contents>
+		<Children>
+			<ChildID>2290</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>2494</ID>
+		<Contents>NUMEXPR</Contents>
+		<Children>
+			<ChildID>2479</ChildID>
+			<ChildID>2491</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>2502</ID>
+		<Contents>NUMVAR</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>606</ID>
+		<Contents>NUMEXPR</Contents>
+		<Children>
+			<ChildID>583</ChildID>
+			<ChildID>602</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>614</ID>
+		<Contents>NUMVAR</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>758</ID>
+		<Contents>NEG</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>769</ID>
+		<Contents>NUMVAR</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>930</ID>
+		<Contents>NUMEXPR</Contents>
+		<Children>
+			<ChildID>924</ChildID>
+			<ChildID>926</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>938</ID>
+		<Contents>NUMVAR</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>2290</ID>
+		<Contents>LOOP</Contents>
+		<Children>
+			<ChildID>2049</ChildID>
+			<ChildID>2288</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>2479</ID>
+		<Contents>NUMEXPR</Contents>
+		<Children>
+			<ChildID>2464</ChildID>
+			<ChildID>2475</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>2491</ID>
+		<Contents>NUMVAR</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>583</ID>
+		<Contents>NUMEXPR</Contents>
+		<Children>
+			<ChildID>572</ChildID>
+			<ChildID>580</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>602</ID>
+		<Contents>POS</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>924</ID>
+		<Contents>NUMEXPR</Contents>
+		<Children>
+			<ChildID>907</ChildID>
+			<ChildID>920</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>926</ID>
+		<Contents>0.00</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>2049</ID>
+		<Contents>LOGIC</Contents>
+		<Children>
+			<ChildID>1644</ChildID>
+			<ChildID>2046</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>2288</ID>
+		<Contents>ALGO</Contents>
+		<Children>
+			<ChildID>2181</ChildID>
+			<ChildID>2249</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>2464</ID>
+		<Contents>NUMEXPR</Contents>
+		<Children>
+			<ChildID>2458</ChildID>
+			<ChildID>2460</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>2475</ID>
+		<Contents>POS</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>572</ID>
+		<Contents>NUMEXPR</Contents>
+		<Children>
+			<ChildID>558</ChildID>
+			<ChildID>569</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>580</ID>
+		<Contents>NUMVAR</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>907</ID>
+		<Contents>NUMEXPR</Contents>
+		<Children>
+			<ChildID>890</ChildID>
+			<ChildID>903</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>920</ID>
+		<Contents>NEG</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1644</ID>
+		<Contents>LOGIC</Contents>
+		<Children>
+			<ChildID>1641</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>2046</ID>
+		<Contents>LOGIC</Contents>
+		<Children>
+			<ChildID>1862</ChildID>
+			<ChildID>2043</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>2181</ID>
+		<Contents>ASSIGN</Contents>
+		<Children>
+			<ChildID>2058</ChildID>
+			<ChildID>2179</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>2249</ID>
+		<Contents>LOOP</Contents>
+		<Children>
+			<ChildID>2224</ChildID>
+			<ChildID>2247</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>2458</ID>
+		<Contents>NUMEXPR</Contents>
+		<Children>
+			<ChildID>2445</ChildID>
+			<ChildID>2455</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>2460</ID>
+		<Contents>0.00</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>558</ID>
+		<Contents>NEG</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>569</ID>
+		<Contents>NUMVAR</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>890</ID>
+		<Contents>NUMEXPR</Contents>
+		<Children>
+			<ChildID>875</ChildID>
+			<ChildID>887</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>903</ID>
+		<Contents>NEG</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1641</ID>
+		<Contents>LOGIC</Contents>
+		<Children>
+			<ChildID>1488</ChildID>
+			<ChildID>1638</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1862</ID>
+		<Contents>CMPR</Contents>
+		<Children>
+			<ChildID>1830</ChildID>
+			<ChildID>1860</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>2043</ID>
+		<Contents>CMPR</Contents>
+		<Children>
+			<ChildID>2002</ChildID>
+			<ChildID>2041</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>2058</ID>
+		<Contents>BOOLVAR</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>2179</ID>
+		<Contents>LOGIC</Contents>
+		<Children>
+			<ChildID>2176</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>2224</ID>
+		<Contents>BOOLVAR</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>2247</ID>
+		<Contents>ALGO</Contents>
+		<Children>
+			<ChildID>2240</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>2445</ID>
+		<Contents>NUMVAR</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>2455</ID>
+		<Contents>NUMVAR</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>875</ID>
+		<Contents>NUMEXPR</Contents>
+		<Children>
+			<ChildID>860</ChildID>
+			<ChildID>872</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>887</ID>
+		<Contents>NUMVAR</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1488</ID>
+		<Contents>LOGIC</Contents>
+		<Children>
+			<ChildID>1391</ChildID>
+			<ChildID>1485</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1638</ID>
+		<Contents>CMPR</Contents>
+		<Children>
+			<ChildID>1535</ChildID>
+			<ChildID>1636</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1830</ID>
+		<Contents>NUMEXPR</Contents>
+		<Children>
+			<ChildID>1819</ChildID>
+			<ChildID>1827</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1860</ID>
+		<Contents>NUMEXPR</Contents>
+		<Children>
+			<ChildID>1843</ChildID>
+			<ChildID>1857</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>2002</ID>
+		<Contents>NUMEXPR</Contents>
+		<Children>
+			<ChildID>1991</ChildID>
+			<ChildID>1999</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>2041</ID>
+		<Contents>NUMEXPR</Contents>
+		<Children>
+			<ChildID>2020</ChildID>
+			<ChildID>2037</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>2176</ID>
+		<Contents>CMPR</Contents>
+		<Children>
+			<ChildID>2106</ChildID>
+			<ChildID>2174</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>2240</ID>
+		<Contents>VALUE</Contents>
+		<Children>
+			<ChildID>2239</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>860</ID>
+		<Contents>NUMEXPR</Contents>
+		<Children>
+			<ChildID>842</ChildID>
+			<ChildID>857</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>872</ID>
+		<Contents>NUMVAR</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1391</ID>
+		<Contents>LOGIC</Contents>
+		<Children>
+			<ChildID>1212</ChildID>
+			<ChildID>1388</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1485</ID>
+		<Contents>CMPR</Contents>
+		<Children>
+			<ChildID>1460</ChildID>
+			<ChildID>1483</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1535</ID>
+		<Contents>NUMEXPR</Contents>
+		<Children>
+			<ChildID>1520</ChildID>
+			<ChildID>1531</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1636</ID>
+		<Contents>NUMEXPR</Contents>
+		<Children>
+			<ChildID>1625</ChildID>
+			<ChildID>1633</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1819</ID>
+		<Contents>NUMEXPR</Contents>
+		<Children>
+			<ChildID>1800</ChildID>
+			<ChildID>1815</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1827</ID>
+		<Contents>NUMVAR</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1843</ID>
+		<Contents>NUMVAR</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1857</ID>
+		<Contents>NUMVAR</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1991</ID>
+		<Contents>NUMEXPR</Contents>
+		<Children>
+			<ChildID>1976</ChildID>
+			<ChildID>1988</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1999</ID>
+		<Contents>NUMVAR</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>2020</ID>
+		<Contents>NUMEXPR</Contents>
+		<Children>
+			<ChildID>2012</ChildID>
+			<ChildID>2016</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>2037</ID>
+		<Contents>NEG</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>2106</ID>
+		<Contents>NUMEXPR</Contents>
+		<Children>
+			<ChildID>2087</ChildID>
+			<ChildID>2103</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>2174</ID>
+		<Contents>NUMEXPR</Contents>
+		<Children>
+			<ChildID>2163</ChildID>
+			<ChildID>2171</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>2239</ID>
+		<Contents>NUMVAR</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>842</ID>
+		<Contents>NEG</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>857</ID>
+		<Contents>NUMVAR</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1212</ID>
+		<Contents>CMPR</Contents>
+		<Children>
+			<ChildID>1168</ChildID>
+			<ChildID>1210</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1388</ID>
+		<Contents>LOGIC</Contents>
+		<Children>
+			<ChildID>1327</ChildID>
+			<ChildID>1385</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1460</ID>
+		<Contents>NUMEXPR</Contents>
+		<Children>
+			<ChildID>1449</ChildID>
+			<ChildID>1457</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1483</ID>
+		<Contents>NUMEXPR</Contents>
+		<Children>
+			<ChildID>1463</ChildID>
+			<ChildID>1479</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1520</ID>
+		<Contents>NUMEXPR</Contents>
+		<Children>
+			<ChildID>1511</ChildID>
+			<ChildID>1516</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1531</ID>
+		<Contents>POS</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1625</ID>
+		<Contents>NUMEXPR</Contents>
+		<Children>
+			<ChildID>1614</ChildID>
+			<ChildID>1622</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1633</ID>
+		<Contents>NUMVAR</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1800</ID>
+		<Contents>NUMEXPR</Contents>
+		<Children>
+			<ChildID>1789</ChildID>
+			<ChildID>1797</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1815</ID>
+		<Contents>POS</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1976</ID>
+		<Contents>NUMEXPR</Contents>
+		<Children>
+			<ChildID>1965</ChildID>
+			<ChildID>1973</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1988</ID>
+		<Contents>NUMVAR</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>2012</ID>
+		<Contents>NUMVAR</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>2016</ID>
+		<Contents>0.00</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>2087</ID>
+		<Contents>NUMEXPR</Contents>
+		<Children>
+			<ChildID>2074</ChildID>
+			<ChildID>2084</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>2103</ID>
+		<Contents>NUMVAR</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>2163</ID>
+		<Contents>NUMEXPR</Contents>
+		<Children>
+			<ChildID>2144</ChildID>
+			<ChildID>2159</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>2171</ID>
+		<Contents>NUMVAR</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1168</ID>
+		<Contents>NUMEXPR</Contents>
+		<Children>
+			<ChildID>1155</ChildID>
+			<ChildID>1165</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1210</ID>
+		<Contents>NUMEXPR</Contents>
+		<Children>
+			<ChildID>1204</ChildID>
+			<ChildID>1206</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1327</ID>
+		<Contents>CMPR</Contents>
+		<Children>
+			<ChildID>1246</ChildID>
+			<ChildID>1325</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1385</ID>
+		<Contents>LOGIC</Contents>
+		<Children>
+			<ChildID>1382</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1449</ID>
+		<Contents>NUMEXPR</Contents>
+		<Children>
+			<ChildID>1432</ChildID>
+			<ChildID>1445</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1457</ID>
+		<Contents>NUMVAR</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1463</ID>
+		<Contents>0.00</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1479</ID>
+		<Contents>NEG</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1511</ID>
+		<Contents>POS</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1516</ID>
+		<Contents>0.00</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1614</ID>
+		<Contents>NUMEXPR</Contents>
+		<Children>
+			<ChildID>1603</ChildID>
+			<ChildID>1611</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1622</ID>
+		<Contents>NUMVAR</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1789</ID>
+		<Contents>NUMEXPR</Contents>
+		<Children>
+			<ChildID>1774</ChildID>
+			<ChildID>1786</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1797</ID>
+		<Contents>NUMVAR</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1965</ID>
+		<Contents>NUMEXPR</Contents>
+		<Children>
+			<ChildID>1954</ChildID>
+			<ChildID>1962</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1973</ID>
+		<Contents>NUMVAR</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>2074</ID>
+		<Contents>NUMVAR</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>2084</ID>
+		<Contents>NUMVAR</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>2144</ID>
+		<Contents>NUMEXPR</Contents>
+		<Children>
+			<ChildID>2122</ChildID>
+			<ChildID>2141</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>2159</ID>
+		<Contents>POS</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1155</ID>
+		<Contents>NUMVAR</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1165</ID>
+		<Contents>NUMVAR</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1204</ID>
+		<Contents>NUMEXPR</Contents>
+		<Children>
+			<ChildID>1193</ChildID>
+			<ChildID>1201</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1206</ID>
+		<Contents>0.00</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1246</ID>
+		<Contents>NUMEXPR</Contents>
+		<Children>
+			<ChildID>1240</ChildID>
+			<ChildID>1242</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1325</ID>
+		<Contents>NUMEXPR</Contents>
+		<Children>
+			<ChildID>1308</ChildID>
+			<ChildID>1321</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1382</ID>
+		<Contents>CMPR</Contents>
+		<Children>
+			<ChildID>1362</ChildID>
+			<ChildID>1378</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1432</ID>
+		<Contents>NUMEXPR</Contents>
+		<Children>
+			<ChildID>1426</ChildID>
+			<ChildID>1428</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1445</ID>
+		<Contents>NEG</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1603</ID>
+		<Contents>NUMEXPR</Contents>
+		<Children>
+			<ChildID>1592</ChildID>
+			<ChildID>1600</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1611</ID>
+		<Contents>NUMVAR</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1774</ID>
+		<Contents>NUMEXPR</Contents>
+		<Children>
+			<ChildID>1757</ChildID>
+			<ChildID>1770</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1786</ID>
+		<Contents>NUMVAR</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1954</ID>
+		<Contents>NUMEXPR</Contents>
+		<Children>
+			<ChildID>1939</ChildID>
+			<ChildID>1950</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1962</ID>
+		<Contents>NUMVAR</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>2122</ID>
+		<Contents>NEG</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>2141</ID>
+		<Contents>NUMVAR</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1193</ID>
+		<Contents>NUMEXPR</Contents>
+		<Children>
+			<ChildID>1173</ChildID>
+			<ChildID>1189</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1201</ID>
+		<Contents>NUMVAR</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1240</ID>
+		<Contents>NUMEXPR</Contents>
+		<Children>
+			<ChildID>1234</ChildID>
+			<ChildID>1236</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1242</ID>
+		<Contents>0.00</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1308</ID>
+		<Contents>NUMEXPR</Contents>
+		<Children>
+			<ChildID>1297</ChildID>
+			<ChildID>1305</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1321</ID>
+		<Contents>NEG</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1362</ID>
+		<Contents>NUMEXPR</Contents>
+		<Children>
+			<ChildID>1356</ChildID>
+			<ChildID>1358</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1378</ID>
+		<Contents>NUMVAR</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1426</ID>
+		<Contents>NUMEXPR</Contents>
+		<Children>
+			<ChildID>1408</ChildID>
+			<ChildID>1422</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1428</ID>
+		<Contents>0.00</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1592</ID>
+		<Contents>NUMEXPR</Contents>
+		<Children>
+			<ChildID>1577</ChildID>
+			<ChildID>1588</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1600</ID>
+		<Contents>NUMVAR</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1757</ID>
+		<Contents>NUMEXPR</Contents>
+		<Children>
+			<ChildID>1746</ChildID>
+			<ChildID>1754</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1770</ID>
+		<Contents>NEG</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1939</ID>
+		<Contents>NUMEXPR</Contents>
+		<Children>
+			<ChildID>1933</ChildID>
+			<ChildID>1935</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1950</ID>
+		<Contents>POS</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1173</ID>
+		<Contents>0.00</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1189</ID>
+		<Contents>NEG</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1234</ID>
+		<Contents>NUMEXPR</Contents>
+		<Children>
+			<ChildID>1220</ChildID>
+			<ChildID>1231</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1236</ID>
+		<Contents>0.00</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1297</ID>
+		<Contents>NUMEXPR</Contents>
+		<Children>
+			<ChildID>1282</ChildID>
+			<ChildID>1293</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1305</ID>
+		<Contents>NUMVAR</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1356</ID>
+		<Contents>NUMEXPR</Contents>
+		<Children>
+			<ChildID>1348</ChildID>
+			<ChildID>1352</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1358</ID>
+		<Contents>0.00</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1408</ID>
+		<Contents>POS</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1422</ID>
+		<Contents>POS</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1577</ID>
+		<Contents>NUMEXPR</Contents>
+		<Children>
+			<ChildID>1571</ChildID>
+			<ChildID>1573</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1588</ID>
+		<Contents>POS</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1746</ID>
+		<Contents>NUMEXPR</Contents>
+		<Children>
+			<ChildID>1740</ChildID>
+			<ChildID>1742</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1754</ID>
+		<Contents>NUMVAR</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1933</ID>
+		<Contents>NUMEXPR</Contents>
+		<Children>
+			<ChildID>1927</ChildID>
+			<ChildID>1929</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1935</ID>
+		<Contents>0.00</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1220</ID>
+		<Contents>0.00</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1231</ID>
+		<Contents>NUMVAR</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1282</ID>
+		<Contents>NUMEXPR</Contents>
+		<Children>
+			<ChildID>1271</ChildID>
+			<ChildID>1279</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1293</ID>
+		<Contents>POS</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1348</ID>
+		<Contents>NUMVAR</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1352</ID>
+		<Contents>0.00</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1571</ID>
+		<Contents>NUMEXPR</Contents>
+		<Children>
+			<ChildID>1553</ChildID>
+			<ChildID>1567</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1573</ID>
+		<Contents>0.00</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1740</ID>
+		<Contents>NUMEXPR</Contents>
+		<Children>
+			<ChildID>1725</ChildID>
+			<ChildID>1736</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1742</ID>
+		<Contents>0.00</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1927</ID>
+		<Contents>NUMEXPR</Contents>
+		<Children>
+			<ChildID>1906</ChildID>
+			<ChildID>1923</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1929</ID>
+		<Contents>0.00</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1271</ID>
+		<Contents>NUMEXPR</Contents>
+		<Children>
+			<ChildID>1253</ChildID>
+			<ChildID>1268</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1279</ID>
+		<Contents>NUMVAR</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1553</ID>
+		<Contents>POS</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1567</ID>
+		<Contents>POS</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1725</ID>
+		<Contents>NUMEXPR</Contents>
+		<Children>
+			<ChildID>1710</ChildID>
+			<ChildID>1721</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1736</ID>
+		<Contents>POS</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1906</ID>
+		<Contents>NUMEXPR</Contents>
+		<Children>
+			<ChildID>1895</ChildID>
+			<ChildID>1903</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1923</ID>
+		<Contents>NEG</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1253</ID>
+		<Contents>0.00</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1268</ID>
+		<Contents>NUMVAR</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1710</ID>
+		<Contents>NUMEXPR</Contents>
+		<Children>
+			<ChildID>1704</ChildID>
+			<ChildID>1706</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1721</ID>
+		<Contents>POS</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1895</ID>
+		<Contents>NUMEXPR</Contents>
+		<Children>
+			<ChildID>1882</ChildID>
+			<ChildID>1892</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1903</ID>
+		<Contents>NUMVAR</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1704</ID>
+		<Contents>NUMEXPR</Contents>
+		<Children>
+			<ChildID>1687</ChildID>
+			<ChildID>1700</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1706</ID>
+		<Contents>0.00</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1882</ID>
+		<Contents>NUMVAR</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1892</ID>
+		<Contents>NUMVAR</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1687</ID>
+		<Contents>NUMEXPR</Contents>
+		<Children>
+			<ChildID>1676</ChildID>
+			<ChildID>1684</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1700</ID>
+		<Contents>NEG</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1676</ID>
+		<Contents>NUMEXPR</Contents>
+		<Children>
+			<ChildID>1662</ChildID>
+			<ChildID>1673</ChildID>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1684</ID>
+		<Contents>NUMVAR</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1662</ID>
+		<Contents>0.00</Contents>
+		<Children>
+		</Children>
+	</Node>
+	<Node>
+		<ID>1673</ID>
+		<Contents>NUMVAR</Contents>
+		<Children>
+		</Children>
+	</Node>
+</Tree>

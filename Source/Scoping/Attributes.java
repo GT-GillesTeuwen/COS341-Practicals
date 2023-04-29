@@ -1,11 +1,13 @@
 package Scoping;
 
 import Nodes.Node;
+import Nodes.nNode;
 
 public class Attributes {
     private int scopeID;
     private Node node;
     private boolean called;
+    public static int mainScope;
 
     public Attributes(int scopeID, Node node) {
         this.scopeID = scopeID;
@@ -32,11 +34,27 @@ public class Attributes {
         this.scopeID = scopeID;
     }
 
-    @Override
-    public String toString() {
+    public String[] getAtts() {
+        String[] atts = new String[3];
         if (scopeID == 0) {
-            return "{scopeID:Global}";
+            atts[0] = "GLOBAL";
+        } else if (scopeID == mainScope) {
+            atts[0] = "MAIN";
+        } else {
+            atts[0] = scopeID + "";
         }
-        return "{scopeID:" + scopeID + "}";
+
+        if (node.getDisplayName().equals("PROC")) {
+            atts[1] = "Declare Procedure";
+        } else if (node.getDisplayName().equals("CALL")) {
+            atts[1] = "Call Procedure";
+        } else if (node.getDisplayName().contains("VAR") || node.getDisplayName().contains("STRINGV")) {
+            atts[1] = "Variable";
+        }
+
+        atts[2] = ((nNode) node).getData();
+
+        return atts;
+
     }
 }

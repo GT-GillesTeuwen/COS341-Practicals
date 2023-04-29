@@ -11,10 +11,11 @@ import Nodes.nNode;
 public class SybmbolTable {
     private HashMap<Integer, Attributes> scopeTable;
     private int currentScope;
+    private int mainScope;
 
     public SybmbolTable() {
         scopeTable = new HashMap<>();
-        currentScope = 1;
+        currentScope = -1;
     }
 
     public void add(Node node) {
@@ -86,6 +87,10 @@ public class SybmbolTable {
     }
 
     public void setCurrentScope(Node root) {
+        if (currentScope == -1) {
+            mainScope = root.getId();
+            Attributes.mainScope = root.getId();
+        }
         if (!procedureNameExistsInScope((nNode) root)) {
             this.currentScope = root.getId();
         } else {
@@ -94,6 +99,10 @@ public class SybmbolTable {
                     + ((nNode) root).getData() + " already declared in scope of procedure "
                     + ((nNode) scopeTable.get(scopeIDConflict).getNode()).getData());
         }
+    }
+
+    public int getMainScope() {
+        return mainScope;
     }
 
     public boolean procedureNameExistsInScope(nNode root) {
