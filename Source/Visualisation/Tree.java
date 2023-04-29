@@ -7,19 +7,19 @@ import java.util.Set;
 import Nodes.Node;
 import Nodes.nNode;
 import Nodes.tNode;
-import Scoping.ScopeTable;
+import Scoping.SybmbolTable;
 
 public class Tree {
     private Node root;
     private ArrayList<Node> allNodes;
     private int[] nodesPerLevel;
-    private ScopeTable scopeTable;
+    private SybmbolTable scopeTable;
 
     public Tree(Node root) throws Exception {
         if (root == null) {
             throw new Exception("Tree Error: No tree to build");
         }
-        scopeTable = new ScopeTable();
+        scopeTable = new SybmbolTable();
         allNodes = new ArrayList<>();
 
         root.reduceOneStepDerivations();
@@ -51,8 +51,8 @@ public class Tree {
                 if (nodeN.getChildren()[i].getDisplayName().contains("VAR")
                         || nodeN.getChildren()[i].getDisplayName().contains("STRINGV")) {
                     scopeTable.add(nodeN.getChildren()[i], 0);
-                } else {
-
+                } else if (nodeN.getChildren()[i].getDisplayName().equals("CALL")
+                        || nodeN.getChildren()[i].getDisplayName().equals("PROC")) {
                     scopeTable.add(nodeN.getChildren()[i]);
                 }
             }
@@ -202,14 +202,15 @@ public class Tree {
         return printNonTerminal((nNode) root, 0);
     }
 
-    public ScopeTable getScopeTable() {
+    public SybmbolTable getScopeTable() {
         return scopeTable;
     }
 
     public String printNonTerminal(nNode node, int indentation) {
         String out = "";
         out += nTabs(indentation);
-        out += "<" + node.getDisplayName() + " ID=\"" + node.getId() + "\" Children=\"" + childrenIds(node) + "\">\n";
+        out += "<" + node.getDisplayName() + " ID=\"" + node.getId() + "\" Data=\"" + node.getData() + "\" Children=\""
+                + childrenIds(node) + "\">\n";
         for (int i = 0; i < node.getChildren().length; i++) {
             if (node.getChildren()[i] instanceof nNode) {
                 out += printNonTerminal(((nNode) node.getChildren()[i]), indentation + 1);

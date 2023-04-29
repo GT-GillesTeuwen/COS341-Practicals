@@ -15,7 +15,7 @@ public class GUI {
         tabbedPane.setTabLayoutPolicy(JTabbedPane.SCROLL_TAB_LAYOUT);
 
         TreeVisualiser v = new TreeVisualiser(tree);
-        ScopeTableVisualiser s = new ScopeTableVisualiser(tree.getScopeTable());
+        SymbolTableVisualiser s = new SymbolTableVisualiser(tree.getScopeTable());
         JPanel p3 = new JPanel();
         tabbedPane.setBounds(50, 50, 800, 800);
         tabbedPane.add("AST", v);

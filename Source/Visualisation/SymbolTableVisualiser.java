@@ -11,16 +11,16 @@ import javax.swing.table.TableRowSorter;
 import Nodes.Node;
 import Nodes.nNode;
 import Nodes.tNode;
-import Scoping.ScopeTable;
+import Scoping.SybmbolTable;
 
 import java.awt.geom.*;
 
-public class ScopeTableVisualiser extends JPanel {
+public class SymbolTableVisualiser extends JPanel {
     Graphics2D g2;
-    ScopeTable scopeTable;
+    SybmbolTable symbolTable;
 
-    public ScopeTableVisualiser(ScopeTable scopeTable) throws Exception {
-        this.scopeTable = scopeTable;
+    public SymbolTableVisualiser(SybmbolTable symbolTable) throws Exception {
+        this.symbolTable = symbolTable;
         setFocusable(true);
         this.requestFocus();
         this.addTable();
@@ -40,12 +40,12 @@ public class ScopeTableVisualiser extends JPanel {
 
     private void addTable() {
         String[] cols = { "ID", "SCOPE" };
-        String[][] data = new String[scopeTable.getScopeTable().size()][2];
+        String[][] data = new String[symbolTable.getScopeTable().size()][2];
 
         int i = 0;
-        for (Integer id : scopeTable.getScopeTable().keySet()) {
+        for (Integer id : symbolTable.getScopeTable().keySet()) {
             data[i][0] = id + "";
-            data[i][1] = scopeTable.getScopeTable().get(id).toString();
+            data[i][1] = symbolTable.getScopeTable().get(id).toString();
             i++;
         }
 

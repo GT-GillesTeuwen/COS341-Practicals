@@ -34,6 +34,9 @@ public class Attributes {
 
     @Override
     public String toString() {
+        if (scopeID == 0) {
+            return "{scopeID:Global}";
+        }
         return "{scopeID:" + scopeID + "}";
     }
 }

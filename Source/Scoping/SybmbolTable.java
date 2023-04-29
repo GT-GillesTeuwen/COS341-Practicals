@@ -8,11 +8,11 @@ import javax.print.attribute.IntegerSyntax;
 import Nodes.Node;
 import Nodes.nNode;
 
-public class ScopeTable {
+public class SybmbolTable {
     private HashMap<Integer, Attributes> scopeTable;
     private int currentScope;
 
-    public ScopeTable() {
+    public SybmbolTable() {
         scopeTable = new HashMap<>();
         currentScope = 1;
     }
@@ -22,7 +22,20 @@ public class ScopeTable {
     }
 
     public void add(Node node, int scope) {
-        scopeTable.put(node.getId(), new Attributes(scope, node));
+        if (!varExitsInTable((nNode) node)) {
+            scopeTable.put(node.getId(), new Attributes(scope, node));
+        }
+    }
+
+    private boolean varExitsInTable(nNode node) {
+        for (Attributes a : scopeTable.values()) {
+            if ((a.getNode().getDisplayName().contains("VAR")
+                    || a.getNode().getDisplayName().contains("STRINGV"))
+                    && ((nNode) a.getNode()).getData().equals(node.getData())) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public boolean inScope(String procName, int nodeID, Node node) {
