@@ -156,12 +156,29 @@ public class nNode extends Node {
         return updatedChildren;
     }
 
-    public void setSubtreeColour(Color colour) {
-        this.setColor(colour);
+    public void setSubtreeColour(Color colour, boolean force) {
+        if (force) {
+            this.setColor(colour);
+        } else {
+            if (this.displayName.equals("CALL")) {
+                System.out.println("call");
+            }
+            if (this.color.getRed() != 255) {
+                this.setColor(colour);
+            }
+        }
+
         for (int i = 0; i < children.length; i++) {
-            children[i].setColor(colour);
+            if (force) {
+                children[i].setColor(colour);
+            } else {
+                if (this.children[i].getColor().getRed() != 255) {
+                    children[i].setColor(colour);
+                }
+            }
+
             if (children[i] instanceof nNode) {
-                ((nNode) children[i]).setSubtreeColour(colour);
+                ((nNode) children[i]).setSubtreeColour(colour, force);
             }
         }
     }

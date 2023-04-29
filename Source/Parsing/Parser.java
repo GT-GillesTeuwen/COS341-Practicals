@@ -2,6 +2,7 @@ package Parsing;
 
 import java.util.ArrayList;
 
+import Exceptions.UnexpectedTokenException;
 import Lexing.Symbol;
 import Lexing.Token;
 import Nodes.Node;
@@ -14,9 +15,9 @@ public class Parser {
     private Symbol input;
     private int count;
 
-    public Parser(ArrayList<Symbol> allTokens) throws Exception {
+    public Parser(ArrayList<Symbol> allTokens) throws UnexpectedTokenException {
         if (allTokens.size() == 0) {
-            throw new Exception("Parser Error: Nothing to parse");
+            throw new UnexpectedTokenException("Parser Error: Nothing to parse");
         }
         this.allTokens = allTokens;
         input = allTokens.get(0);
@@ -25,7 +26,7 @@ public class Parser {
         count = 0;
     }
 
-    private void match(Token expectedToken) throws Exception {
+    private void match(Token expectedToken) throws UnexpectedTokenException {
         if (input.getToken() == expectedToken) {
             count++;
             if (allTokens.size() != 0) {
@@ -34,14 +35,14 @@ public class Parser {
             }
 
         } else {
-            throw new Exception(
+            throw new UnexpectedTokenException(
                     "ERROR UNEXPECTED TOKEN: expected:" + expectedToken + " got " + input + " at token " + count);
 
         }
 
     }
 
-    public Node parseProgrP() throws Exception {
+    public Node parseProgrP() throws UnexpectedTokenException {
         if (input.getToken() == Token.GET || input.getToken() == Token.VALUE || input.getToken() == Token.TEXT
                 || input.getToken() == Token.DEC_NUMVAR
                 || input.getToken() == Token.DEC_BOOLVAR || input.getToken() == Token.DEC_STRINGVAR
@@ -59,7 +60,7 @@ public class Parser {
 
     }
 
-    private Node parseProgr() throws Exception {
+    private Node parseProgr() throws UnexpectedTokenException {
         if (input.getToken() == Token.GET || input.getToken() == Token.VALUE || input.getToken() == Token.TEXT
                 || input.getToken() == Token.DEC_NUMVAR
                 || input.getToken() == Token.DEC_BOOLVAR || input.getToken() == Token.DEC_STRINGVAR
@@ -76,7 +77,7 @@ public class Parser {
         }
     }
 
-    private Node parseProcDefs() throws Exception {
+    private Node parseProcDefs() throws UnexpectedTokenException {
         switch (input.getToken()) {
             case COMMA:
                 tNode c1 = new tNode(input);
@@ -96,7 +97,7 @@ public class Parser {
         }
     }
 
-    private Node parseProc() throws Exception {
+    private Node parseProc() throws UnexpectedTokenException {
         switch (input.getToken()) {
             case PROC:
                 tNode c1 = new tNode(input);
@@ -115,7 +116,7 @@ public class Parser {
         }
     }
 
-    private Node parseDigits() throws Exception {
+    private Node parseDigits() throws UnexpectedTokenException {
         switch (input.getToken()) {
             case P_DIGIT:
             case ZERO:
@@ -129,7 +130,7 @@ public class Parser {
         }
     }
 
-    private Node parseMore() throws Exception {
+    private Node parseMore() throws UnexpectedTokenException {
         switch (input.getToken()) {
             case P_DIGIT:
             case ZERO:
@@ -156,7 +157,7 @@ public class Parser {
         }
     }
 
-    private Node parseD() throws Exception {
+    private Node parseD() throws UnexpectedTokenException {
         switch (input.getToken()) {
             case P_DIGIT:
                 tNode c1 = new tNode(input);
@@ -175,7 +176,7 @@ public class Parser {
         }
     }
 
-    private Node parseAlgo() throws Exception {
+    private Node parseAlgo() throws UnexpectedTokenException {
         if (input.getToken() == Token.GET || input.getToken() == Token.VALUE || input.getToken() == Token.TEXT
                 || input.getToken() == Token.DEC_NUMVAR
                 || input.getToken() == Token.DEC_BOOLVAR || input.getToken() == Token.DEC_STRINGVAR
@@ -193,7 +194,7 @@ public class Parser {
         }
     }
 
-    private Node parseSeq() throws Exception {
+    private Node parseSeq() throws UnexpectedTokenException {
         switch (input.getToken()) {
             case SEMICOLON:
                 tNode c1 = new tNode(input);
@@ -214,7 +215,7 @@ public class Parser {
         }
     }
 
-    private Node parseComment() throws Exception {
+    private Node parseComment() throws UnexpectedTokenException {
         switch (input.getToken()) {
             case STAR:
                 Node[] children = new Node[17];
@@ -241,7 +242,7 @@ public class Parser {
         }
     }
 
-    private Node parseC() throws Exception {
+    private Node parseC() throws UnexpectedTokenException {
         switch (input.getToken()) {
             case ASCII:
                 tNode c1 = new tNode(input);
@@ -255,7 +256,7 @@ public class Parser {
         }
     }
 
-    private Node parseInstr() throws Exception {
+    private Node parseInstr() throws UnexpectedTokenException {
         switch (input.getToken()) {
             case GET:
                 Node c1 = parseInput();
@@ -296,7 +297,7 @@ public class Parser {
         }
     }
 
-    private Node parseBranch() throws Exception {
+    private Node parseBranch() throws UnexpectedTokenException {
         switch (input.getToken()) {
             case START_IF:
                 tNode c1 = new tNode(input);
@@ -317,7 +318,7 @@ public class Parser {
         }
     }
 
-    private Node parseElse() throws Exception {
+    private Node parseElse() throws UnexpectedTokenException {
         switch (input.getToken()) {
             case START_ELSE:
                 tNode c1 = new tNode(input);
@@ -343,7 +344,7 @@ public class Parser {
         }
     }
 
-    private Node parseBoolExpr() throws Exception {
+    private Node parseBoolExpr() throws UnexpectedTokenException {
         switch (input.getToken()) {
             case DEC_BOOLVAR:
             case LOGIC_CONST:
@@ -366,7 +367,7 @@ public class Parser {
         }
     }
 
-    private Node parseCmpr() throws Exception {
+    private Node parseCmpr() throws UnexpectedTokenException {
         switch (input.getToken()) {
             case START_EQ:
                 tNode c1 = new tNode(input);
@@ -407,7 +408,7 @@ public class Parser {
         }
     }
 
-    private Node parseLogic() throws Exception {
+    private Node parseLogic() throws UnexpectedTokenException {
         switch (input.getToken()) {
             case DEC_BOOLVAR:
                 Node c1 = parseBoolVar();
@@ -455,7 +456,7 @@ public class Parser {
         }
     }
 
-    private Node parseBoolVar() throws Exception {
+    private Node parseBoolVar() throws UnexpectedTokenException {
         switch (input.getToken()) {
             case DEC_BOOLVAR:
                 tNode c1 = new tNode(input);
@@ -470,7 +471,7 @@ public class Parser {
         }
     }
 
-    private Node parseLoop() throws Exception {
+    private Node parseLoop() throws UnexpectedTokenException {
         switch (input.getToken()) {
             case START_WHILE:
                 tNode c1 = new tNode(input);
@@ -490,7 +491,7 @@ public class Parser {
         }
     }
 
-    private Node parseCall() throws Exception {
+    private Node parseCall() throws UnexpectedTokenException {
         switch (input.getToken()) {
             case CALL:
                 tNode c1 = new tNode(input);
@@ -505,7 +506,7 @@ public class Parser {
         }
     }
 
-    private Node parseAssign() throws Exception {
+    private Node parseAssign() throws UnexpectedTokenException {
         switch (input.getToken()) {
             case DEC_NUMVAR:
                 Node c1 = parseNumVar();
@@ -535,7 +536,7 @@ public class Parser {
         }
     }
 
-    private Node parseStri() throws Exception {
+    private Node parseStri() throws UnexpectedTokenException {
         switch (input.getToken()) {
             case QUOTE:
                 Node[] children = new Node[17];
@@ -555,7 +556,7 @@ public class Parser {
         }
     }
 
-    private Node parseStringV() throws Exception {
+    private Node parseStringV() throws UnexpectedTokenException {
         switch (input.getToken()) {
             case DEC_STRINGVAR:
                 tNode c1 = new tNode(input);
@@ -570,7 +571,7 @@ public class Parser {
         }
     }
 
-    private Node parseNumExpr() throws Exception {
+    private Node parseNumExpr() throws UnexpectedTokenException {
         switch (input.getToken()) {
             case START_ADD:
                 tNode c1 = new tNode(input);
@@ -625,7 +626,7 @@ public class Parser {
         }
     }
 
-    private Node parseNumExprP() throws Exception {
+    private Node parseNumExprP() throws UnexpectedTokenException {
         switch (input.getToken()) {
             case DEC_NUMVAR:
                 Node c1 = parseNumVar();
@@ -643,7 +644,7 @@ public class Parser {
         }
     }
 
-    private Node parseDecNum() throws Exception {
+    private Node parseDecNum() throws UnexpectedTokenException {
         switch (input.getToken()) {
             case DEC_ZERO:
                 tNode c1 = new tNode(input);
@@ -666,7 +667,7 @@ public class Parser {
         }
     }
 
-    private Node parseNeg() throws Exception {
+    private Node parseNeg() throws UnexpectedTokenException {
         switch (input.getToken()) {
             case MINUS:
                 tNode c1 = new tNode(input);
@@ -681,7 +682,7 @@ public class Parser {
         }
     }
 
-    private Node parsePos() throws Exception {
+    private Node parsePos() throws UnexpectedTokenException {
         switch (input.getToken()) {
             case P_DIGIT:
                 Node c1 = parseInt();
@@ -698,7 +699,7 @@ public class Parser {
         }
     }
 
-    private Node parseInt() throws Exception {
+    private Node parseInt() throws UnexpectedTokenException {
         switch (input.getToken()) {
             case P_DIGIT:
                 tNode c1 = new tNode(input);
@@ -713,7 +714,7 @@ public class Parser {
         }
     }
 
-    private Node parseNumVar() throws Exception {
+    private Node parseNumVar() throws UnexpectedTokenException {
         switch (input.getToken()) {
             case DEC_NUMVAR:
                 tNode c1 = new tNode(input);
@@ -727,7 +728,7 @@ public class Parser {
         }
     }
 
-    private Node parseOutput() throws Exception {
+    private Node parseOutput() throws UnexpectedTokenException {
         switch (input.getToken()) {
             case VALUE:
                 Node c1 = parseValue();
@@ -744,7 +745,7 @@ public class Parser {
         }
     }
 
-    private Node parseText() throws Exception {
+    private Node parseText() throws UnexpectedTokenException {
         switch (input.getToken()) {
             case TEXT:
                 tNode c1 = new tNode(input);
@@ -759,7 +760,7 @@ public class Parser {
         }
     }
 
-    private Node parseValue() throws Exception {
+    private Node parseValue() throws UnexpectedTokenException {
         switch (input.getToken()) {
             case VALUE:
                 tNode c1 = new tNode(input);
@@ -774,7 +775,7 @@ public class Parser {
         }
     }
 
-    private Node parseInput() throws Exception {
+    private Node parseInput() throws UnexpectedTokenException {
         switch (input.getToken()) {
             case GET:
                 tNode c1 = new tNode(input);

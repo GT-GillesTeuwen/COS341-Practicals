@@ -19,7 +19,7 @@ public class SymbolTableVisualiser extends JPanel {
     Graphics2D g2;
     SybmbolTable symbolTable;
 
-    public SymbolTableVisualiser(SybmbolTable symbolTable) throws Exception {
+    public SymbolTableVisualiser(SybmbolTable symbolTable) {
         this.symbolTable = symbolTable;
         setFocusable(true);
         this.requestFocus();
@@ -40,15 +40,15 @@ public class SymbolTableVisualiser extends JPanel {
 
     private void addTable() {
         String[] cols = { "ID", "SCOPE ID", "TYPE", "NAME" };
-        String[][] data = new String[symbolTable.getScopeTable().size() - 1][4];
+        String[][] data = new String[symbolTable.getSymbolTable().size() - 1][4];
 
         int i = 0;
-        for (Integer id : symbolTable.getScopeTable().keySet()) {
+        for (Integer id : symbolTable.getSymbolTable().keySet()) {
             if (id != symbolTable.getMainScope()) {
                 data[i][0] = id + "";
-                data[i][1] = symbolTable.getScopeTable().get(id).getAtts()[0];
-                data[i][2] = symbolTable.getScopeTable().get(id).getAtts()[1];
-                data[i][3] = symbolTable.getScopeTable().get(id).getAtts()[2];
+                data[i][1] = symbolTable.getSymbolTable().get(id).getAtts()[0];
+                data[i][2] = symbolTable.getSymbolTable().get(id).getAtts()[1];
+                data[i][3] = symbolTable.getSymbolTable().get(id).getAtts()[2];
                 i++;
             }
 

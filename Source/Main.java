@@ -3,6 +3,7 @@ import java.awt.Container;
 import java.awt.Dimension;
 import java.util.ArrayList;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
@@ -15,6 +16,11 @@ import javax.swing.SpringLayout;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.filechooser.FileSystemView;
 
+import Exceptions.AmbiguousDeclarationException;
+import Exceptions.EmptyTreeException;
+import Exceptions.ProcedureNotDeclaredException;
+import Exceptions.TreeCreationException;
+import Exceptions.UnexpectedTokenException;
 import Lexing.Lexer;
 import Lexing.Symbol;
 import Lexing.Token;
@@ -26,7 +32,7 @@ import Visualisation.Tree;
 import Visualisation.TreeVisualiser;
 
 class Main {
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
         // JFileChooser j = new JFileChooser(FileSystemView.getFileSystemView());
         // j.setDialogTitle("Choose a text file to parse");
         // FileNameExtensionFilter filter = new FileNameExtensionFilter("TEXT FILES",
@@ -51,7 +57,8 @@ class Main {
                 System.out.println(lexer.errorMessage());
             }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e.toString().replace("java.lang.Exception:", ""));
+            JOptionPane.showMessageDialog(null, e.toString().replace("java.lang.Exception:", ""), "Dialogue",
+                    JOptionPane.ERROR_MESSAGE);
             System.out.println(e.toString().replace("java.lang.Exception:", ""));
 
         }
@@ -66,14 +73,41 @@ class Main {
         try {
             p = new Parser(tokens);
             n = p.parseProgrP();
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e.toString().replace("java.lang.Exception:", ""));
+        } catch (UnexpectedTokenException e) {
+            JOptionPane.showMessageDialog(null, e.toString().replace("java.lang.Exception:", ""), "Dialogue",
+                    JOptionPane.ERROR_MESSAGE);
             System.out.println(e.toString().replace("java.lang.Exception:", ""));
 
         }
-        Tree tree = new Tree(n);
-        xmlWriter.implement.writeXml(textFileName, tree.toSpecXML());
-        GUI g = new GUI(tree);
+        Tree tree = null;
+        try {
+            tree = new Tree(n);
+            xmlWriter.implement.writeXml(textFileName, tree.toSpecXML(), "tree");
+            xmlWriter.implement.writeXml(textFileName, tree.getScopeTable().toHTML(), "table");
+            GUI g = new GUI(tree);
+            final ImageIcon icon = new ImageIcon("Images\\output-onlinepngtools.png");
+            JOptionPane.showMessageDialog(null,
+                    "Parsing complete, find the xml file at " + textFileName.replace(".txt", "_Parsed") + ".xml",
+                    "Completed",
+                    JOptionPane.INFORMATION_MESSAGE, icon);
+        } catch (AmbiguousDeclarationException e) {
+            JOptionPane.showMessageDialog(null, e.getMessage(), "Dialogue",
+                    JOptionPane.ERROR_MESSAGE);
+            System.out.println(e.toString());
+        } catch (TreeCreationException e) {
+            JOptionPane.showMessageDialog(null, e.getMessage(), "Dialogue",
+                    JOptionPane.ERROR_MESSAGE);
+            System.out.println(e.toString());
+        } catch (EmptyTreeException e) {
+            JOptionPane.showMessageDialog(null, e.getMessage(), "Dialogue",
+                    JOptionPane.ERROR_MESSAGE);
+            System.out.println(e.toString());
+        } catch (ProcedureNotDeclaredException e) {
+            JOptionPane.showMessageDialog(null, e.getMessage(), "Dialogue",
+                    JOptionPane.ERROR_MESSAGE);
+            System.out.println(e.toString());
+        }
+
         // JFrame frame = new JFrame("SpringLayout");
         // frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         // JScrollPane scroll = new JScrollPane();
@@ -94,8 +128,6 @@ class Main {
         // // mainWindow.add(contentPane);
         // frame.setSize(500, 600);
         // frame.setVisible(true);
-        JOptionPane.showMessageDialog(null,
-                "Parsing complete, find the xml file at " + textFileName.replace(".txt", "_Parsed") + ".xml");
 
     }
 }

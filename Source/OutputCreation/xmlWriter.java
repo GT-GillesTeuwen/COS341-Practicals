@@ -5,15 +5,19 @@ import java.io.IOException;
 
 public class xmlWriter {
     public static class implement {
-        public static void writeXml(String name, String xml) {
-            name = name.replace(".txt", "_Parsed");
+        public static void writeXml(String name, String xml, String suffix) {
+            name = name.replace(".txt", suffix);
+            String fileType = ".xml";
+            if (suffix.equals("table")) {
+                fileType = ".html";
+            }
             try {
-                FileWriter writer = new FileWriter(name + ".xml", false);
+                FileWriter writer = new FileWriter(name + fileType, false);
                 writer.write(xml);
                 writer.close();
             } catch (IOException e) {
                 try {
-                    FileWriter writer2 = new FileWriter(name + ".xml", true);
+                    FileWriter writer2 = new FileWriter(name + fileType, true);
                     writer2.write(xml);
                     writer2.close();
                 } catch (IOException e1) {

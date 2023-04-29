@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
+import Exceptions.AmbiguousDeclarationException;
+import Exceptions.ProcedureNotDeclaredException;
+import Exceptions.TreeCreationException;
 import Nodes.Node;
 import Nodes.nNode;
 import Nodes.tNode;
@@ -15,9 +18,9 @@ public class Tree {
     private int[] nodesPerLevel;
     private SybmbolTable scopeTable;
 
-    public Tree(Node root) throws Exception {
+    public Tree(Node root) throws AmbiguousDeclarationException, TreeCreationException, ProcedureNotDeclaredException {
         if (root == null) {
-            throw new Exception("Tree Error: No tree to build");
+            throw new TreeCreationException("Tree Error: No tree to build. Root was null");
         }
         scopeTable = new SybmbolTable();
         allNodes = new ArrayList<>();
@@ -33,7 +36,7 @@ public class Tree {
         for (int i = 1; i <= depth; i++) {
             addLevel(root, i);
         }
-
+        ((nNode) root).setData("MAIN");
         scopeTable.setCurrentScope(root);
         scopeTable.add(root);
         setChildrenScopes(root);
@@ -41,7 +44,7 @@ public class Tree {
         scopeTable.unusedProcedures();
     }
 
-    private void setChildrenScopes(Node root) {
+    private void setChildrenScopes(Node root) throws AmbiguousDeclarationException {
         if (root instanceof nNode) {
             if (root.getDisplayName().equals("PROC")) {
                 scopeTable.setCurrentScope(root);
@@ -64,7 +67,7 @@ public class Tree {
 
     }
 
-    public void checkCallScopes(Node root) {
+    public void checkCallScopes(Node root) throws ProcedureNotDeclaredException {
         if (root instanceof nNode) {
 
             nNode nodeN = (nNode) root;

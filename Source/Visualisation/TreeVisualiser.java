@@ -5,6 +5,7 @@ import java.awt.event.*;
 import java.util.*;
 import javax.swing.*;
 
+import Exceptions.EmptyTreeException;
 import Nodes.Node;
 import Nodes.tNode;
 
@@ -17,12 +18,14 @@ public class TreeVisualiser extends JPanel implements MouseListener, MouseMotion
     Tree t;
     int zoom;
 
+    public int FONT_SIZE = 9;
+
     double offsetX, offsetY;
     DrawableNode selected;
 
     boolean dragging = false;
 
-    public TreeVisualiser(Tree tree) throws Exception {
+    public TreeVisualiser(Tree tree) {
         zoom = 0;
         t = tree;
         squares = new DrawableNode[t.getAllNodes().size()];
@@ -180,23 +183,18 @@ public class TreeVisualiser extends JPanel implements MouseListener, MouseMotion
         super.paintComponent(g);
         g2 = (Graphics2D) g;
         g2.setStroke(dashed);
-        g2.setFont(new Font("Arial", Font.PLAIN, 9));
+        g2.setFont(new Font("Arial", Font.PLAIN, FONT_SIZE));
         g2.setColor(colour);
         for (int i = 0; i < squares.length; i++) {
-
             // Draw state circle
-            g2.setColor(squares[i].node.getColor());
-            if (squares[i].getNode() instanceof tNode) {
-                g2.setFont(new Font("Arial", Font.PLAIN, 14));
-            } else {
-                g2.setFont(new Font("Arial", Font.PLAIN, 8));
-            }
-            g2.draw(squares[i].getEllipse2d());
-
+            squares[i].draw(g2, FONT_SIZE);
+        }
+        for (int i = 0; i < squares.length; i++) {
+            g2.setColor(squares[i].getNode().getColor());
             // Draw state name
             g2.drawString(squares[i].getNode().getDisplayName(),
                     (int) squares[i].getEllipse2d().getCenterX()
-                            - (int) (squares[i].getNode().getDisplayName().length() * 2.5),
+                            - (int) (g2.getFontMetrics().stringWidth(squares[i].getNode().getDisplayName()) / 2),
                     (int) squares[i].getEllipse2d().getCenterY() + 5);
             int c = 0;
 
@@ -207,9 +205,10 @@ public class TreeVisualiser extends JPanel implements MouseListener, MouseMotion
 
                 DrawableNode dNode = getDrawableState(op);
 
-                drawArrowLine(g2, squares[i].getEllipse2d().getCenterX(), squares[i].getEllipse2d().getCenterY(),
+                drawArrowLine(g2, squares[i].getEllipse2d().getCenterX(),
+                        squares[i].getEllipse2d().getMaxY(),
                         dNode.getEllipse2d().getCenterX(),
-                        dNode.getEllipse2d().getCenterY(), 10,
+                        dNode.getEllipse2d().getMinY(), 10,
                         10);
 
             }
@@ -227,20 +226,6 @@ public class TreeVisualiser extends JPanel implements MouseListener, MouseMotion
         double D = Math.sqrt(dx * dx + dy * dy);
         double sin = dy / D, cos = dx / D;
 
-        // Initial up and left of final
-        if (sin > 0 && cos > 0) {
-            y1 += (DrawableNode.SIZE / 2);
-            y2 -= (DrawableNode.SIZE / 2);
-            x2 -= 0;// (DrawableNode.SIZE / 2);
-        }
-
-        // Initial up and right of final
-        else if (sin > 0 && cos < 0) {
-            y1 += (DrawableNode.SIZE / 2);
-            y2 -= (DrawableNode.SIZE / 2);
-            x2 += 0;// (DrawableNode.SIZE / 2);
-        }
-
         dx = x2 - midX;
         dy = y2 - midY;
         D = Math.sqrt(dx * dx + dy * dy);
@@ -256,16 +241,6 @@ public class TreeVisualiser extends JPanel implements MouseListener, MouseMotion
         yn = xn * sin + yn * cos + midY;
         xn = x;
 
-        if (x1 == x2 && y1 == y2) {
-            midY -= 100;
-            x1 -= DrawableNode.SIZE / 4;
-            x2 += DrawableNode.SIZE / 4;
-            y1 -= DrawableNode.SIZE / 2;
-            y2 -= DrawableNode.SIZE / 2;
-
-        } else {
-
-        }
         int[] xpoints = { (int) x2, (int) xm, (int) xn };
         int[] ypoints = { (int) y2, (int) ym, (int) yn };
 
@@ -362,6 +337,16 @@ public class TreeVisualiser extends JPanel implements MouseListener, MouseMotion
     @Override
     public void mouseClicked(MouseEvent e) {
         try {
+            if (SwingUtilities.isRightMouseButton(e)) {
+                VisualiserSettings n = new VisualiserSettings(this);
+                JFrame frame = new JFrame("Settings");
+                frame.setContentPane(n);
+                frame.setLocation(e.getX(), e.getY());
+                frame.setVisible(true);
+                frame.setSize(300, 100);
+                return;
+            }
+
             if (selected == null) {
                 return;
             }
