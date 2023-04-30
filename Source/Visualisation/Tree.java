@@ -25,8 +25,8 @@ public class Tree {
         scopeTable = new SybmbolTable();
         allNodes = new ArrayList<>();
 
-        root.reduceOneStepDerivations();
-        root.reduceType();
+        // root.reduceOneStepDerivations();
+        // root.reduceType();
         this.root = root;
 
         int depth = maxDepth();

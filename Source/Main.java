@@ -40,7 +40,7 @@ class Main {
         // j.setFileFilter(filter);
         // Open the save dialog
         // j.showOpenDialog(null);
-        String textFileName = "Tests/test10.txt";// j.getSelectedFile().getAbsolutePath();
+        String textFileName = "Tests/test9.txt";// j.getSelectedFile().getAbsolutePath();
         Lexer lexer;
         ArrayList<Symbol> tokens = new ArrayList<>();
         try {
@@ -82,7 +82,7 @@ class Main {
         Tree tree = null;
         try {
             tree = new Tree(n);
-            xmlWriter.implement.writeXml(textFileName, tree.toSpecXML(), "tree");
+            xmlWriter.implement.writeXml(textFileName, tree.toTutorXML(), "tree");
             xmlWriter.implement.writeXml(textFileName, tree.getScopeTable().toHTML(), "table");
             GUI g = new GUI(tree);
             final ImageIcon icon = new ImageIcon("Images\\output-onlinepngtools.png");

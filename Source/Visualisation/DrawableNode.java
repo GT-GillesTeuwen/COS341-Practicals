@@ -15,11 +15,17 @@ public class DrawableNode {
     public static int SIZE = 30;
     Double ellipse2d;
     Node parent;
+    DrawableNode drawableParent;
     Node node;
     Node[] children;
+    DrawableNode[] drawableChildren;
     Stack<double[]> adjustments = new Stack();
+    int initialX = 0;
+    int mod = 0;
+    int initialY = 0;
 
     public DrawableNode(int initialX, int initialY, Node node) {
+        this.initialY = initialY;
         this.ellipse2d = new Rectangle2D.Double(initialX, initialY, 1.5 * SIZE, SIZE);
         this.node = node;
         if (node instanceof nNode) {
@@ -29,8 +35,25 @@ public class DrawableNode {
         }
     }
 
+    public int indexOfChild(DrawableNode node) {
+        for (int i = 0; i < drawableChildren.length; i++) {
+            if (drawableChildren[i] == node) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    public void setDrawableChildren(DrawableNode[] drawableChildren) {
+        this.drawableChildren = drawableChildren;
+    }
+
     public void setParent(Node parent) {
         this.parent = parent;
+    }
+
+    public void setDrawableParent(DrawableNode drawableParent) {
+        this.drawableParent = drawableParent;
     }
 
     public Node getParent() {
@@ -72,5 +95,9 @@ public class DrawableNode {
         this.getEllipse2d().setFrame(this.getEllipse2d().getMinX(), this.getEllipse2d().getMinY(),
                 (g2.getFontMetrics().stringWidth(this.getNode().getDisplayName())) + 10, SIZE);
         g2.draw(this.getEllipse2d());
+    }
+
+    public DrawableNode getPreviousSibling(int order) {
+        return drawableParent.drawableChildren[order - 1];
     }
 }

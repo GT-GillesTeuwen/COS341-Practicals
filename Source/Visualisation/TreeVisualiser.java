@@ -19,6 +19,8 @@ public class TreeVisualiser extends JPanel implements MouseListener, MouseMotion
     int zoom;
 
     public int FONT_SIZE = 9;
+    int siblingDistance = 10;
+    int treeDistance = 0;
 
     double offsetX, offsetY;
     DrawableNode selected;
@@ -34,13 +36,18 @@ public class TreeVisualiser extends JPanel implements MouseListener, MouseMotion
             for (int j2 = 0; j2 < t.getNodesPerLevel()[j]; j2++) {
                 squares[i] = new DrawableNode(1600 / (t.getNodesPerLevel()[j] + 1) * (j2 + 1) + j, j * 60,
                         t.getAllNodes().get(i));
+                squares[i].initialY = j * 60;
                 i++;
             }
         }
         setParents();
+        setDrawableParents();
+        setDrawableChildren();
+
+        // CalculateInitialX(squares[0], 0);
 
         colour = Color.BLACK;
-
+        // CalculateInitialX(squares[0], 0);
         setFocusable(true);
         addMouseListener(this);
         addMouseMotionListener(this);
@@ -54,6 +61,28 @@ public class TreeVisualiser extends JPanel implements MouseListener, MouseMotion
                 DrawableNode childNode = getDrawableState(child);
                 childNode.setParent(drawableNode.getNode());
             }
+        }
+    }
+
+    private void setDrawableParents() {
+        for (DrawableNode drawableNode : squares) {
+            for (Node child : drawableNode.getChildren()) {
+                DrawableNode childNode = getDrawableState(child);
+                childNode.setDrawableParent(drawableNode);
+            }
+        }
+    }
+
+    private void setDrawableChildren() {
+        for (DrawableNode drawableNode : squares) {
+            DrawableNode[] drawableChildren = new DrawableNode[drawableNode.getChildren().length];
+            int i = 0;
+            for (Node child : drawableNode.getChildren()) {
+                drawableChildren[i] = getDrawableState(child);
+                i++;
+            }
+            drawableNode.setDrawableChildren(drawableChildren);
+
         }
     }
 
@@ -448,6 +477,21 @@ public class TreeVisualiser extends JPanel implements MouseListener, MouseMotion
         }
 
         repaint();
+    }
+
+    private void placeNode(DrawableNode node) {
+        if (node.drawableChildren.length > 0) {
+            for (DrawableNode drawableNode : node.drawableChildren) {
+                placeNode(drawableNode);
+            }
+            double avgX = 0;
+            for (DrawableNode drawableNode : node.drawableChildren) {
+                avgX += drawableNode.getEllipse2d().getCenterX();
+            }
+            avgX /= node.drawableChildren.length;
+            node.getEllipse2d().setFrame(avgX, node.initialY, node.getEllipse2d().getWidth(),
+                    node.getEllipse2d().getHeight());
+        }
     }
 
 }
