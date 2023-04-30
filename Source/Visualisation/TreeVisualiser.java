@@ -18,9 +18,7 @@ public class TreeVisualiser extends JPanel implements MouseListener, MouseMotion
     Tree t;
     int zoom;
 
-    public int FONT_SIZE = 9;
-    int siblingDistance = 10;
-    int treeDistance = 0;
+    public int FONT_SIZE = 15;
 
     double offsetX, offsetY;
     DrawableNode selected;
@@ -40,14 +38,13 @@ public class TreeVisualiser extends JPanel implements MouseListener, MouseMotion
                 i++;
             }
         }
-        setParents();
-        setDrawableParents();
         setDrawableChildren();
-
-        // CalculateInitialX(squares[0], 0);
+        setDrawableParents();
+        setParents();
+        placeNode(squares[0]);
 
         colour = Color.BLACK;
-        // CalculateInitialX(squares[0], 0);
+
         setFocusable(true);
         addMouseListener(this);
         addMouseMotionListener(this);
@@ -479,18 +476,74 @@ public class TreeVisualiser extends JPanel implements MouseListener, MouseMotion
         repaint();
     }
 
+    private DrawableNode getLeftOnLevel(DrawableNode drawableNode) {
+        for (int i = 0; i < squares.length; i++) {
+            if (squares[i] == drawableNode) {
+                if (i > 0 && squares[i - 1].initialY == drawableNode.initialY) {
+                    return squares[i - 1];
+                } else {
+                    return null;
+                }
+            }
+        }
+
+        return null;
+    }
+
+    private void adjustClipping(DrawableNode drawableNode) {
+        DrawableNode leftOnLevel = getLeftOnLevel(drawableNode);
+        if (leftOnLevel == null) {
+            return;
+        }
+        if (leftOnLevel.getEllipse2d().getMaxX() > drawableNode.getEllipse2d().getMinX()) {
+            double adjust = (leftOnLevel.getEllipse2d().getMaxX() + drawableNode.getEllipse2d().getWidth() + 10)
+                    - drawableNode.getEllipse2d().getMinX();
+            adjustNodeAndChildren(drawableNode, adjust);
+        }
+    }
+
+    private void adjustNodeAndChildren(DrawableNode drawableNode, double adjust) {
+        for (DrawableNode child : drawableNode.drawableChildren) {
+            adjustNodeAndChildren(child, adjust);
+        }
+        drawableNode.getEllipse2d().setFrame(drawableNode.getEllipse2d().getMaxX() + adjust, drawableNode.initialY,
+                drawableNode.getEllipse2d().getWidth(),
+                drawableNode.getEllipse2d().getHeight());
+    }
+
     private void placeNode(DrawableNode node) {
         if (node.drawableChildren.length > 0) {
-            for (DrawableNode drawableNode : node.drawableChildren) {
-                placeNode(drawableNode);
-            }
             double avgX = 0;
             for (DrawableNode drawableNode : node.drawableChildren) {
-                avgX += drawableNode.getEllipse2d().getCenterX();
+                placeNode(drawableNode);
+                avgX += drawableNode.getEllipse2d().getMinX();
             }
             avgX /= node.drawableChildren.length;
             node.getEllipse2d().setFrame(avgX, node.initialY, node.getEllipse2d().getWidth(),
                     node.getEllipse2d().getHeight());
+            adjustClipping(node);
+        } else {
+            DrawableNode leftOnLevel = getLeftOnLevel(node);
+            if (leftOnLevel == null) {
+                DrawableNode leftOnParentLevel = getLeftOnLevel(node.drawableParent);
+                if (leftOnParentLevel == null) {
+
+                    node.getEllipse2d().setFrame(0, node.initialY, node.getEllipse2d().getWidth(),
+                            node.getEllipse2d().getHeight());
+                } else {
+                    node.getEllipse2d().setFrame(
+                            leftOnParentLevel.getEllipse2d().getCenterX() + node.getEllipse2d().getWidth()
+                                    + 10,
+                            node.initialY, node.getEllipse2d().getWidth(),
+                            node.getEllipse2d().getHeight());
+                }
+            } else {
+                node.getEllipse2d().setFrame(
+                        leftOnLevel.getEllipse2d().getCenterX() + node.getEllipse2d().getWidth() + 10,
+                        node.initialY, node.getEllipse2d().getWidth(),
+                        node.getEllipse2d().getHeight());
+            }
+
         }
     }
 

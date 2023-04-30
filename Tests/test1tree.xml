@@ -1,0 +1,54 @@
+<PROGR ID="283" Data="MAIN" Children="12,282">
+	<ALGO ID="12" Data="" Children="6">
+		<CALL ID="6" Data="p1" Children="">
+		</CALL>
+	</ALGO>
+	<PROCDEFS ID="282" Data="" Children="215,278">
+		<PROC ID="215" Data="p1" Children="33,212">
+			<ALGO ID="33" Data="" Children="27">
+				<CALL ID="27" Data="p2" Children="">
+				</CALL>
+			</ALGO>
+			<PROCDEFS ID="212" Data="" Children="137,208">
+				<PROC ID="137" Data="p3" Children="54,134">
+					<ALGO ID="54" Data="" Children="48">
+						<CALL ID="48" Data="p3" Children="">
+						</CALL>
+					</ALGO>
+					<PROCDEFS ID="134" Data="" Children="88,130">
+						<PROC ID="88" Data="p1" Children="83">
+							<ALGO ID="83" Data="" Children="77">
+								<CALL ID="77" Data="p100" Children="">
+								</CALL>
+							</ALGO>
+						</PROC>
+						<PROC ID="130" Data="p100" Children="125">
+							<ALGO ID="125" Data="" Children="119">
+								<CALL ID="119" Data="p100" Children="">
+								</CALL>
+							</ALGO>
+						</PROC>
+					</PROCDEFS>
+				</PROC>
+				<PROC ID="208" Data="p425" Children="203">
+					<ALGO ID="203" Data="" Children="166">
+						<ASSIGN ID="166" Data="" Children="160,162">
+							<NUMVAR ID="160" Data="n1" Children="">
+							</NUMVAR>
+							<Terminal ID="162" Children="">0.00</Terminal>
+						</ASSIGN>
+					</ALGO>
+				</PROC>
+			</PROCDEFS>
+		</PROC>
+		<PROC ID="278" Data="p2" Children="273">
+			<ALGO ID="273" Data="" Children="236">
+				<ASSIGN ID="236" Data="" Children="230,232">
+					<NUMVAR ID="230" Data="n1" Children="">
+					</NUMVAR>
+					<Terminal ID="232" Children="">0.00</Terminal>
+				</ASSIGN>
+			</ALGO>
+		</PROC>
+	</PROCDEFS>
+</PROGR>

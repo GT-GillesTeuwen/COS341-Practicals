@@ -36,7 +36,7 @@ public class TreeTest {
 
         nNode n7 = new nNode("7", n7Children);
         nNode n6 = new nNode("6", n6Children);
-        nNode n5 = new nNode("5", n5Children);
+        nNode n5 = new nNode("5", eNNodes);
         nNode n4 = new nNode("4", n4Children);
         nNode[] n2Children = { n4, n5, n6, n7 };
 

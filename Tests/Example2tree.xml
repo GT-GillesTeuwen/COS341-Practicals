@@ -1,309 +1,83 @@
-<Tree>
-	<Node>
-		<ID>350</ID>
-		<Contents>PROGR</Contents>
-		<Children>
-			<ChildID>305</ChildID>
-			<ChildID>349</ChildID>
-		</Children>
-	</Node>
-	<Node>
-		<ID>305</ID>
-		<Contents>ALGO</Contents>
-		<Children>
-			<ChildID>21</ChildID>
-			<ChildID>67</ChildID>
-			<ChildID>83</ChildID>
-			<ChildID>99</ChildID>
-			<ChildID>115</ChildID>
-			<ChildID>232</ChildID>
-			<ChildID>280</ChildID>
-			<ChildID>285</ChildID>
-		</Children>
-	</Node>
-	<Node>
-		<ID>349</ID>
-		<Contents>PROCDEFS</Contents>
-		<Children>
-			<ChildID>346</ChildID>
-		</Children>
-	</Node>
-	<Node>
-		<ID>21</ID>
-		<Contents>ASSIGN</Contents>
-		<Children>
-			<ChildID>6</ChildID>
-			<ChildID>17</ChildID>
-		</Children>
-	</Node>
-	<Node>
-		<ID>67</ID>
-		<Contents>ASSIGN</Contents>
-		<Children>
-			<ChildID>32</ChildID>
-			<ChildID>66</ChildID>
-		</Children>
-	</Node>
-	<Node>
-		<ID>83</ID>
-		<Contents>ASSIGN</Contents>
-		<Children>
-			<ChildID>78</ChildID>
-			<ChildID>80</ChildID>
-		</Children>
-	</Node>
-	<Node>
-		<ID>99</ID>
-		<Contents>ASSIGN</Contents>
-		<Children>
-			<ChildID>94</ChildID>
-			<ChildID>96</ChildID>
-		</Children>
-	</Node>
-	<Node>
-		<ID>115</ID>
-		<Contents>ASSIGN</Contents>
-		<Children>
-			<ChildID>110</ChildID>
-			<ChildID>112</ChildID>
-		</Children>
-	</Node>
-	<Node>
-		<ID>232</ID>
-		<Contents>BRANCH</Contents>
-		<Children>
-			<ChildID>167</ChildID>
-			<ChildID>211</ChildID>
-			<ChildID>231</ChildID>
-		</Children>
-	</Node>
-	<Node>
-		<ID>280</ID>
-		<Contents>LOOP</Contents>
-		<Children>
-			<ChildID>263</ChildID>
-			<ChildID>278</ChildID>
-		</Children>
-	</Node>
-	<Node>
-		<ID>285</ID>
-		<Contents>h</Contents>
-		<Children>
-		</Children>
-	</Node>
-	<Node>
-		<ID>346</ID>
-		<Contents>PROC</Contents>
-		<Children>
-			<ChildID>341</ChildID>
-		</Children>
-	</Node>
-	<Node>
-		<ID>6</ID>
-		<Contents>NUMVAR</Contents>
-		<Children>
-		</Children>
-	</Node>
-	<Node>
-		<ID>17</ID>
-		<Contents>POS</Contents>
-		<Children>
-		</Children>
-	</Node>
-	<Node>
-		<ID>32</ID>
-		<Contents>STRINGV</Contents>
-		<Children>
-		</Children>
-	</Node>
-	<Node>
-		<ID>66</ID>
-		<Contents>STRI</Contents>
-		<Children>
-		</Children>
-	</Node>
-	<Node>
-		<ID>78</ID>
-		<Contents>BOOLVAR</Contents>
-		<Children>
-		</Children>
-	</Node>
-	<Node>
-		<ID>80</ID>
-		<Contents>T</Contents>
-		<Children>
-		</Children>
-	</Node>
-	<Node>
-		<ID>94</ID>
-		<Contents>BOOLVAR</Contents>
-		<Children>
-		</Children>
-	</Node>
-	<Node>
-		<ID>96</ID>
-		<Contents>F</Contents>
-		<Children>
-		</Children>
-	</Node>
-	<Node>
-		<ID>110</ID>
-		<Contents>BOOLVAR</Contents>
-		<Children>
-		</Children>
-	</Node>
-	<Node>
-		<ID>112</ID>
-		<Contents>T</Contents>
-		<Children>
-		</Children>
-	</Node>
-	<Node>
-		<ID>167</ID>
-		<Contents>LOGIC</Contents>
-		<Children>
-			<ChildID>159</ChildID>
-			<ChildID>163</ChildID>
-		</Children>
-	</Node>
-	<Node>
-		<ID>211</ID>
-		<Contents>ALGO</Contents>
-		<Children>
-			<ChildID>205</ChildID>
-		</Children>
-	</Node>
-	<Node>
-		<ID>231</ID>
-		<Contents>ELSE</Contents>
-		<Children>
-			<ChildID>229</ChildID>
-		</Children>
-	</Node>
-	<Node>
-		<ID>263</ID>
-		<Contents>CMPR</Contents>
-		<Children>
-			<ChildID>245</ChildID>
-			<ChildID>258</ChildID>
-		</Children>
-	</Node>
-	<Node>
-		<ID>278</ID>
-		<Contents>ALGO</Contents>
-		<Children>
-			<ChildID>272</ChildID>
-		</Children>
-	</Node>
-	<Node>
-		<ID>341</ID>
-		<Contents>ALGO</Contents>
-		<Children>
-			<ChildID>335</ChildID>
-		</Children>
-	</Node>
-	<Node>
-		<ID>159</ID>
-		<Contents>BOOLVAR</Contents>
-		<Children>
-		</Children>
-	</Node>
-	<Node>
-		<ID>163</ID>
-		<Contents>T</Contents>
-		<Children>
-		</Children>
-	</Node>
-	<Node>
-		<ID>205</ID>
-		<Contents>ASSIGN</Contents>
-		<Children>
-			<ChildID>176</ChildID>
-			<ChildID>204</ChildID>
-		</Children>
-	</Node>
-	<Node>
-		<ID>229</ID>
-		<Contents>ALGO</Contents>
-		<Children>
-			<ChildID>222</ChildID>
-		</Children>
-	</Node>
-	<Node>
-		<ID>245</ID>
-		<Contents>NUMVAR</Contents>
-		<Children>
-		</Children>
-	</Node>
-	<Node>
-		<ID>258</ID>
-		<Contents>POS</Contents>
-		<Children>
-		</Children>
-	</Node>
-	<Node>
-		<ID>272</ID>
-		<Contents>CALL</Contents>
-		<Children>
-		</Children>
-	</Node>
-	<Node>
-		<ID>335</ID>
-		<Contents>ASSIGN</Contents>
-		<Children>
-			<ChildID>320</ChildID>
-			<ChildID>331</ChildID>
-		</Children>
-	</Node>
-	<Node>
-		<ID>176</ID>
-		<Contents>NUMVAR</Contents>
-		<Children>
-		</Children>
-	</Node>
-	<Node>
-		<ID>204</ID>
-		<Contents>NUMEXPR</Contents>
-		<Children>
-			<ChildID>185</ChildID>
-			<ChildID>200</ChildID>
-		</Children>
-	</Node>
-	<Node>
-		<ID>222</ID>
-		<Contents>VALUE</Contents>
-		<Children>
-			<ChildID>221</ChildID>
-		</Children>
-	</Node>
-	<Node>
-		<ID>320</ID>
-		<Contents>NUMVAR</Contents>
-		<Children>
-		</Children>
-	</Node>
-	<Node>
-		<ID>331</ID>
-		<Contents>POS</Contents>
-		<Children>
-		</Children>
-	</Node>
-	<Node>
-		<ID>185</ID>
-		<Contents>NUMVAR</Contents>
-		<Children>
-		</Children>
-	</Node>
-	<Node>
-		<ID>200</ID>
-		<Contents>NEG</Contents>
-		<Children>
-		</Children>
-	</Node>
-	<Node>
-		<ID>221</ID>
-		<Contents>NUMVAR</Contents>
-		<Children>
-		</Children>
-	</Node>
-</Tree>
+<PROGR ID="350" Data="MAIN" Children="305,349">
+	<ALGO ID="305" Data="" Children="21,67,83,99,115,232,280,285">
+		<ASSIGN ID="21" Data="" Children="6,17">
+			<NUMVAR ID="6" Data="n1" Children="">
+			</NUMVAR>
+			<POS ID="17" Data="1.23" Children="">
+			</POS>
+		</ASSIGN>
+		<ASSIGN ID="67" Data="" Children="32,66">
+			<STRINGV ID="32" Data="s2" Children="">
+			</STRINGV>
+			<STRI ID="66" Data=""whuipsjeituysge"" Children="">
+			</STRI>
+		</ASSIGN>
+		<ASSIGN ID="83" Data="" Children="78,80">
+			<BOOLVAR ID="78" Data="b3" Children="">
+			</BOOLVAR>
+			<Terminal ID="80" Children="">T</Terminal>
+		</ASSIGN>
+		<ASSIGN ID="99" Data="" Children="94,96">
+			<BOOLVAR ID="94" Data="b3" Children="">
+			</BOOLVAR>
+			<Terminal ID="96" Children="">F</Terminal>
+		</ASSIGN>
+		<ASSIGN ID="115" Data="" Children="110,112">
+			<BOOLVAR ID="110" Data="b3" Children="">
+			</BOOLVAR>
+			<Terminal ID="112" Children="">T</Terminal>
+		</ASSIGN>
+		<BRANCH ID="232" Data="" Children="167,211,231">
+			<LOGIC ID="167" Data="and" Children="159,163">
+				<BOOLVAR ID="159" Data="b3" Children="">
+				</BOOLVAR>
+				<Terminal ID="163" Children="">T</Terminal>
+			</LOGIC>
+			<ALGO ID="211" Data="" Children="205">
+				<ASSIGN ID="205" Data="" Children="176,204">
+					<NUMVAR ID="176" Data="n1" Children="">
+					</NUMVAR>
+					<NUMEXPR ID="204" Data="add" Children="185,200">
+						<NUMVAR ID="185" Data="n1" Children="">
+						</NUMVAR>
+						<NEG ID="200" Data="-2.90" Children="">
+						</NEG>
+					</NUMEXPR>
+				</ASSIGN>
+			</ALGO>
+			<ELSE ID="231" Data="" Children="229">
+				<ALGO ID="229" Data="" Children="222">
+					<VALUE ID="222" Data="" Children="221">
+						<NUMVAR ID="221" Data="n1" Children="">
+						</NUMVAR>
+					</VALUE>
+				</ALGO>
+			</ELSE>
+		</BRANCH>
+		<LOOP ID="280" Data="" Children="263,278">
+			<CMPR ID="263" Data="greater than" Children="245,258">
+				<NUMVAR ID="245" Data="n1" Children="">
+				</NUMVAR>
+				<POS ID="258" Data="1.00" Children="">
+				</POS>
+			</CMPR>
+			<ALGO ID="278" Data="" Children="272">
+				<CALL ID="272" Data="p1" Children="">
+				</CALL>
+			</ALGO>
+		</LOOP>
+		<Terminal ID="285" Children="">h</Terminal>
+	</ALGO>
+	<PROCDEFS ID="349" Data="" Children="346">
+		<PROC ID="346" Data="p1" Children="341">
+			<ALGO ID="341" Data="" Children="335">
+				<ASSIGN ID="335" Data="" Children="320,331">
+					<NUMVAR ID="320" Data="n1" Children="">
+					</NUMVAR>
+					<POS ID="331" Data="1.00" Children="">
+					</POS>
+				</ASSIGN>
+			</ALGO>
+		</PROC>
+	</PROCDEFS>
+</PROGR>
