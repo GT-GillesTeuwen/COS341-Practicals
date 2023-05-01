@@ -27,20 +27,23 @@ public class SybmbolTable {
     }
 
     public void add(Node node, int scope) {
-        if (!varExitsInTable((nNode) node)) {
+        int occurenceID = varExitsInTable((nNode) node);
+        if (occurenceID == -1) {
             symbolTable.put(node.getId(), new Attributes(scope, node));
+        } else {
+            symbolTable.get(occurenceID).addOtherUsage(node.getId());
         }
     }
 
-    private boolean varExitsInTable(nNode node) {
+    private int varExitsInTable(nNode node) {
         for (Attributes a : symbolTable.values()) {
             if ((a.getNode().getDisplayName().contains("VAR")
                     || a.getNode().getDisplayName().contains("STRINGV"))
                     && ((nNode) a.getNode()).getData().equals(node.getData())) {
-                return true;
+                return a.getNode().getId();
             }
         }
-        return false;
+        return -1;
     }
 
     public boolean inScope(String procName, int nodeID, Node node) throws ProcedureNotDeclaredException {
@@ -75,7 +78,7 @@ public class SybmbolTable {
                 + procName + " is not declared in the scope of "
                 + ((nNode) symbolTable.get(callScope).getNode()).getData() + ANSI_COLOURS.ANSI_Reset);
         throw new ProcedureNotDeclaredException(exString);
-
+        // return false;
     }
 
     public boolean unusedProcedures() {
@@ -144,7 +147,7 @@ public class SybmbolTable {
     }
 
     public String toHTML() {
-        String out = "<!DOCTYPE html> <html><style>table, th, td {border:1px solid black;}</style> <table> <tr><td>NODE ID</td><td>SCOPE</td><td>TYPE</td><td>NAME</td></tr>\n";
+        String out = "<!DOCTYPE html> <html><style>table, th, td {border:1px solid black;}</style> <table> <tr><td>NODE ID</td><td>SCOPE</td><td>TYPE</td><td>NAME</td><td>OTHER USE NODE IDs</td></tr>\n";
 
         for (Integer id : this.symbolTable.keySet()) {
             if (id != this.getMainScope()) {
@@ -153,6 +156,7 @@ public class SybmbolTable {
                 out += "\t\t<td>" + this.symbolTable.get(id).getAtts()[0] + "</td>\n";
                 out += "\t\t<td>" + this.symbolTable.get(id).getAtts()[1] + "</td>\n";
                 out += "\t\t<td>" + this.symbolTable.get(id).getAtts()[2] + "</td>\n";
+                out += "\t\t<td>" + this.symbolTable.get(id).getAtts()[3] + "</td>\n";
                 out += "\t</tr>\n";
             }
 

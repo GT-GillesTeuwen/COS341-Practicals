@@ -93,7 +93,8 @@ public class DrawableNode {
             g2.setFont(new Font("Arial", Font.PLAIN, FONT_SIZE));
         }
         this.getEllipse2d().setFrame(this.getEllipse2d().getMinX(), this.getEllipse2d().getMinY(),
-                (g2.getFontMetrics().stringWidth(this.getNode().getDisplayName())) + 10, SIZE);
+                (g2.getFontMetrics().stringWidth(this.getNode().getDisplayNameWithID())) + 10,
+                this.getEllipse2d().getHeight());
         g2.draw(this.getEllipse2d());
     }
 

@@ -5,7 +5,7 @@ public class Symbol {
     private Token token;
 
     public Symbol(String symbol, Token token) {
-        this.symbol = symbol;
+        this.symbol = symbol.replaceAll(" ", "");
         this.token = token;
     }
 

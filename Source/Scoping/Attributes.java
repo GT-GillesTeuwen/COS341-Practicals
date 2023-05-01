@@ -1,5 +1,7 @@
 package Scoping;
 
+import java.util.ArrayList;
+
 import Nodes.Node;
 import Nodes.nNode;
 
@@ -8,14 +10,20 @@ public class Attributes {
     private Node node;
     private boolean called;
     public static int mainScope;
+    private ArrayList<Integer> otherUsages;
 
     public Attributes(int scopeID, Node node) {
+        this.otherUsages = new ArrayList<>();
         this.scopeID = scopeID;
         this.node = node;
     }
 
     public void setCalled(boolean called) {
         this.called = called;
+    }
+
+    public void addOtherUsage(Integer nodeID) {
+        this.otherUsages.add(nodeID);
     }
 
     public Node getNode() {
@@ -35,7 +43,7 @@ public class Attributes {
     }
 
     public String[] getAtts() {
-        String[] atts = new String[3];
+        String[] atts = new String[4];
         if (scopeID == 0) {
             atts[0] = "GLOBAL";
         } else if (scopeID == mainScope) {
@@ -53,6 +61,18 @@ public class Attributes {
         }
 
         atts[2] = ((nNode) node).getData();
+
+        if (otherUsages.size() == 0) {
+            atts[3] = "No other usages";
+        } else {
+            atts[3] = "";
+            for (int i = 0; i < otherUsages.size(); i++) {
+                atts[3] += otherUsages.get(i).toString();
+                if (i < otherUsages.size() - 1) {
+                    atts[3] += ", ";
+                }
+            }
+        }
 
         return atts;
 

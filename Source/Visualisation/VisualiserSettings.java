@@ -43,7 +43,7 @@ public class VisualiserSettings extends JPanel {
 
         JLabel fontSizeLabel = new JLabel("Font Size");
         sliderPanel.add(fontSizeLabel);
-        JSlider fontSizeSlider = new JSlider(6, 20, tv.FONT_SIZE);
+        JSlider fontSizeSlider = new JSlider(1, 40, tv.FONT_SIZE);
         sliderPanel.add(fontSizeSlider);
         JLabel fontSizeValue = new JLabel(tv.FONT_SIZE + "");
         sliderPanel.add(fontSizeValue);

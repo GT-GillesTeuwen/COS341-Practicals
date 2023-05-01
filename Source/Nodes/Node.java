@@ -7,11 +7,19 @@ public class Node {
     protected int id;
     protected static int idCount = 0;
     protected Color color;
+    protected Color prevColor;
 
     public Node(String displayName) {
         this.displayName = displayName;
         id = idCount++;
         this.color = Color.BLACK;
+        this.prevColor = null;
+    }
+
+    public void resetColour() {
+        if (this.prevColor != null) {
+            this.color = prevColor;
+        }
     }
 
     public void setColor(Color color) {
@@ -19,6 +27,10 @@ public class Node {
     }
 
     public String getDisplayName() {
+        return displayName;
+    }
+
+    public String getDisplayNameWithID() {
         return displayName;
     }
 

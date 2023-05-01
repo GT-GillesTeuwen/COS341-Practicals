@@ -55,10 +55,10 @@ public class nNode extends Node {
             children[i] = children[i].reduceOneStepDerivations();
         }
         children = reworkChildren();
-        if (children.length == 0 && data.equals("") && !displayName.equals("ALGO")) {
+        if (children.length == 0 && data.equals("") && !displayName.equals("ALGO") && !displayName.equals("PROC")) {
             return null;
         }
-        if (children.length == 1 && data.equals("") && !displayName.equals("ALGO")) {
+        if (children.length == 1 && data.equals("") && !displayName.equals("ALGO") && !displayName.equals("PROC")) {
             return children[0];
         }
         return this;
@@ -181,4 +181,17 @@ public class nNode extends Node {
             }
         }
     }
+
+    public void setSelfColour(Color colour, boolean force) {
+        if (force) {
+            prevColor = this.color;
+            this.setColor(colour);
+        } else {
+            if (this.color.getRed() != 255) {
+                prevColor = this.color;
+                this.setColor(colour);
+            }
+        }
+    }
+
 }

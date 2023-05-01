@@ -8,7 +8,7 @@ public class xmlWriter {
         public static void writeXml(String name, String xml, String suffix) {
             name = name.replace(".txt", suffix);
             String fileType = ".xml";
-            if (suffix.equals("table")) {
+            if (suffix.equals("_table")) {
                 fileType = ".html";
             }
             try {

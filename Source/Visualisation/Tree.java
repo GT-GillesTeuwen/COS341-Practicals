@@ -233,4 +233,11 @@ public class Tree {
                 + node.getDisplayName().replace(">", "&gt;").replace("<", "&lt;") + "</" + "Terminal" + ">\n";
         return out;
     }
+
+    public void resetNodeColours() {
+        for (Node node : allNodes) {
+            node.resetColour();
+        }
+    }
+
 }

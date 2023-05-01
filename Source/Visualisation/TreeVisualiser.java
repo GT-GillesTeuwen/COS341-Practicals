@@ -17,6 +17,7 @@ public class TreeVisualiser extends JPanel implements MouseListener, MouseMotion
     Color colour;
     Tree t;
     int zoom;
+    boolean done = false;
 
     public int FONT_SIZE = 15;
 
@@ -32,7 +33,7 @@ public class TreeVisualiser extends JPanel implements MouseListener, MouseMotion
         int i = 0;
         for (int j = 0; j < t.getNodesPerLevel().length; j++) {
             for (int j2 = 0; j2 < t.getNodesPerLevel()[j]; j2++) {
-                squares[i] = new DrawableNode(1600 / (t.getNodesPerLevel()[j] + 1) * (j2 + 1) + j, j * 60,
+                squares[i] = new DrawableNode(1600 / (t.getNodesPerLevel()[j] + 1) * (j2 + 1) + j, j * 80,
                         t.getAllNodes().get(i));
                 squares[i].initialY = j * 60;
                 i++;
@@ -41,7 +42,6 @@ public class TreeVisualiser extends JPanel implements MouseListener, MouseMotion
         setDrawableChildren();
         setDrawableParents();
         setParents();
-        placeNode(squares[0]);
 
         colour = Color.BLACK;
 
@@ -204,7 +204,19 @@ public class TreeVisualiser extends JPanel implements MouseListener, MouseMotion
     }
 
     public void paintComponent(Graphics g) {
-        final BasicStroke dashed = new BasicStroke(2.0f);
+        if (!done) {
+            done = true;
+            resetPositions();
+        }
+
+        BasicStroke dashed = new BasicStroke(2.0f);
+
+        if (zoom < -5) {
+
+            dashed = new BasicStroke(1.0f);
+        } else if (zoom > 5) {
+            dashed = new BasicStroke(3.0f);
+        }
 
         super.paintComponent(g);
         g2 = (Graphics2D) g;
@@ -218,9 +230,9 @@ public class TreeVisualiser extends JPanel implements MouseListener, MouseMotion
         for (int i = 0; i < squares.length; i++) {
             g2.setColor(squares[i].getNode().getColor());
             // Draw state name
-            g2.drawString(squares[i].getNode().getDisplayName(),
+            g2.drawString(squares[i].getNode().getDisplayNameWithID(),
                     (int) squares[i].getEllipse2d().getCenterX()
-                            - (int) (g2.getFontMetrics().stringWidth(squares[i].getNode().getDisplayName()) / 2),
+                            - (int) (g2.getFontMetrics().stringWidth(squares[i].getNode().getDisplayNameWithID()) / 2),
                     (int) squares[i].getEllipse2d().getCenterY() + 5);
             int c = 0;
 
@@ -230,12 +242,20 @@ public class TreeVisualiser extends JPanel implements MouseListener, MouseMotion
             for (Node op : squares[i].getChildren()) {
 
                 DrawableNode dNode = getDrawableState(op);
-
+                int d = 10;
+                int h = 10;
+                if (zoom < -5) {
+                    d = 5;
+                    h = 5;
+                } else if (zoom > 5) {
+                    d = 15;
+                    h = 15;
+                }
                 drawArrowLine(g2, squares[i].getEllipse2d().getCenterX(),
                         squares[i].getEllipse2d().getMaxY(),
                         dNode.getEllipse2d().getCenterX(),
-                        dNode.getEllipse2d().getMinY(), 10,
-                        10);
+                        dNode.getEllipse2d().getMinY(), d,
+                        h);
 
             }
 
@@ -291,16 +311,16 @@ public class TreeVisualiser extends JPanel implements MouseListener, MouseMotion
             double y1 = my - offsetY;
             if (selected != null) {
 
-                selected.getEllipse2d().setFrame(x1, y1, selected.getEllipse2d().getHeight(),
-                        selected.getEllipse2d().getWidth());
+                selected.getEllipse2d().setFrame(x1, y1, selected.getEllipse2d().getWidth(),
+                        selected.getEllipse2d().getHeight());
                 repaint();
             } else {
                 for (DrawableNode drawableNode : squares) {
                     double chX = x1 + drawableNode.getEllipse2d().getMinX();
                     double chY = y1 + drawableNode.getEllipse2d().getMinY();
                     drawableNode.getEllipse2d().setFrame(chX, chY,
-                            drawableNode.getEllipse2d().getHeight(),
-                            drawableNode.getEllipse2d().getWidth());
+                            drawableNode.getEllipse2d().getWidth(),
+                            drawableNode.getEllipse2d().getHeight());
                 }
                 offsetX = mx;
                 offsetY = my;
@@ -413,6 +433,10 @@ public class TreeVisualiser extends JPanel implements MouseListener, MouseMotion
         return null;
     }
 
+    public void resetPositions() {
+        placeNode(squares[0]);
+    }
+
     @Override
     public void mouseWheelMoved(MouseWheelEvent e) {
         // try {
@@ -428,51 +452,60 @@ public class TreeVisualiser extends JPanel implements MouseListener, MouseMotion
         int notches = e.getWheelRotation();
         double mx = e.getX();
         double my = e.getY();
+
         for (DrawableNode drawableNode : squares) {
-            double newX = drawableNode.getEllipse2d().getCenterX();
-            double newY = drawableNode.getEllipse2d().getCenterY();
-            if (notches > 0) {
+            double newX = drawableNode.getEllipse2d().getMinX();
+            double newY = drawableNode.getEllipse2d().getMinY();
+
+            // Zoom out
+            if (notches > 0 && zoom > -14) {
                 if (zoom <= 0) {
-                    double adjustX = (drawableNode.getEllipse2d().getCenterX() - mx) * 0.1;
-                    double adjustY = (drawableNode.getEllipse2d().getCenterY() - my) * 0.11;
+                    double adjustX = (drawableNode.getEllipse2d().getMinX() - mx) * 0.1;
+                    double adjustY = (drawableNode.getEllipse2d().getMinY() - my) * 0.11;
+
                     double[] adjusts = { adjustX, adjustY };
                     drawableNode.pushAdjust(adjusts);
-                    newX = ((drawableNode.getEllipse2d().getCenterX()) - adjustX);
-                    newY = ((drawableNode.getEllipse2d().getCenterY()) - adjustY);
+                    newX = ((drawableNode.getEllipse2d().getMinX()) - adjustX);
+                    newY = ((drawableNode.getEllipse2d().getMinY()) - adjustY);
                 } else {
                     double[] adjustsments = drawableNode.popAdjust();
-                    newX = ((drawableNode.getEllipse2d().getCenterX()) - adjustsments[0]);
-                    newY = ((drawableNode.getEllipse2d().getCenterY()) - adjustsments[1]);
+                    newX = ((drawableNode.getEllipse2d().getMinX()) - adjustsments[0]);
+                    newY = ((drawableNode.getEllipse2d().getMinY()) - adjustsments[1]);
                 }
 
+                double newHeight = drawableNode.getEllipse2d().getHeight() - (notches * 2);
+                drawableNode.getEllipse2d().setFrame(newX, newY, drawableNode.getEllipse2d().getWidth(), newHeight);
             }
-            if (notches < 0) {
+            // Zoom in
+            if (notches < 0 && zoom < 14) {
                 if (zoom >= 0) {
-                    double adjustX = (drawableNode.getEllipse2d().getCenterX() - mx) * 0.5;
-                    double adjustY = (drawableNode.getEllipse2d().getCenterY() - my) * 0.5;
+                    double adjustX = (drawableNode.getEllipse2d().getMinX() - mx) * 0.1;
+                    double adjustY = (drawableNode.getEllipse2d().getMinY() - my) * 0.11;
+
                     double[] adjusts = { adjustX, adjustY };
                     drawableNode.pushAdjust(adjusts);
-                    newX = ((drawableNode.getEllipse2d().getCenterX()) + adjustX);
-                    newY = ((drawableNode.getEllipse2d().getCenterY()) + adjustY);
+                    newX = ((drawableNode.getEllipse2d().getMinX()) + adjustX);
+                    newY = ((drawableNode.getEllipse2d().getMinY()) + adjustY);
                 } else {
                     double[] adjustsments = drawableNode.popAdjust();
-                    newX = ((drawableNode.getEllipse2d().getCenterX()) + adjustsments[0]);
-                    newY = ((drawableNode.getEllipse2d().getCenterY()) + adjustsments[1]);
+                    newX = ((drawableNode.getEllipse2d().getMinX()) + adjustsments[0]);
+                    newY = ((drawableNode.getEllipse2d().getMinY()) + adjustsments[1]);
                 }
+
+                double newHeight = drawableNode.getEllipse2d().getHeight() - (notches * 2);
+                drawableNode.getEllipse2d().setFrame(newX, newY, drawableNode.getEllipse2d().getWidth(), newHeight);
             }
 
-            drawableNode.getEllipse2d().setFrame(newX,
-                    newY,
-                    drawableNode.getEllipse2d().getHeight() - notches * 2,
-                    drawableNode.getEllipse2d().getWidth() - notches * 2);
         }
-        if (notches < 0) {
+        if (notches < 0 && zoom < 14) {
+            FONT_SIZE++;
             zoom++;
         }
-        if (notches > 0) {
+        if (notches > 0 && zoom > -14) {
+            FONT_SIZE--;
             zoom--;
         }
-
+        System.out.println(zoom);
         repaint();
     }
 
@@ -495,8 +528,8 @@ public class TreeVisualiser extends JPanel implements MouseListener, MouseMotion
         if (leftOnLevel == null) {
             return;
         }
-        if (leftOnLevel.getEllipse2d().getMaxX() > drawableNode.getEllipse2d().getMinX()) {
-            double adjust = (leftOnLevel.getEllipse2d().getMaxX() + drawableNode.getEllipse2d().getWidth() + 10)
+        if (leftOnLevel.getEllipse2d().getMaxX() > drawableNode.getEllipse2d().getMinX() - 60) {
+            double adjust = (leftOnLevel.getEllipse2d().getMaxX() + drawableNode.getEllipse2d().getWidth() + 60)
                     - drawableNode.getEllipse2d().getMinX();
             adjustNodeAndChildren(drawableNode, adjust);
         }
@@ -521,7 +554,7 @@ public class TreeVisualiser extends JPanel implements MouseListener, MouseMotion
             avgX /= node.drawableChildren.length;
             node.getEllipse2d().setFrame(avgX, node.initialY, node.getEllipse2d().getWidth(),
                     node.getEllipse2d().getHeight());
-            adjustClipping(node);
+
         } else {
             DrawableNode leftOnLevel = getLeftOnLevel(node);
             if (leftOnLevel == null) {
@@ -532,18 +565,41 @@ public class TreeVisualiser extends JPanel implements MouseListener, MouseMotion
                             node.getEllipse2d().getHeight());
                 } else {
                     node.getEllipse2d().setFrame(
-                            leftOnParentLevel.getEllipse2d().getCenterX() + node.getEllipse2d().getWidth()
-                                    + 10,
+                            leftOnParentLevel.getEllipse2d().getMaxX() + node.getEllipse2d().getWidth()
+                                    + 55,
                             node.initialY, node.getEllipse2d().getWidth(),
                             node.getEllipse2d().getHeight());
                 }
             } else {
                 node.getEllipse2d().setFrame(
-                        leftOnLevel.getEllipse2d().getCenterX() + node.getEllipse2d().getWidth() + 10,
+                        leftOnLevel.getEllipse2d().getMaxX() + node.getEllipse2d().getWidth() + 55,
                         node.initialY, node.getEllipse2d().getWidth(),
                         node.getEllipse2d().getHeight());
             }
 
+        }
+        adjustClipping(node);
+    }
+
+    public DrawableNode getDrawableNodeByID(int nodeID) {
+        for (DrawableNode drawableNode : squares) {
+            if (drawableNode.getNode().getId() == nodeID) {
+                return drawableNode;
+            }
+        }
+        return null;
+    }
+
+    public void goTo(DrawableNode toGoNode) {
+        double toGoX = toGoNode.getEllipse2d().getMinX() - this.getWidth() / 2;
+        double toGoY = toGoNode.getEllipse2d().getMinY() - this.getHeight() / 2;
+
+        for (DrawableNode drawableNode : squares) {
+            double chX = drawableNode.getEllipse2d().getMinX() - toGoX;
+            double chY = drawableNode.getEllipse2d().getMinY() - toGoY;
+            drawableNode.getEllipse2d().setFrame(chX, chY,
+                    drawableNode.getEllipse2d().getWidth(),
+                    drawableNode.getEllipse2d().getHeight());
         }
     }
 

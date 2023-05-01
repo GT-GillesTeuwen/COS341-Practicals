@@ -40,7 +40,7 @@ class Main {
         // j.setFileFilter(filter);
         // Open the save dialog
         // j.showOpenDialog(null);
-        String textFileName = "Tests/test1.txt";// j.getSelectedFile().getAbsolutePath();
+        String textFileName = "Tests/P2Tests/Test9.txt";// j.getSelectedFile().getAbsolutePath();
         Lexer lexer;
         ArrayList<Symbol> tokens = new ArrayList<>();
         try {
@@ -82,12 +82,16 @@ class Main {
         Tree tree = null;
         try {
             tree = new Tree(n);
-            xmlWriter.implement.writeXml(textFileName, tree.toTutorXML(), "tree");
-            xmlWriter.implement.writeXml(textFileName, tree.getScopeTable().toHTML(), "table");
+            xmlWriter.implement.writeXml(textFileName, tree.toTutorXML(), "_tree");
+            xmlWriter.implement.writeXml(textFileName, tree.getScopeTable().toHTML(), "_table");
             GUI g = new GUI(tree);
             final ImageIcon icon = new ImageIcon("Images\\output-onlinepngtools.png");
             JOptionPane.showMessageDialog(null,
-                    "Parsing complete, find the xml file at " + textFileName.replace(".txt", "_Parsed") + ".xml",
+                    "Parsing complete, find the xml file at " + textFileName.replace(".txt", "_tree") + ".xml",
+                    "Completed",
+                    JOptionPane.INFORMATION_MESSAGE, icon);
+            JOptionPane.showMessageDialog(null,
+                    "Scoping complete, find the html file at " + textFileName.replace(".txt", "_table") + ".html",
                     "Completed",
                     JOptionPane.INFORMATION_MESSAGE, icon);
         } catch (AmbiguousDeclarationException e) {

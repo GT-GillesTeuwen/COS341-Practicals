@@ -4,13 +4,13 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public enum Token {
+    CALL("c\\s*p"),
     DOLLAR("\\$"),
     COMMA(","),
-    PROC("p"),
     P_DIGIT("[1-9]"),
     SEMICOLON(";"),
     HALT("h"),
-    CALL("c\\s*p"),
+    PROC("p\\s*"),
     ASSIGN(":\\s*="),
     START_WHILE("w\\s*\\("),
     WHILE_BODY("\\)\\s*\\{"),
@@ -23,7 +23,7 @@ public enum Token {
     START_ADD("a\\s*\\("),
     START_MUL("m\\s*\\("),
     START_DIV("d\\s*\\("),
-    DEC_ZERO("0\\s*.\\s*0\\s*0"),
+    DEC_ZERO("0\\s*\\.\\s*0\\s*0"),
     MINUS("-"),
     DEC_POINT("\\."),
     LOGIC_CONST("(T|F)"),
