@@ -2,18 +2,25 @@ package Nodes;
 
 import java.awt.Color;
 
+import Scoping.SybmbolTable;
+import Visualisation.Tree;
+
 public class Node {
+    public static Tree t;
+    public static SybmbolTable s;
     protected String displayName;
     protected int id;
     protected static int idCount = 0;
     protected Color color;
     protected Color prevColor;
+    protected boolean dead;
 
     public Node(String displayName) {
         this.displayName = displayName;
         id = idCount++;
         this.color = Color.BLACK;
         this.prevColor = null;
+        dead=false;
     }
 
     public void resetColour() {
@@ -23,7 +30,12 @@ public class Node {
     }
 
     public void setColor(Color color) {
+        
         this.color = color;
+    }
+
+    public void setSubtreeColour(Color color,boolean force,boolean killing){
+
     }
 
     public String getDisplayName() {
@@ -32,6 +44,11 @@ public class Node {
 
     public String getDisplayNameWithID() {
         return displayName;
+    }
+
+    public nNode getNodeParent(int id){
+        System.out.println("not this one");
+        return null;
     }
 
     public Color getColor() {
@@ -48,5 +65,9 @@ public class Node {
 
     public Node reduceType() {
         return null;
+    }
+
+    public void checkAssignments(){
+
     }
 }

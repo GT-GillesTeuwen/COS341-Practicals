@@ -33,13 +33,13 @@ import Visualisation.TreeVisualiser;
 
 class Main {
     public static void main(String[] args) {
-        JFileChooser j = new JFileChooser(FileSystemView.getFileSystemView());
-        j.setDialogTitle("Choose a text file to parse");
-        FileNameExtensionFilter filter = new FileNameExtensionFilter("TEXT FILES",
-        "txt", "text");
-        j.setFileFilter(filter);
-        j.showOpenDialog(null);
-        String textFileName = j.getSelectedFile().getAbsolutePath();
+        // JFileChooser j = new JFileChooser(FileSystemView.getFileSystemView());
+        // j.setDialogTitle("Choose a text file to parse");
+        // FileNameExtensionFilter filter = new FileNameExtensionFilter("TEXT FILES",
+        // "txt", "text");
+        // j.setFileFilter(filter);
+        // j.showOpenDialog(null);
+        String textFileName ="Tests/test1.txt" ;//j.getSelectedFile().getAbsolutePath();
         Lexer lexer;
         ArrayList<Symbol> tokens = new ArrayList<>();
         try {

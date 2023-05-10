@@ -2,20 +2,57 @@ cp1,
 p1{
     cp2,
     p3{
-        cp3;
+        cp100;
         cp425;
-        cp100,
+        cp3;
+        w(T){
+                h;
+                n1:=0.00;
+                n2:=a(0.00,0.00)
+            };
+             n1:=0.00 *_The total sum_*;
+            i(T)t{
+                n1:=0.00
+            }e{
+                h
+            };
+        cp1,
         p1{
             cp100;
-            cp99
+            cp99;
+            n1:=0.00
         }
         ,p100{
-            cp100;
-            cp1
+            w(T){
+                h
+            };
+             n1:=0.00 *_The total sum_*;
+             h;
+            i(T)t{
+                h
+            }e{
+                h
+            };
+            n1:=1.00
         }
     },
     p425{
-    n1:=0.00 *_The total sum_*
+        n1:=0.00 *_The total sum_*;
+        i(T)t{
+           h
+        }e{
+            i(T)t{
+                i(T)t{
+                    h
+                }e{
+                    h
+                }
+            }e{
+                h
+            }
+        };
+        n1:=0.00
+
     }
 },
 p2{

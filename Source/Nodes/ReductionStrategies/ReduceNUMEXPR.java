@@ -1,22 +1,20 @@
-package Nodes.Strategies;
-
-import java.awt.Color;
+package Nodes.ReductionStrategies;
 
 import Nodes.Node;
 import Nodes.nNode;
 
-public class ReduceCMPR extends NodeReductionStrategy {
+public class ReduceNUMEXPR extends NodeReductionStrategy {
     public void handle(nNode node) {
         String data = "";
         switch (node.getChildren()[0].getDisplayName()) {
-            case "E(":
-                data = "equal";
+            case "a(":
+                data = "add";
                 break;
-            case ">(":
-                data = "greater than";
+            case "m(":
+                data = "multiply";
                 break;
-            case "<(":
-                data = "less than";
+            case "d(":
+                data = "divide";
                 break;
             default:
                 data = "impossible";

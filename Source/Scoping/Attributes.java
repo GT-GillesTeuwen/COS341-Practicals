@@ -11,15 +11,29 @@ public class Attributes {
     private boolean called;
     public static int mainScope;
     private ArrayList<Integer> otherUsages;
+    private boolean hasValue;
 
     public Attributes(int scopeID, Node node) {
         this.otherUsages = new ArrayList<>();
         this.scopeID = scopeID;
         this.node = node;
+        this.hasValue=false;
+    }
+
+    public void setHasValue(boolean hasValue) {
+        this.hasValue = hasValue;
+    }
+
+    public boolean isHasValue() {
+        return hasValue;
     }
 
     public void setCalled(boolean called) {
         this.called = called;
+    }
+
+    public boolean isProcCall(String procName){
+        return node.getDisplayName().equals("CALL") && ((nNode)node).getData().equals(procName);
     }
 
     public void addOtherUsage(Integer nodeID) {
@@ -43,7 +57,7 @@ public class Attributes {
     }
 
     public String[] getAtts() {
-        String[] atts = new String[4];
+        String[] atts = new String[5];
         if (scopeID == 0) {
             atts[0] = "GLOBAL";
         } else if (scopeID == mainScope) {
@@ -73,6 +87,8 @@ public class Attributes {
                 }
             }
         }
+
+        atts[4] = isHasValue()+"";
 
         return atts;
 

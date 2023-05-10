@@ -42,8 +42,8 @@ public class SymbolTableVisualiser extends JPanel {
 
     private void addTable() {
 
-        String[] cols = { "ID", "SCOPE ID", "TYPE", "NAME", "OTHER USEAGE NODE IDs" };
-        String[][] data = new String[symbolTable.getSymbolTable().size() - 1][5];
+        String[] cols = { "ID", "SCOPE ID", "TYPE", "NAME", "OTHER USEAGE NODE IDs","HAS VALUE" };
+        String[][] data = new String[symbolTable.getSymbolTable().size() - 1][6];
 
         int i = 0;
         for (Integer id : symbolTable.getSymbolTable().keySet()) {
@@ -53,6 +53,7 @@ public class SymbolTableVisualiser extends JPanel {
                 data[i][2] = symbolTable.getSymbolTable().get(id).getAtts()[1];
                 data[i][3] = symbolTable.getSymbolTable().get(id).getAtts()[2];
                 data[i][4] = symbolTable.getSymbolTable().get(id).getAtts()[3];
+                data[i][5] = symbolTable.getSymbolTable().get(id).getAtts()[4];
                 i++;
             }
 

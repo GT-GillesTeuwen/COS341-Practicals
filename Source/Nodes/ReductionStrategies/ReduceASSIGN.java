@@ -1,4 +1,4 @@
-package Nodes.Strategies;
+package Nodes.ReductionStrategies;
 
 import Nodes.Node;
 import Nodes.nNode;

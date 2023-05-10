@@ -1,4 +1,4 @@
-package Nodes.Strategies;
+package Nodes.ReductionStrategies;
 
 import java.awt.Color;
 

@@ -42,6 +42,14 @@ public class Tree {
         setChildrenScopes(root);
         checkCallScopes(root);
         scopeTable.unusedProcedures();
+        Node.t=this;
+        Node.s=scopeTable;
+        root.checkAssignments();
+        
+    }
+
+    public nNode getParentOfNode(int id){
+        return root.getNodeParent(id);
     }
 
     private void setChildrenScopes(Node root) throws AmbiguousDeclarationException {

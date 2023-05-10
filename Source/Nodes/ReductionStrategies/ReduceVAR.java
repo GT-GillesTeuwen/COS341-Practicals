@@ -1,20 +1,21 @@
-package Nodes.Strategies;
+package Nodes.ReductionStrategies;
 
 import java.awt.Color;
 
 import Nodes.Node;
 import Nodes.nNode;
+import Nodes.tNode;
 
-public class ReduceINT extends NodeReductionStrategy {
+public class ReduceVAR extends NodeReductionStrategy {
     public void handle(nNode node) {
         String data = "";
         for (int i = 0; i < node.getChildren().length; i++) {
-            if (node.getChildren()[i].getDisplayName().equals("DIGITS")) {
-                data += ((nNode) node.getChildren()[i]).getData();
-            } else {
-                data += node.getChildren()[i].getDisplayName();
-            }
+            if (node.getChildren()[i] instanceof tNode) {
 
+                data += node.getChildren()[i].getDisplayName();
+            } else {
+                data += ((nNode) node.getChildren()[i]).getData();
+            }
         }
         node.setData(data);
         node.setChildren(new Node[0]);

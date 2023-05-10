@@ -2,26 +2,32 @@ package Nodes;
 
 import java.awt.Color;
 import java.util.ArrayList;
-import Nodes.Strategies.ReducePROC;
-import Nodes.Strategies.ReducePROCDEFS;
-import Nodes.Strategies.ReduceSEQ;
-import Nodes.Strategies.ReduceSTRI;
-import Nodes.Strategies.ReduceTEXT;
-import Nodes.Strategies.ReduceVALUE;
-import Nodes.Strategies.ReduceVAR;
-import Nodes.Strategies.NodeReductionStrategy;
-import Nodes.Strategies.ReduceALGO;
-import Nodes.Strategies.ReduceASSIGN;
-import Nodes.Strategies.ReduceCALL;
-import Nodes.Strategies.ReduceCMPR;
-import Nodes.Strategies.ReduceDIGITS;
-import Nodes.Strategies.ReduceELSE;
-import Nodes.Strategies.ReduceFLOW;
-import Nodes.Strategies.ReduceINPUT;
-import Nodes.Strategies.ReduceINT;
-import Nodes.Strategies.ReduceLOGIC;
-import Nodes.Strategies.ReduceNUMEXPR;
-import Nodes.Strategies.ReducePOSandNEG;
+
+import Nodes.AssignmnetStrategies.AssignmentCheckingStrategy;
+import Nodes.AssignmnetStrategies.CheckALGO;
+import Nodes.AssignmnetStrategies.CheckASSIGN;
+import Nodes.AssignmnetStrategies.CheckPROC;
+import Nodes.AssignmnetStrategies.KillAllAfterCall;
+import Nodes.ReductionStrategies.NodeReductionStrategy;
+import Nodes.ReductionStrategies.ReduceALGO;
+import Nodes.ReductionStrategies.ReduceASSIGN;
+import Nodes.ReductionStrategies.ReduceCALL;
+import Nodes.ReductionStrategies.ReduceCMPR;
+import Nodes.ReductionStrategies.ReduceDIGITS;
+import Nodes.ReductionStrategies.ReduceELSE;
+import Nodes.ReductionStrategies.ReduceFLOW;
+import Nodes.ReductionStrategies.ReduceINPUT;
+import Nodes.ReductionStrategies.ReduceINT;
+import Nodes.ReductionStrategies.ReduceLOGIC;
+import Nodes.ReductionStrategies.ReduceNUMEXPR;
+import Nodes.ReductionStrategies.ReducePOSandNEG;
+import Nodes.ReductionStrategies.ReducePROC;
+import Nodes.ReductionStrategies.ReducePROCDEFS;
+import Nodes.ReductionStrategies.ReduceSEQ;
+import Nodes.ReductionStrategies.ReduceSTRI;
+import Nodes.ReductionStrategies.ReduceTEXT;
+import Nodes.ReductionStrategies.ReduceVALUE;
+import Nodes.ReductionStrategies.ReduceVAR;
 
 public class nNode extends Node {
     private boolean allowComments = false;
@@ -63,6 +69,49 @@ public class nNode extends Node {
         }
         return this;
 
+    }
+
+    public nNode getNodeParent(int id){
+        //Return self if looking for my child
+        for (Node node : children) {
+            if(node.id==id){
+                return this;
+            }
+        }
+
+        //Ask children if they have the child we seek
+        nNode found=null;
+        for (Node node : children) {
+            if(node instanceof nNode){
+                nNode childFound=((nNode)node).getNodeParent(id);
+                if(childFound!=null){
+                    found=childFound;
+                }
+            }
+        }
+
+        return found;
+    }
+
+    public void checkAssignments() {
+        AssignmentCheckingStrategy assignmentCheckingStrategy=new AssignmentCheckingStrategy();
+        switch (this.displayName) {
+            case "PROC":
+            assignmentCheckingStrategy=new CheckPROC();
+            break;
+            case "ALGO":
+            assignmentCheckingStrategy=new CheckALGO();
+            break;
+            case "ASSIGN":
+            //assignmentCheckingStrategy=new CheckASSIGN();
+            break;
+        }
+        assignmentCheckingStrategy.handle(this);
+        for (Node node : children) {
+            if(!node.dead){
+                node.checkAssignments();
+            }
+        }
     }
 
     public Node reduceType() {
@@ -156,7 +205,10 @@ public class nNode extends Node {
         return updatedChildren;
     }
 
-    public void setSubtreeColour(Color colour, boolean force) {
+    public void setSubtreeColour(Color colour, boolean force,boolean killing) {
+        if(killing){
+            this.dead=true;
+        }
         if (force) {
             this.setColor(colour);
         } else {
@@ -168,6 +220,9 @@ public class nNode extends Node {
         }
 
         for (int i = 0; i < children.length; i++) {
+            if(killing){
+                children[i].dead=true;
+            }
             if (force) {
                 children[i].setColor(colour);
             } else {
@@ -177,7 +232,7 @@ public class nNode extends Node {
             }
 
             if (children[i] instanceof nNode) {
-                ((nNode) children[i]).setSubtreeColour(colour, force);
+                ((nNode) children[i]).setSubtreeColour(colour, force,killing);
             }
         }
     }
@@ -192,6 +247,11 @@ public class nNode extends Node {
                 this.setColor(colour);
             }
         }
+    }
+
+    public void killAfterAllCall(String data) {
+        AssignmentCheckingStrategy kill=new KillAllAfterCall(data);
+        kill.handle(this);
     }
 
 }

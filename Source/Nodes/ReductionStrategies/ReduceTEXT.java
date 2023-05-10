@@ -1,11 +1,11 @@
-package Nodes.Strategies;
+package Nodes.ReductionStrategies;
 
 import java.awt.Color;
 
 import Nodes.Node;
 import Nodes.nNode;
 
-public class ReduceINPUT extends NodeReductionStrategy {
+public class ReduceTEXT extends NodeReductionStrategy {
     public void handle(nNode node) {
         Node[] newChildren = new Node[1];
         newChildren[0] = node.getChildren()[1];

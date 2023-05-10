@@ -23,6 +23,13 @@ public class tNode extends Node {
         return symbol;
     }
 
+    public void setSubtreeColour(Color color,boolean force,boolean killing){
+        if(killing){
+            this.dead=true;
+        }
+        this.color=color;
+    }
+
     public Node reduceOneStepDerivations() {
         return this;
     }
