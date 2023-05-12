@@ -30,6 +30,11 @@ public class SybmbolTable {
         symbolTable.get(canonicalID).setHasValue(true);
     }
 
+    public boolean numvarHasValue(int id){
+        int canonicalID=variables.get(id);
+        return symbolTable.get(canonicalID).isHasValue();
+    }
+
     public void add(Node node) {
         symbolTable.put(node.getId(), new Attributes(currentScope, node));
     }

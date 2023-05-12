@@ -39,7 +39,7 @@ class Main {
         // "txt", "text");
         // j.setFileFilter(filter);
         // j.showOpenDialog(null);
-        String textFileName ="Tests/test1.txt" ;//j.getSelectedFile().getAbsolutePath();
+        String textFileName ="Tests/P4Tests/NumExprAssign_FAIL.txt" ;//j.getSelectedFile().getAbsolutePath();
         Lexer lexer;
         ArrayList<Symbol> tokens = new ArrayList<>();
         try {

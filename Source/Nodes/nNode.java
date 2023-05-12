@@ -3,6 +3,7 @@ package Nodes;
 import java.awt.Color;
 import java.util.ArrayList;
 
+import Exceptions.InvalidNumvarAssignmentException;
 import Nodes.AssignmnetStrategies.AssignmentCheckingStrategy;
 import Nodes.AssignmnetStrategies.CheckALGO;
 import Nodes.AssignmnetStrategies.CheckASSIGN;
@@ -103,10 +104,15 @@ public class nNode extends Node {
             assignmentCheckingStrategy=new CheckALGO();
             break;
             case "ASSIGN":
-            //assignmentCheckingStrategy=new CheckASSIGN();
+            assignmentCheckingStrategy=new CheckASSIGN();
             break;
         }
-        assignmentCheckingStrategy.handle(this);
+        try {
+            assignmentCheckingStrategy.handle(this);
+        } catch (InvalidNumvarAssignmentException e) {
+            // TODO Auto-generated catch block
+            System.out.println(e);
+        }
         for (Node node : children) {
             if(!node.dead){
                 node.checkAssignments();
@@ -251,7 +257,12 @@ public class nNode extends Node {
 
     public void killAfterAllCall(String data) {
         AssignmentCheckingStrategy kill=new KillAllAfterCall(data);
-        kill.handle(this);
+        try {
+            kill.handle(this);
+        } catch (InvalidNumvarAssignmentException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
     }
 
 }

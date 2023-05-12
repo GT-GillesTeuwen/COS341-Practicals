@@ -3,6 +3,7 @@ package Nodes.AssignmnetStrategies;
 import java.awt.Color;
 import java.util.ArrayList;
 
+import Exceptions.InvalidNumvarAssignmentException;
 import Nodes.Node;
 import Nodes.nNode;
 import Nodes.tNode;
@@ -10,7 +11,7 @@ import Nodes.HaltChecking.HaltChecker;
 
 public class CheckPROC extends AssignmentCheckingStrategy{
     @Override
-    public void handle(nNode node){
+    public void handle(nNode node) throws InvalidNumvarAssignmentException{
         //Check for halt
         HaltChecker haltChecker=new HaltChecker();
         AssignmentCheckingStrategy a =new CheckALGO();
