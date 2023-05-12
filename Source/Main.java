@@ -1,21 +1,7 @@
-import java.awt.BorderLayout;
-import java.awt.Container;
-import java.awt.Dimension;
 import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JFileChooser;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTextField;
-import javax.swing.SpringLayout;
-import javax.swing.filechooser.FileNameExtensionFilter;
-import javax.swing.filechooser.FileSystemView;
-
 import Exceptions.AmbiguousDeclarationException;
 import Exceptions.EmptyTreeException;
 import Exceptions.ProcedureNotDeclaredException;
@@ -29,7 +15,6 @@ import OutputCreation.xmlWriter;
 import Parsing.Parser;
 import Visualisation.GUI;
 import Visualisation.Tree;
-import Visualisation.TreeVisualiser;
 
 class Main {
     public static void main(String[] args) {
@@ -39,7 +24,7 @@ class Main {
         // "txt", "text");
         // j.setFileFilter(filter);
         // j.showOpenDialog(null);
-        String textFileName ="Tests/P4Tests/NumExprAssign_FAIL.txt" ;//j.getSelectedFile().getAbsolutePath();
+        String textFileName = "Tests/P4Tests/BoolCmprAssign_FAIL.txt";// j.getSelectedFile().getAbsolutePath();
         Lexer lexer;
         ArrayList<Symbol> tokens = new ArrayList<>();
         try {

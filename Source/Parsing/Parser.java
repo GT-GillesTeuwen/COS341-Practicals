@@ -576,17 +576,12 @@ public class Parser {
             case START_ADD:
                 tNode c1 = new tNode(input);
                 match(Token.START_ADD);
-
                 Node c2 = parseNumExpr();
-
                 tNode c3 = new tNode(input);
                 match(Token.COMMA);
-
-                Node c4 = parseNumExprP();
-
+                Node c4 = parseNumExpr();
                 tNode c5 = new tNode(input);
                 match(Token.CLOSE_BRACKET);
-
                 Node[] children = { c1, c2, c3, c4, c5 };
                 return new nNode("NUMEXPR", children);
             case START_MUL:
@@ -595,7 +590,7 @@ public class Parser {
                 Node c2_1 = parseNumExpr();
                 tNode c3_1 = new tNode(input);
                 match(Token.COMMA);
-                Node c4_1 = parseNumExprP();
+                Node c4_1 = parseNumExpr();
                 tNode c5_1 = new tNode(input);
                 match(Token.CLOSE_BRACKET);
                 Node[] children_1 = { c1_1, c2_1, c3_1, c4_1, c5_1 };
@@ -606,19 +601,22 @@ public class Parser {
                 Node c2_2 = parseNumExpr();
                 tNode c3_2 = new tNode(input);
                 match(Token.COMMA);
-                Node c4_2 = parseNumExprP();
+                Node c4_2 = parseNumExpr();
                 tNode c5_2 = new tNode(input);
                 match(Token.CLOSE_BRACKET);
                 Node[] children_2 = { c1_2, c2_2, c3_2, c4_2, c5_2 };
                 return new nNode("NUMEXPR", children_2);
             case DEC_NUMVAR:
+                Node c1_3 = parseNumVar();
+                Node[] children_3 = { c1_3 };
+                return new nNode("NUMEXPR'", children_3);
             case DEC_ZERO:
             case MINUS:
             case P_DIGIT:
 
-                Node c1_3 = parseNumExprP();
-                Node[] children_3 = { c1_3 };
-                return new nNode("NUMEXPR", children_3);
+                Node c1_4 = parseDecNum();
+                Node[] children_4 = { c1_4 };
+                return new nNode("NUMEXPR'", children_4);
 
             default:
                 System.out.println("Error, with token " + count + " did not expect " + input + " at parseNumExpr");

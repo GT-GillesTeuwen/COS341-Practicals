@@ -3,10 +3,11 @@ package Nodes;
 import java.awt.Color;
 import java.util.ArrayList;
 
-import Exceptions.InvalidNumvarAssignmentException;
+import Exceptions.InvalidVarAssignmentException;
 import Nodes.AssignmnetStrategies.AssignmentCheckingStrategy;
 import Nodes.AssignmnetStrategies.CheckALGO;
 import Nodes.AssignmnetStrategies.CheckASSIGN;
+import Nodes.AssignmnetStrategies.CheckINPUT;
 import Nodes.AssignmnetStrategies.CheckPROC;
 import Nodes.AssignmnetStrategies.KillAllAfterCall;
 import Nodes.ReductionStrategies.NodeReductionStrategy;
@@ -59,6 +60,9 @@ public class nNode extends Node {
 
     public Node reduceOneStepDerivations() {
         for (int i = 0; i < children.length; i++) {
+            if (children[i] == null) {
+                System.out.println("a");
+            }
             children[i] = children[i].reduceOneStepDerivations();
         }
         children = reworkChildren();
@@ -72,21 +76,21 @@ public class nNode extends Node {
 
     }
 
-    public nNode getNodeParent(int id){
-        //Return self if looking for my child
+    public nNode getNodeParent(int id) {
+        // Return self if looking for my child
         for (Node node : children) {
-            if(node.id==id){
+            if (node.id == id) {
                 return this;
             }
         }
 
-        //Ask children if they have the child we seek
-        nNode found=null;
+        // Ask children if they have the child we seek
+        nNode found = null;
         for (Node node : children) {
-            if(node instanceof nNode){
-                nNode childFound=((nNode)node).getNodeParent(id);
-                if(childFound!=null){
-                    found=childFound;
+            if (node instanceof nNode) {
+                nNode childFound = ((nNode) node).getNodeParent(id);
+                if (childFound != null) {
+                    found = childFound;
                 }
             }
         }
@@ -95,26 +99,29 @@ public class nNode extends Node {
     }
 
     public void checkAssignments() {
-        AssignmentCheckingStrategy assignmentCheckingStrategy=new AssignmentCheckingStrategy();
+        AssignmentCheckingStrategy assignmentCheckingStrategy = new AssignmentCheckingStrategy();
         switch (this.displayName) {
             case "PROC":
-            assignmentCheckingStrategy=new CheckPROC();
-            break;
+                assignmentCheckingStrategy = new CheckPROC();
+                break;
             case "ALGO":
-            assignmentCheckingStrategy=new CheckALGO();
-            break;
+                assignmentCheckingStrategy = new CheckALGO();
+                break;
             case "ASSIGN":
-            assignmentCheckingStrategy=new CheckASSIGN();
-            break;
+                assignmentCheckingStrategy = new CheckASSIGN();
+                break;
+            case "INPUT":
+                assignmentCheckingStrategy = new CheckINPUT();
+                break;
         }
         try {
             assignmentCheckingStrategy.handle(this);
-        } catch (InvalidNumvarAssignmentException e) {
+        } catch (InvalidVarAssignmentException e) {
             // TODO Auto-generated catch block
             System.out.println(e);
         }
         for (Node node : children) {
-            if(!node.dead){
+            if (!node.dead) {
                 node.checkAssignments();
             }
         }
@@ -211,9 +218,9 @@ public class nNode extends Node {
         return updatedChildren;
     }
 
-    public void setSubtreeColour(Color colour, boolean force,boolean killing) {
-        if(killing){
-            this.dead=true;
+    public void setSubtreeColour(Color colour, boolean force, boolean killing) {
+        if (killing) {
+            this.dead = true;
         }
         if (force) {
             this.setColor(colour);
@@ -226,8 +233,8 @@ public class nNode extends Node {
         }
 
         for (int i = 0; i < children.length; i++) {
-            if(killing){
-                children[i].dead=true;
+            if (killing) {
+                children[i].dead = true;
             }
             if (force) {
                 children[i].setColor(colour);
@@ -238,7 +245,7 @@ public class nNode extends Node {
             }
 
             if (children[i] instanceof nNode) {
-                ((nNode) children[i]).setSubtreeColour(colour, force,killing);
+                ((nNode) children[i]).setSubtreeColour(colour, force, killing);
             }
         }
     }
@@ -256,10 +263,10 @@ public class nNode extends Node {
     }
 
     public void killAfterAllCall(String data) {
-        AssignmentCheckingStrategy kill=new KillAllAfterCall(data);
+        AssignmentCheckingStrategy kill = new KillAllAfterCall(data);
         try {
             kill.handle(this);
-        } catch (InvalidNumvarAssignmentException e) {
+        } catch (InvalidVarAssignmentException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
