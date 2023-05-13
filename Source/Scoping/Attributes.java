@@ -12,16 +12,26 @@ public class Attributes {
     public static int mainScope;
     private ArrayList<Integer> otherUsages;
     private boolean hasValue;
+    private String halts;
 
     public Attributes(int scopeID, Node node) {
         this.otherUsages = new ArrayList<>();
         this.scopeID = scopeID;
         this.node = node;
-        this.hasValue=false;
+        this.hasValue = false;
+        this.halts = "Maybe";
     }
 
     public void setHasValue(boolean hasValue) {
         this.hasValue = hasValue;
+    }
+
+    public void setHalts(String h) {
+        this.halts = h;
+    }
+
+    public String getHalts() {
+        return halts;
     }
 
     public boolean isHasValue() {
@@ -32,8 +42,8 @@ public class Attributes {
         this.called = called;
     }
 
-    public boolean isProcCall(String procName){
-        return node.getDisplayName().equals("CALL") && ((nNode)node).getData().equals(procName);
+    public boolean isProcCall(String procName) {
+        return node.getDisplayName().equals("CALL") && ((nNode) node).getData().equals(procName);
     }
 
     public void addOtherUsage(Integer nodeID) {
@@ -87,8 +97,11 @@ public class Attributes {
                 }
             }
         }
-
-        atts[4] = isHasValue()+"";
+        if (atts[1].equals("Declare Procedure")) {
+            atts[4] = "N/A";
+        } else {
+            atts[4] = isHasValue() + "";
+        }
 
         return atts;
 

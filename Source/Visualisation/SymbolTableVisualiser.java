@@ -42,12 +42,22 @@ public class SymbolTableVisualiser extends JPanel {
 
     private void addTable() {
 
-        String[] cols = { "ID", "SCOPE ID", "TYPE", "NAME", "OTHER USEAGE NODE IDs","HAS VALUE" };
-        String[][] data = new String[symbolTable.getSymbolTable().size() - 1][6];
+        String[] cols = { "ID", "SCOPE ID", "TYPE", "NAME", "OTHER USEAGE NODE IDs", "HAS VALUE" };
+
+        int count = 0;
+        for (Integer id : symbolTable.getSymbolTable().keySet()) {
+            if (id != symbolTable.getMainScope()
+                    && !symbolTable.getSymbolTable().get(id).getNode().getDisplayName().equals("CALL")) {
+                count++;
+            }
+
+        }
+        String[][] data = new String[count][6];
 
         int i = 0;
         for (Integer id : symbolTable.getSymbolTable().keySet()) {
-            if (id != symbolTable.getMainScope()) {
+            if (id != symbolTable.getMainScope()
+                    && !symbolTable.getSymbolTable().get(id).getNode().getDisplayName().equals("CALL")) {
                 data[i][0] = id + "";
                 data[i][1] = symbolTable.getSymbolTable().get(id).getAtts()[0];
                 data[i][2] = symbolTable.getSymbolTable().get(id).getAtts()[1];

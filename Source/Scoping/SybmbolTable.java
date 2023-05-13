@@ -92,8 +92,59 @@ public class SybmbolTable {
         String exString = (ANSI_COLOURS.ANSI_Red + "\nProcedure not defined:\n\tNode ID: " + nodeID + ".\n\tProcdure "
                 + procName + " is not declared in the scope of "
                 + ((nNode) symbolTable.get(callScope).getNode()).getData() + ANSI_COLOURS.ANSI_Reset);
-        // throw new ProcedureNotDeclaredException(exString);
-        return false;
+        throw new ProcedureNotDeclaredException(exString);
+        // return false;
+    }
+
+    public String isProcAnalysed(int procID) {
+        return symbolTable.get(procID).getHalts();
+    }
+
+    public void killUnanalysedProcs() {
+        for (Attributes a : symbolTable.values()) {
+            if (a.getNode().getDisplayName().equals("PROC") && a.getHalts().equals("Maybe")) {
+                a.getNode().setSubtreeColour(Color.GRAY, true, true);
+            }
+        }
+    }
+
+    public void setProcAnalysed(int procID, String halts) {
+        symbolTable.get(procID).setHalts(halts);
+    }
+
+    public nNode getProc(String procName, int nodeID) throws ProcedureNotDeclaredException {
+        int callScope = symbolTable.get(nodeID).getScopeID();
+        // Check if parent of the current scope (recursion)
+        if (symbolTable.get(callScope).getNode().getDisplayName().equals("PROC")
+                && ((nNode) (symbolTable.get(callScope).getNode())).getData().equals(procName)) {
+            symbolTable.get(callScope).setCalled(true);
+            return (nNode) symbolTable.get(callScope).getNode();
+        }
+
+        // Check if defined in the current scope
+        for (Attributes a : symbolTable.values()) {
+            if (a.getScopeID() == callScope && a.getNode().getDisplayName().equals("PROC")
+                    && ((nNode) a.getNode()).getData().equals(procName)) {
+                a.setCalled(true);
+                return (nNode) a.getNode();
+            }
+        }
+
+        // Check if sibling in parent
+        int parentScope = symbolTable.get(callScope).getScopeID();
+        for (Attributes a : symbolTable.values()) {
+            if (a.getScopeID() == parentScope && a.getNode().getDisplayName().equals("PROC")
+                    && ((nNode) a.getNode()).getData().equals(procName)) {
+                a.setCalled(true);
+                return (nNode) a.getNode();
+            }
+        }
+
+        String exString = (ANSI_COLOURS.ANSI_Red + "\nProcedure not defined:\n\tNode ID: " + nodeID + ".\n\tProcdure "
+                + procName + " is not declared in the scope of "
+                + ((nNode) symbolTable.get(callScope).getNode()).getData() + ANSI_COLOURS.ANSI_Reset);
+        throw new ProcedureNotDeclaredException(exString);
+        // return false;
     }
 
     public ArrayList<Integer> getIDsOfProcCalls(String procName) {
@@ -175,7 +226,7 @@ public class SybmbolTable {
         String out = "<!DOCTYPE html> <html><style>table, th, td {border:1px solid black;}</style> <table> <tr><td>NODE ID</td><td>SCOPE</td><td>TYPE</td><td>NAME</td><td>OTHER USE NODE IDs</td></tr>\n";
 
         for (Integer id : this.symbolTable.keySet()) {
-            if (id != this.getMainScope()) {
+            if (id != this.getMainScope() && !this.symbolTable.get(id).getNode().getDisplayName().equals("CALL")) {
                 out += "\t<tr>\n";
                 out += "\t\t<td>" + id + "</td>\n";
                 out += "\t\t<td>" + this.symbolTable.get(id).getAtts()[0] + "</td>\n";

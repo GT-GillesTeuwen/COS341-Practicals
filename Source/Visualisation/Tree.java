@@ -42,13 +42,15 @@ public class Tree {
         setChildrenScopes(root);
         checkCallScopes(root);
         scopeTable.unusedProcedures();
-        Node.t=this;
-        Node.s=scopeTable;
-        root.checkAssignments();
-        
+        Node.t = this;
+        Node.s = scopeTable;
+        root.checkWhereMainHalts();
+        scopeTable.killUnanalysedProcs();
+        // root.checkAssignments();
+
     }
 
-    public nNode getParentOfNode(int id){
+    public nNode getParentOfNode(int id) {
         return root.getNodeParent(id);
     }
 

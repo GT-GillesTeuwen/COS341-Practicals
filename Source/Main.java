@@ -24,7 +24,7 @@ class Main {
         // "txt", "text");
         // j.setFileFilter(filter);
         // j.showOpenDialog(null);
-        String textFileName = "Tests/P4Tests/BoolCmprAssign_FAIL.txt";// j.getSelectedFile().getAbsolutePath();
+        String textFileName = "Tests/RandomTests/rec.txt";// j.getSelectedFile().getAbsolutePath();
         Lexer lexer;
         ArrayList<Symbol> tokens = new ArrayList<>();
         try {

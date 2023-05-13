@@ -2,6 +2,7 @@ package Nodes;
 
 import java.awt.Color;
 
+import Exceptions.ProcedureNotDeclaredException;
 import Scoping.SybmbolTable;
 import Visualisation.Tree;
 
@@ -20,7 +21,7 @@ public class Node {
         id = idCount++;
         this.color = Color.BLACK;
         this.prevColor = null;
-        dead=false;
+        dead = false;
     }
 
     public void resetColour() {
@@ -30,11 +31,11 @@ public class Node {
     }
 
     public void setColor(Color color) {
-        
+
         this.color = color;
     }
 
-    public void setSubtreeColour(Color color,boolean force,boolean killing){
+    public void setSubtreeColour(Color color, boolean force, boolean killing) {
 
     }
 
@@ -46,7 +47,7 @@ public class Node {
         return displayName;
     }
 
-    public nNode getNodeParent(int id){
+    public nNode getNodeParent(int id) {
         System.out.println("not this one");
         return null;
     }
@@ -67,7 +68,11 @@ public class Node {
         return null;
     }
 
-    public void checkAssignments(){
+    public void checkAssignments() throws ProcedureNotDeclaredException {
+
+    }
+
+    public void checkWhereMainHalts() throws ProcedureNotDeclaredException {
 
     }
 }

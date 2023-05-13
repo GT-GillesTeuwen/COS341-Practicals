@@ -4,12 +4,15 @@ import java.awt.Color;
 import java.util.ArrayList;
 
 import Exceptions.InvalidVarAssignmentException;
+import Exceptions.ProcedureNotDeclaredException;
 import Nodes.AssignmnetStrategies.AssignmentCheckingStrategy;
 import Nodes.AssignmnetStrategies.CheckALGO;
 import Nodes.AssignmnetStrategies.CheckASSIGN;
 import Nodes.AssignmnetStrategies.CheckINPUT;
 import Nodes.AssignmnetStrategies.CheckPROC;
 import Nodes.AssignmnetStrategies.KillAllAfterCall;
+import Nodes.HaltCheckingStrategies.HaltCheckALGO;
+import Nodes.HaltCheckingStrategies.HaltCheckingStrategy;
 import Nodes.ReductionStrategies.NodeReductionStrategy;
 import Nodes.ReductionStrategies.ReduceALGO;
 import Nodes.ReductionStrategies.ReduceASSIGN;
@@ -98,7 +101,7 @@ public class nNode extends Node {
         return found;
     }
 
-    public void checkAssignments() {
+    public void checkAssignments() throws ProcedureNotDeclaredException {
         AssignmentCheckingStrategy assignmentCheckingStrategy = new AssignmentCheckingStrategy();
         switch (this.displayName) {
             case "PROC":
@@ -123,6 +126,27 @@ public class nNode extends Node {
         for (Node node : children) {
             if (!node.dead) {
                 node.checkAssignments();
+            }
+        }
+    }
+
+    public void checkWhereMainHalts() throws ProcedureNotDeclaredException {
+        HaltCheckingStrategy haltCheckingStrategy = new HaltCheckingStrategy();
+        switch (this.displayName) {
+            case "ALGO":
+                haltCheckingStrategy = new HaltCheckALGO();
+                break;
+        }
+        try {
+            boolean b = haltCheckingStrategy.handle(this);
+
+        } catch (InvalidVarAssignmentException e) {
+            // TODO Auto-generated catch block
+            System.out.println(e);
+        }
+        for (Node node : children) {
+            if (!node.dead && !node.getDisplayName().equals("PROCDEFS")) {
+                node.checkWhereMainHalts();
             }
         }
     }
@@ -262,7 +286,7 @@ public class nNode extends Node {
         }
     }
 
-    public void killAfterAllCall(String data) {
+    public void killAfterAllCall(String data) throws ProcedureNotDeclaredException {
         AssignmentCheckingStrategy kill = new KillAllAfterCall(data);
         try {
             kill.handle(this);
