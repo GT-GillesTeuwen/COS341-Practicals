@@ -3,12 +3,17 @@ package Nodes;
 import java.awt.Color;
 import java.util.ArrayList;
 
+import Exceptions.InvalidConditionException;
+import Exceptions.InvalidOutputException;
 import Exceptions.InvalidVarAssignmentException;
 import Exceptions.ProcedureNotDeclaredException;
 import Nodes.AssignmnetStrategies.AssignmentCheckingStrategy;
 import Nodes.AssignmnetStrategies.CheckALGO;
 import Nodes.AssignmnetStrategies.CheckASSIGN;
+import Nodes.AssignmnetStrategies.CheckBRANCH;
 import Nodes.AssignmnetStrategies.CheckINPUT;
+import Nodes.AssignmnetStrategies.CheckLOOP;
+import Nodes.AssignmnetStrategies.CheckOUTPUT;
 import Nodes.AssignmnetStrategies.CheckPROC;
 import Nodes.AssignmnetStrategies.KillAllAfterCall;
 import Nodes.HaltCheckingStrategies.HaltCheckALGO;
@@ -101,20 +106,28 @@ public class nNode extends Node {
         return found;
     }
 
-    public void checkAssignments() throws ProcedureNotDeclaredException {
+    public void checkAssignments()
+            throws ProcedureNotDeclaredException, InvalidOutputException, InvalidConditionException {
         AssignmentCheckingStrategy assignmentCheckingStrategy = new AssignmentCheckingStrategy();
         switch (this.displayName) {
             case "PROC":
                 assignmentCheckingStrategy = new CheckPROC();
                 break;
-            case "ALGO":
-                assignmentCheckingStrategy = new CheckALGO();
+            case "LOOP":
+                assignmentCheckingStrategy = new CheckLOOP();
+                break;
+            case "BRANCH":
+                assignmentCheckingStrategy = new CheckBRANCH();
                 break;
             case "ASSIGN":
                 assignmentCheckingStrategy = new CheckASSIGN();
                 break;
             case "INPUT":
                 assignmentCheckingStrategy = new CheckINPUT();
+                break;
+            case "VALUE":
+            case "TEXT":
+                assignmentCheckingStrategy = new CheckOUTPUT();
                 break;
         }
         try {
@@ -124,7 +137,7 @@ public class nNode extends Node {
             System.out.println(e);
         }
         for (Node node : children) {
-            if (!node.dead) {
+            if (!node.dead && !this.getDisplayName().equals("LOOP") && !this.getDisplayName().equals("BRANCH")) {
                 node.checkAssignments();
             }
         }
@@ -286,7 +299,8 @@ public class nNode extends Node {
         }
     }
 
-    public void killAfterAllCall(String data) throws ProcedureNotDeclaredException {
+    public void killAfterAllCall(String data)
+            throws ProcedureNotDeclaredException, InvalidOutputException, InvalidConditionException {
         AssignmentCheckingStrategy kill = new KillAllAfterCall(data);
         try {
             kill.handle(this);

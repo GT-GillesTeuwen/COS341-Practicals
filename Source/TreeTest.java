@@ -1,6 +1,8 @@
 import javax.swing.JFrame;
 
 import Exceptions.AmbiguousDeclarationException;
+import Exceptions.InvalidConditionException;
+import Exceptions.InvalidOutputException;
 import Exceptions.ProcedureNotDeclaredException;
 import Exceptions.TreeCreationException;
 import Nodes.nNode;
@@ -9,7 +11,8 @@ import Visualisation.TreeVisualiser;
 
 public class TreeTest {
     public static void main(String[] args)
-            throws AmbiguousDeclarationException, TreeCreationException, ProcedureNotDeclaredException {
+            throws AmbiguousDeclarationException, TreeCreationException, ProcedureNotDeclaredException,
+            InvalidOutputException, InvalidConditionException {
 
         nNode[] eNNodes = new nNode[0];
         nNode n19 = new nNode("19", eNNodes);

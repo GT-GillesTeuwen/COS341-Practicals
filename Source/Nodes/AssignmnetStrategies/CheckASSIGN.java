@@ -13,6 +13,16 @@ public class CheckASSIGN extends AssignmentCheckingStrategy {
     public void handle(nNode node) throws InvalidVarAssignmentException {
         handleNumvar(node);
         handleBoolvar(node);
+        handleStringvar(node);
+
+    }
+
+    private void handleStringvar(nNode node) throws InvalidVarAssignmentException {
+        // Handle constant for STRINGV
+        if (node.getChildren()[1].getDisplayName().equals("STRI")) {
+            Node.s.giveValue(node.getChildren()[0].getId());
+            return;
+        }
 
     }
 
@@ -85,8 +95,13 @@ public class CheckASSIGN extends AssignmentCheckingStrategy {
         }
 
         if (node.getDisplayName().equals("LOGIC")) {
-            return isLogicValid(((nNode) node).getChildren()[0], originalAssign)
-                    && isLogicValid(((nNode) node).getChildren()[1], originalAssign);
+            if (((nNode) node).getChildren().length == 1) {
+                return isLogicValid(((nNode) node).getChildren()[0], originalAssign);
+            } else {
+                return isLogicValid(((nNode) node).getChildren()[0], originalAssign)
+                        && isLogicValid(((nNode) node).getChildren()[1], originalAssign);
+            }
+
         }
 
         return false;

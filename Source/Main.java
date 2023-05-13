@@ -4,6 +4,8 @@ import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import Exceptions.AmbiguousDeclarationException;
 import Exceptions.EmptyTreeException;
+import Exceptions.InvalidConditionException;
+import Exceptions.InvalidOutputException;
 import Exceptions.ProcedureNotDeclaredException;
 import Exceptions.TreeCreationException;
 import Exceptions.UnexpectedTokenException;
@@ -24,7 +26,7 @@ class Main {
         // "txt", "text");
         // j.setFileFilter(filter);
         // j.showOpenDialog(null);
-        String textFileName = "Tests/RandomTests/rec.txt";// j.getSelectedFile().getAbsolutePath();
+        String textFileName = "Tests/P4Tests/VarsInNestedLoops_FAIL_2.txt";// j.getSelectedFile().getAbsolutePath();
         Lexer lexer;
         ArrayList<Symbol> tokens = new ArrayList<>();
         try {
@@ -94,6 +96,13 @@ class Main {
             JOptionPane.showMessageDialog(null, e.getMessage(), "Dialogue",
                     JOptionPane.ERROR_MESSAGE);
             System.out.println(e.toString());
+        } catch (InvalidOutputException e) {
+            JOptionPane.showMessageDialog(null, e.getMessage(), "Dialogue",
+                    JOptionPane.ERROR_MESSAGE);
+            System.out.println(e.toString());
+        } catch (InvalidConditionException e) {
+            JOptionPane.showMessageDialog(null, e.getMessage(), "Dialogue",
+                    JOptionPane.ERROR_MESSAGE);
         }
 
         // JFrame frame = new JFrame("SpringLayout");

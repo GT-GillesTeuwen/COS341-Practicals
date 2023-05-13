@@ -5,6 +5,8 @@ import java.util.HashSet;
 import java.util.Set;
 
 import Exceptions.AmbiguousDeclarationException;
+import Exceptions.InvalidConditionException;
+import Exceptions.InvalidOutputException;
 import Exceptions.ProcedureNotDeclaredException;
 import Exceptions.TreeCreationException;
 import Nodes.Node;
@@ -18,7 +20,8 @@ public class Tree {
     private int[] nodesPerLevel;
     private SybmbolTable scopeTable;
 
-    public Tree(Node root) throws AmbiguousDeclarationException, TreeCreationException, ProcedureNotDeclaredException {
+    public Tree(Node root) throws AmbiguousDeclarationException, TreeCreationException, ProcedureNotDeclaredException,
+            InvalidOutputException, InvalidConditionException {
         if (root == null) {
             throw new TreeCreationException("Tree Error: No tree to build. Root was null");
         }
@@ -46,7 +49,7 @@ public class Tree {
         Node.s = scopeTable;
         root.checkWhereMainHalts();
         scopeTable.killUnanalysedProcs();
-        // root.checkAssignments();
+        root.checkAssignments();
 
     }
 

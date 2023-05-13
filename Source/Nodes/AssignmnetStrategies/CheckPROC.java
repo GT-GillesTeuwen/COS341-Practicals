@@ -3,6 +3,8 @@ package Nodes.AssignmnetStrategies;
 import java.awt.Color;
 import java.util.ArrayList;
 
+import Exceptions.InvalidConditionException;
+import Exceptions.InvalidOutputException;
 import Exceptions.InvalidVarAssignmentException;
 import Exceptions.ProcedureNotDeclaredException;
 import Nodes.Node;
@@ -12,7 +14,9 @@ import Nodes.HaltChecking.HaltChecker;
 
 public class CheckPROC extends AssignmentCheckingStrategy {
     @Override
-    public void handle(nNode node) throws InvalidVarAssignmentException, ProcedureNotDeclaredException {
+    public void handle(nNode node)
+            throws InvalidVarAssignmentException, ProcedureNotDeclaredException, InvalidOutputException,
+            InvalidConditionException {
         // Check for halt
         HaltChecker haltChecker = new HaltChecker();
         AssignmentCheckingStrategy a = new CheckALGO();
@@ -23,7 +27,8 @@ public class CheckPROC extends AssignmentCheckingStrategy {
 
     }
 
-    private void killAfterAllCalls(String data) throws ProcedureNotDeclaredException {
+    private void killAfterAllCalls(String data)
+            throws ProcedureNotDeclaredException, InvalidOutputException, InvalidConditionException {
 
         for (Integer id : Node.s.getIDsOfProcCalls(data)) {
             nNode par = Node.t.getParentOfNode(id);

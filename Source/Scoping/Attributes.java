@@ -22,6 +22,17 @@ public class Attributes {
         this.halts = "Maybe";
     }
 
+    public Attributes(Attributes a) {
+        this.otherUsages = new ArrayList<>();
+        this.scopeID = a.scopeID;
+        this.node = a.node;
+        this.hasValue = a.hasValue;
+        this.halts = a.halts;
+        for (Integer integer : a.otherUsages) {
+            otherUsages.add(Integer.valueOf(integer));
+        }
+    }
+
     public void setHasValue(boolean hasValue) {
         this.hasValue = hasValue;
     }

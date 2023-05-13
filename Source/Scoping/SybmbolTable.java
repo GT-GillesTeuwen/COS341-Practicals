@@ -25,6 +25,18 @@ public class SybmbolTable {
         currentScope = -1;
     }
 
+    public SybmbolTable(SybmbolTable s) {
+        symbolTable = new HashMap<>();
+        variables = new HashMap<>();
+
+        for (int id : s.symbolTable.keySet()) {
+            symbolTable.put(id, new Attributes(s.symbolTable.get(id)));
+        }
+        for (int id : s.variables.keySet()) {
+            variables.put(id, s.variables.get(id));
+        }
+    }
+
     public void giveValue(int id) {
         int canonicalID = variables.get(id);
         symbolTable.get(canonicalID).setHasValue(true);

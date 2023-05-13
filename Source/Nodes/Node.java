@@ -1,7 +1,10 @@
 package Nodes;
 
 import java.awt.Color;
+import java.util.Stack;
 
+import Exceptions.InvalidConditionException;
+import Exceptions.InvalidOutputException;
 import Exceptions.ProcedureNotDeclaredException;
 import Scoping.SybmbolTable;
 import Visualisation.Tree;
@@ -15,6 +18,7 @@ public class Node {
     protected Color color;
     protected Color prevColor;
     protected boolean dead;
+    private static Stack<SybmbolTable> allTables = new Stack<>();
 
     public Node(String displayName) {
         this.displayName = displayName;
@@ -22,6 +26,19 @@ public class Node {
         this.color = Color.BLACK;
         this.prevColor = null;
         dead = false;
+    }
+
+    public static void enterLoopScope() {
+        allTables.push(s);
+        s = new SybmbolTable(s);
+    }
+
+    public static void exitLoopScope() {
+        s = allTables.pop();
+    }
+
+    public boolean isDead() {
+        return dead;
     }
 
     public void resetColour() {
@@ -68,11 +85,13 @@ public class Node {
         return null;
     }
 
-    public void checkAssignments() throws ProcedureNotDeclaredException {
+    public void checkAssignments()
+            throws ProcedureNotDeclaredException, InvalidOutputException, InvalidConditionException {
 
     }
 
     public void checkWhereMainHalts() throws ProcedureNotDeclaredException {
 
     }
+
 }
