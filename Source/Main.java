@@ -6,6 +6,7 @@ import Exceptions.AmbiguousDeclarationException;
 import Exceptions.EmptyTreeException;
 import Exceptions.InvalidConditionException;
 import Exceptions.InvalidOutputException;
+import Exceptions.InvalidVarAssignmentException;
 import Exceptions.ProcedureNotDeclaredException;
 import Exceptions.TreeCreationException;
 import Exceptions.UnexpectedTokenException;
@@ -26,7 +27,7 @@ class Main {
         // "txt", "text");
         // j.setFileFilter(filter);
         // j.showOpenDialog(null);
-        String textFileName = "Tests/P4Tests/VarsInNestedLoops_FAIL_2.txt";// j.getSelectedFile().getAbsolutePath();
+        String textFileName = "Tests/RandomTests/crh.txt";// j.getSelectedFile().getAbsolutePath();
         Lexer lexer;
         ArrayList<Symbol> tokens = new ArrayList<>();
         try {
@@ -103,6 +104,11 @@ class Main {
         } catch (InvalidConditionException e) {
             JOptionPane.showMessageDialog(null, e.getMessage(), "Dialogue",
                     JOptionPane.ERROR_MESSAGE);
+            System.out.println(e.toString());
+        } catch (InvalidVarAssignmentException e) {
+            JOptionPane.showMessageDialog(null, e.getMessage(), "Dialogue",
+                    JOptionPane.ERROR_MESSAGE);
+            System.out.println(e.toString());
         }
 
         // JFrame frame = new JFrame("SpringLayout");

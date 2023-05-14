@@ -16,13 +16,13 @@ import javax.swing.event.ChangeListener;
 import Exceptions.EmptyTreeException;
 import Nodes.Node;
 import Nodes.nNode;
-import Scoping.SybmbolTable;
+import Scoping.SymbolTable;
 
 public class GUI {
     Tree tree;
     TreeVisualiser treeVisualiser;
 
-    SybmbolTable sybmbolTable;
+    SymbolTable sybmbolTable;
     SymbolTableVisualiser symbolTableVisualiser;
 
     JTabbedPane tabs;

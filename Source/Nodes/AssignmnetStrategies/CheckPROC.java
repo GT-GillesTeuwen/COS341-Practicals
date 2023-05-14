@@ -28,7 +28,8 @@ public class CheckPROC extends AssignmentCheckingStrategy {
     }
 
     private void killAfterAllCalls(String data)
-            throws ProcedureNotDeclaredException, InvalidOutputException, InvalidConditionException {
+            throws ProcedureNotDeclaredException, InvalidOutputException, InvalidConditionException,
+            InvalidVarAssignmentException {
 
         for (Integer id : Node.s.getIDsOfProcCalls(data)) {
             nNode par = Node.t.getParentOfNode(id);

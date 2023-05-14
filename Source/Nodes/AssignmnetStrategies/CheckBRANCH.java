@@ -24,6 +24,19 @@ public class CheckBRANCH extends AssignmentCheckingStrategy {
         if (node.getChildren()[0].getDisplayName().equals("LOGIC")) {
             isLogicValid((nNode) node.getChildren()[0], "Branch condition");
         }
+        Node.enterIfScope();
+        AssignmentCheckingStrategy algo = new CheckALGO();
+        algo.handle((nNode) node.getChildren()[1]);
+        // only if
+        if (node.getChildren().length == 2) {
+            Node.exitIfScope();
+        }
+        // if else
+        else {
+            Node.enterElseScope();
+            algo.handle((nNode) node.getChildren()[2]);
+            node.exitIfElseScope();
+        }
 
     }
 

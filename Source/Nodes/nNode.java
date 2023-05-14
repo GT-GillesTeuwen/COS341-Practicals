@@ -11,6 +11,7 @@ import Nodes.AssignmnetStrategies.AssignmentCheckingStrategy;
 import Nodes.AssignmnetStrategies.CheckALGO;
 import Nodes.AssignmnetStrategies.CheckASSIGN;
 import Nodes.AssignmnetStrategies.CheckBRANCH;
+import Nodes.AssignmnetStrategies.CheckCALL;
 import Nodes.AssignmnetStrategies.CheckINPUT;
 import Nodes.AssignmnetStrategies.CheckLOOP;
 import Nodes.AssignmnetStrategies.CheckOUTPUT;
@@ -107,7 +108,8 @@ public class nNode extends Node {
     }
 
     public void checkAssignments()
-            throws ProcedureNotDeclaredException, InvalidOutputException, InvalidConditionException {
+            throws ProcedureNotDeclaredException, InvalidOutputException, InvalidConditionException,
+            InvalidVarAssignmentException {
         AssignmentCheckingStrategy assignmentCheckingStrategy = new AssignmentCheckingStrategy();
         switch (this.displayName) {
             case "PROC":
@@ -125,17 +127,16 @@ public class nNode extends Node {
             case "INPUT":
                 assignmentCheckingStrategy = new CheckINPUT();
                 break;
+            case "CALL":
+                assignmentCheckingStrategy = new CheckCALL();
+                break;
             case "VALUE":
             case "TEXT":
                 assignmentCheckingStrategy = new CheckOUTPUT();
                 break;
         }
-        try {
-            assignmentCheckingStrategy.handle(this);
-        } catch (InvalidVarAssignmentException e) {
-            // TODO Auto-generated catch block
-            System.out.println(e);
-        }
+        assignmentCheckingStrategy.handle(this);
+
         for (Node node : children) {
             if (!node.dead && !this.getDisplayName().equals("LOOP") && !this.getDisplayName().equals("BRANCH")) {
                 node.checkAssignments();
@@ -143,20 +144,15 @@ public class nNode extends Node {
         }
     }
 
-    public void checkWhereMainHalts() throws ProcedureNotDeclaredException {
+    public void checkWhereMainHalts() throws ProcedureNotDeclaredException, InvalidVarAssignmentException {
         HaltCheckingStrategy haltCheckingStrategy = new HaltCheckingStrategy();
         switch (this.displayName) {
             case "ALGO":
                 haltCheckingStrategy = new HaltCheckALGO();
                 break;
         }
-        try {
-            boolean b = haltCheckingStrategy.handle(this);
+        boolean b = haltCheckingStrategy.handle(this);
 
-        } catch (InvalidVarAssignmentException e) {
-            // TODO Auto-generated catch block
-            System.out.println(e);
-        }
         for (Node node : children) {
             if (!node.dead && !node.getDisplayName().equals("PROCDEFS")) {
                 node.checkWhereMainHalts();
@@ -300,14 +296,12 @@ public class nNode extends Node {
     }
 
     public void killAfterAllCall(String data)
-            throws ProcedureNotDeclaredException, InvalidOutputException, InvalidConditionException {
+            throws ProcedureNotDeclaredException, InvalidOutputException, InvalidConditionException,
+            InvalidVarAssignmentException {
         AssignmentCheckingStrategy kill = new KillAllAfterCall(data);
-        try {
-            kill.handle(this);
-        } catch (InvalidVarAssignmentException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
+
+        kill.handle(this);
+
     }
 
 }

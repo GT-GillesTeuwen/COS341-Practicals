@@ -7,25 +7,26 @@ import java.util.Set;
 import Exceptions.AmbiguousDeclarationException;
 import Exceptions.InvalidConditionException;
 import Exceptions.InvalidOutputException;
+import Exceptions.InvalidVarAssignmentException;
 import Exceptions.ProcedureNotDeclaredException;
 import Exceptions.TreeCreationException;
 import Nodes.Node;
 import Nodes.nNode;
 import Nodes.tNode;
-import Scoping.SybmbolTable;
+import Scoping.SymbolTable;
 
 public class Tree {
     private Node root;
     private ArrayList<Node> allNodes;
     private int[] nodesPerLevel;
-    private SybmbolTable scopeTable;
+    private SymbolTable scopeTable;
 
     public Tree(Node root) throws AmbiguousDeclarationException, TreeCreationException, ProcedureNotDeclaredException,
-            InvalidOutputException, InvalidConditionException {
+            InvalidOutputException, InvalidConditionException, InvalidVarAssignmentException {
         if (root == null) {
             throw new TreeCreationException("Tree Error: No tree to build. Root was null");
         }
-        scopeTable = new SybmbolTable();
+        scopeTable = new SymbolTable();
         allNodes = new ArrayList<>();
 
         root.reduceOneStepDerivations();
@@ -218,7 +219,7 @@ public class Tree {
         return printNonTerminal((nNode) root, 0);
     }
 
-    public SybmbolTable getScopeTable() {
+    public SymbolTable getScopeTable() {
         return scopeTable;
     }
 

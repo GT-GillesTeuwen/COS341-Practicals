@@ -13,19 +13,19 @@ import Exceptions.ProcedureNotDeclaredException;
 import Nodes.Node;
 import Nodes.nNode;
 
-public class SybmbolTable {
+public class SymbolTable {
     private HashMap<Integer, Integer> variables;
     private HashMap<Integer, Attributes> symbolTable;
     private int currentScope;
     private int mainScope;
 
-    public SybmbolTable() {
+    public SymbolTable() {
         symbolTable = new HashMap<>();
         variables = new HashMap<>();
         currentScope = -1;
     }
 
-    public SybmbolTable(SybmbolTable s) {
+    public SymbolTable(SymbolTable s) {
         symbolTable = new HashMap<>();
         variables = new HashMap<>();
 

@@ -17,7 +17,10 @@ public class CheckALGO extends AssignmentCheckingStrategy {
             throws ProcedureNotDeclaredException, InvalidOutputException, InvalidConditionException {
         AssignmentCheckingStrategy assignmentCheckingStrategy = new AssignmentCheckingStrategy();
         for (Node child : node.getChildren()) {
-            checkAssignments((nNode) child);
+            if (!child.isDead() && child instanceof nNode) {
+                checkAssignments((nNode) child);
+            }
+
         }
     }
 
@@ -39,6 +42,9 @@ public class CheckALGO extends AssignmentCheckingStrategy {
                 break;
             case "INPUT":
                 assignmentCheckingStrategy = new CheckINPUT();
+                break;
+            case "CALL":
+                assignmentCheckingStrategy = new CheckCALL();
                 break;
             case "VALUE":
             case "TEXT":

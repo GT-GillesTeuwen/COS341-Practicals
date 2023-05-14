@@ -11,16 +11,16 @@ import javax.swing.table.TableRowSorter;
 import Nodes.Node;
 import Nodes.nNode;
 import Nodes.tNode;
-import Scoping.SybmbolTable;
+import Scoping.SymbolTable;
 
 import java.awt.geom.*;
 
 public class SymbolTableVisualiser extends JPanel {
     Graphics2D g2;
-    SybmbolTable symbolTable;
+    SymbolTable symbolTable;
     GUI gui;
 
-    public SymbolTableVisualiser(SybmbolTable symbolTable, GUI gui) {
+    public SymbolTableVisualiser(SymbolTable symbolTable, GUI gui) {
         this.gui = gui;
         this.symbolTable = symbolTable;
         setFocusable(true);
