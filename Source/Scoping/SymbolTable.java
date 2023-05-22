@@ -235,7 +235,7 @@ public class SymbolTable {
     }
 
     public String toHTML() {
-        String out = "<!DOCTYPE html> <html><style>table, th, td {border:1px solid black;}</style> <table> <tr><td>NODE ID</td><td>SCOPE</td><td>TYPE</td><td>NAME</td><td>OTHER USE NODE IDs</td></tr>\n";
+        String out = "<!DOCTYPE html> <html><style>table, th, td {border:1px solid black;}</style> <table> <tr><td>NODE ID</td><td>SCOPE</td><td>TYPE</td><td>NAME</td><td>OTHER USE NODE IDs</td><td>HAS VALUE</td></tr>\n";
 
         for (Integer id : this.symbolTable.keySet()) {
             if (id != this.getMainScope() && !this.symbolTable.get(id).getNode().getDisplayName().equals("CALL")) {

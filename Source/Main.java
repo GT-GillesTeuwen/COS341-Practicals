@@ -1,7 +1,11 @@
 import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
+import javax.swing.filechooser.FileSystemView;
+
 import Exceptions.AmbiguousDeclarationException;
 import Exceptions.EmptyTreeException;
 import Exceptions.InvalidConditionException;
@@ -21,13 +25,13 @@ import Visualisation.Tree;
 
 class Main {
     public static void main(String[] args) {
-        // JFileChooser j = new JFileChooser(FileSystemView.getFileSystemView());
-        // j.setDialogTitle("Choose a text file to parse");
-        // FileNameExtensionFilter filter = new FileNameExtensionFilter("TEXT FILES",
-        // "txt", "text");
-        // j.setFileFilter(filter);
-        // j.showOpenDialog(null);
-        String textFileName = "Tests/RandomTests/crh.txt";// j.getSelectedFile().getAbsolutePath();
+        JFileChooser j = new JFileChooser(FileSystemView.getFileSystemView());
+        j.setDialogTitle("Choose a text file to parse");
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("TEXT FILES",
+        "txt", "text");
+        j.setFileFilter(filter);
+        j.showOpenDialog(null);
+        String textFileName =  j.getSelectedFile().getAbsolutePath();
         Lexer lexer;
         ArrayList<Symbol> tokens = new ArrayList<>();
         try {
@@ -110,6 +114,7 @@ class Main {
                     JOptionPane.ERROR_MESSAGE);
             System.out.println(e.toString());
         }
+
 
         // JFrame frame = new JFrame("SpringLayout");
         // frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

@@ -4,7 +4,9 @@
 
 This program is a parser for the student programming language, which takes in code written in the student programming language and outputs a syntax tree visually and as an xml file. The program runs as an exe and provides a hybrid console and gui output. The lexed tokens are displayed on the console for error tracing while the gui provides error messages and a visual syntax tree.
 
-The program now also performs scoping. Procedure definitions, procedure calls and variables are assingned a scope. Calling procedures that don't exist will result in an error. Ambiguous procedure names will also result in errors. Uncalled procedures result in warnings
+The program now also performs scoping. Procedure definitions, procedure calls and variables are assingned a scope. Calling procedures that don't exist will result in an error. Ambiguous procedure names will also result in errors. Uncalled procedures result in warnings.
+
+As of practical 4 the program will give error messages and fail to compile when unassigned variables are used as if they have values. This field is visible as the "has-value" column in the symbol table.
 
 ## Requirements
 
@@ -13,6 +15,10 @@ Java version 19 was used to write this parser. Java's backwards compatabiliy may
 ## Launching
 
 The program is an exe file and can be launched on a Windows system by clicking on it.
+
+If the exe does not launch the project can be run using
+javac *.java
+java Main
 
 ## Using the Application
 
