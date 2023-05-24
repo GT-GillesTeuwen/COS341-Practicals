@@ -1,6 +1,7 @@
 package Visualisation;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -20,6 +21,7 @@ public class Tree {
     private ArrayList<Node> allNodes;
     private int[] nodesPerLevel;
     private SymbolTable scopeTable;
+    private HashMap<String, Integer> labelMap;
 
     public Tree(Node root) throws AmbiguousDeclarationException, TreeCreationException, ProcedureNotDeclaredException,
             InvalidOutputException, InvalidConditionException, InvalidVarAssignmentException {
@@ -51,6 +53,61 @@ public class Tree {
         root.checkWhereMainHalts();
         scopeTable.killUnanalysedProcs();
         root.checkAssignments();
+
+        labelMap = new HashMap<>();
+
+        String code = root.toBasic();
+        String[] codeLines = code.split("\n");
+        codeLines[0] = "CLS";
+
+        // Label
+        for (int i = 0; i < codeLines.length; i++) {
+            if (codeLines[i].contains("REM")) {
+                int l = codeLines[i].split(" ").length;
+                if (l == 2) {
+                    labelMap.put(codeLines[i].split(" ")[1], i * 10);
+                } else if (l == 3) {
+                    Node.s.linkNameToLine(codeLines[i].split(" ")[2], i * 10);
+                    codeLines[i] = codeLines[i].split(" ")[0] + " " + codeLines[i].split(" ")[1];
+                }
+            }
+
+            codeLines[i] = (i * 10 + " " + codeLines[i]);
+
+        }
+
+        for (int i = 0; i < codeLines.length; i++) {
+            if (codeLines[i].contains("GOTO")) {
+                String[] all = codeLines[i].split(" ");
+                for (int j = 0; j < all.length; j++) {
+                    if (all[j].equals("GOTO")) {
+                        all[j + 1] = labelMap.get(all[j + 1]).toString();
+                    }
+                }
+
+                codeLines[i] = "";
+                for (int j = 0; j < all.length; j++) {
+                    codeLines[i] += all[j] + " ";
+                }
+            }
+            if (codeLines[i].contains("GOSUB")) {
+                String[] all = codeLines[i].split(" ");
+                for (int j = 0; j < all.length; j++) {
+                    if (all[j].equals("GOSUB")) {
+                        all[j + 1] = Node.s.getLineFromName(all[j + 1]) + "";
+                    }
+                }
+
+                codeLines[i] = "";
+                for (int j = 0; j < all.length; j++) {
+                    codeLines[i] += all[j] + " ";
+                }
+            }
+        }
+
+        for (int i = 0; i < codeLines.length; i++) {
+            System.out.println(codeLines[i]);
+        }
 
     }
 

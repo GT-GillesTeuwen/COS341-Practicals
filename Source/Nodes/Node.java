@@ -128,6 +128,10 @@ public class Node {
 
     }
 
+    public String toBasic() {
+        return "can't do for non nNode";
+    }
+
     public void checkWhereMainHalts() throws ProcedureNotDeclaredException, InvalidVarAssignmentException {
 
     }

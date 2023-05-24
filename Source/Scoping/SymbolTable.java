@@ -14,15 +14,38 @@ import Nodes.Node;
 import Nodes.nNode;
 
 public class SymbolTable {
+    private HashMap<String, Integer> internalNameToLineNumber;
+    private HashMap<Integer, String> procToInternalName;
     private HashMap<Integer, Integer> variables;
     private HashMap<Integer, Attributes> symbolTable;
     private int currentScope;
     private int mainScope;
 
+    private static int functionNumber = 0;
+
     public SymbolTable() {
         symbolTable = new HashMap<>();
         variables = new HashMap<>();
+        procToInternalName = new HashMap<>();
+        internalNameToLineNumber = new HashMap<>();
         currentScope = -1;
+    }
+
+    public void nameProc(int procNodeID) {
+        functionNumber++;
+        procToInternalName.put(procNodeID, "Function" + functionNumber);
+    }
+
+    public void linkNameToLine(String name, int line) {
+        internalNameToLineNumber.put(name, line);
+    }
+
+    public int getLineFromName(String name) {
+        return internalNameToLineNumber.get(name);
+    }
+
+    public String getNameFromID(int procNodeID) {
+        return procToInternalName.get(procNodeID);
     }
 
     public SymbolTable(SymbolTable s) {
@@ -49,6 +72,9 @@ public class SymbolTable {
 
     public void add(Node node) {
         symbolTable.put(node.getId(), new Attributes(currentScope, node));
+        if (node.getDisplayName().equals("PROC")) {
+            nameProc(node.getId());
+        }
     }
 
     public void add(Node node, int scope) {

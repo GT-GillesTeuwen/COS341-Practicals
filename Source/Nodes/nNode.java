@@ -17,6 +17,7 @@ import Nodes.AssignmnetStrategies.CheckLOOP;
 import Nodes.AssignmnetStrategies.CheckOUTPUT;
 import Nodes.AssignmnetStrategies.CheckPROC;
 import Nodes.AssignmnetStrategies.KillAllAfterCall;
+import Nodes.BasicCompilationStrategies.PROGRCompilationStrategy;
 import Nodes.HaltCheckingStrategies.HaltCheckALGO;
 import Nodes.HaltCheckingStrategies.HaltCheckingStrategy;
 import Nodes.ReductionStrategies.NodeReductionStrategy;
@@ -249,6 +250,11 @@ public class nNode extends Node {
             updatedChildren[i] = validChildren.get(i);
         }
         return updatedChildren;
+    }
+
+    public String toBasic() {
+        PROGRCompilationStrategy progrCompilationStrategy = new PROGRCompilationStrategy();
+        return progrCompilationStrategy.handle(this);
     }
 
     public void setSubtreeColour(Color colour, boolean force, boolean killing) {

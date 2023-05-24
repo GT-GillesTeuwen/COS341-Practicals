@@ -67,6 +67,6 @@ p745
   o n1;
 
   r s1;
-  o n3
+  o n2
   *Print Factorial*
 }
